@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { Dimensions } from "react-native";
 import { createDrawerNavigator, StackNavigator } from "react-navigation";
 
 import SplashPage from "./containers/SplashPage";
@@ -8,6 +8,8 @@ import SearchPage from "./containers/SearchPage";
 import LoginPage from "./containers/LoginPage";
 import SignUpPage from "./containers/SignUpPage";
 import { SideMenu } from "../src/components";
+
+const SCREEN_WIDTH = Dimensions.get("window").width;
 
 class App extends Component {
   render() {
@@ -24,22 +26,45 @@ const AppDrawerNavigator = createDrawerNavigator(
   }
 );
 
-const AppStack = StackNavigator(
+// const AppStack = StackNavigator(
+//   {
+//     SplashPage: props => <SplashPage {...props} />,
+//     HomePage: props => <HomePage {...props} />,
+//     SearchPage: props => <SearchPage {...props} />,
+//     LoginPage: props => <LoginPage {...props} />,
+//     SignUpPage: props => <SignUpPage {...props} />
+//     // Drawer: { screen: AppDrawerNavigator }
+//   },
+//   {
+//     initialRouteName: "SplashPage",
+//     headerMode: "none",
+//     navigationOptions: {
+//       headerVisible: false
+//     }
+//   }
+// );
+
+const RootStack = createDrawerNavigator(
   {
     SplashPage: props => <SplashPage {...props} />,
     HomePage: props => <HomePage {...props} />,
     SearchPage: props => <SearchPage {...props} />,
     LoginPage: props => <LoginPage {...props} />,
-    SignUpPage: props => <SignUpPage {...props} />,
-    Drawer: { screen: AppDrawerNavigator }
+    SignUpPage: props => <SignUpPage {...props} />
   },
   {
-    initialRouteName: "SplashPage",
-    headerMode: "none",
-    navigationOptions: {
-      headerVisible: false
-    }
+    intialRouteName: "SplashPage",
+    drawerWidth: SCREEN_WIDTH * 0.8,
+    contentComponent: SideMenu
   }
 );
 
+const AppStack = StackNavigator(
+  {
+    RootStack: { screen: RootStack }
+  },
+  {
+    headerMode: "none"
+  }
+);
 export default App;

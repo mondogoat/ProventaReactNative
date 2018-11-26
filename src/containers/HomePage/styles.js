@@ -8,7 +8,7 @@ export default (PageStyle = {
   container: {
     flex: 1
   },
-  category: {
+  region: {
     fontSize: 20,
     color: DARK_GRAY,
     fontWeight: "500",

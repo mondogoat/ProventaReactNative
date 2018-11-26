@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, ScrollView, Image } from "react-native";
 import { Header, TabbedMenu, Card } from "../../components";
 import PageStyle from "./styles";
+import { DrawerActions } from "react-navigation";
 
 class HomePage extends Component {
   state = {
@@ -61,7 +62,7 @@ class HomePage extends Component {
     const category = this.state.meetings.map(({ id, region, events }) => {
       return (
         <View key={id} style={PageStyle.eventList}>
-          <Text style={PageStyle.category}> {region}</Text>
+          <Text style={PageStyle.region}> {region}</Text>
           <View style={PageStyle.eventContainer}>
             {this.renderEvents(events)}
           </View>
@@ -96,7 +97,7 @@ class HomePage extends Component {
       <View style={PageStyle.container}>
         <Header
           label="Strategy Meetings"
-          onPress={() => navigation.openDrawer()}
+          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <ScrollView>
           <Card>
