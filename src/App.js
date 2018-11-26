@@ -7,6 +7,7 @@ import HomePage from "./containers/HomePage";
 import SearchPage from "./containers/SearchPage";
 import LoginPage from "./containers/LoginPage";
 import SignUpPage from "./containers/SignUpPage";
+import MeetingPage from "./containers/MeetingPage";
 import { SideMenu } from "../src/components";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -50,7 +51,8 @@ const RootStack = createDrawerNavigator(
     HomePage: props => <HomePage {...props} />,
     SearchPage: props => <SearchPage {...props} />,
     LoginPage: props => <LoginPage {...props} />,
-    SignUpPage: props => <SignUpPage {...props} />
+    SignUpPage: props => <SignUpPage {...props} />,
+    MeetingPage: props => <MeetingPage {...props} />
   },
   {
     intialRouteName: "SplashPage",
