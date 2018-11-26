@@ -1,4 +1,5 @@
 export * from "./Header";
-export * from "./BottomMenu";
+export * from "./TabbedMenu";
 export * from "./SideMenu";
 export * from "./MenuButton";
+export * from "./Card";

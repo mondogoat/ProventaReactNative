@@ -3,7 +3,7 @@ import { View } from "react-native";
 import ComponentStyle from "./styles";
 import { MenuButton } from "../MenuButton";
 
-const BottomMenu = ({ navigation }) => {
+const TabbedMenu = ({ navigation }) => {
   return (
     <View style={ComponentStyle.container}>
       <MenuButton
@@ -25,4 +25,4 @@ const BottomMenu = ({ navigation }) => {
   );
 };
 
-export { BottomMenu };
+export { TabbedMenu };

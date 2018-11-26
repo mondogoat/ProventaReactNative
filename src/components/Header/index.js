@@ -11,6 +11,7 @@ const Header = ({ onPress, label }) => {
       </TouchableOpacity>
       {/*Header Label  */}
       <Text>{label}</Text>
+      {/* Menu Button */}
       <TouchableOpacity
         onPress={onPress}
         style={ComponentStyle.buttonStyle}
