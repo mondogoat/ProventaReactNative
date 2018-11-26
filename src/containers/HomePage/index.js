@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import { Header, TabbedMenu } from "../../components";
+import { Header, TabbedMenu, Card } from "../../components";
 import PageStyle from "./styles";
 
 class HomePage extends Component {
@@ -13,7 +13,8 @@ class HomePage extends Component {
           onPress={() => navigation.openDrawer()}
         />
         <View style={PageStyle.container}>
-          <Text> This is a Home Page</Text>
+          {/* <Text> This is a Home Page</Text> */}
+          <Card />
         </View>
         <TabbedMenu navigation={navigation} />
       </View>

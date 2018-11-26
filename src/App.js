@@ -27,7 +27,7 @@ const AppDrawerNavigator = createDrawerNavigator(
 const AppStack = StackNavigator(
   {
     SplashPage: props => <SplashPage {...props} />,
-    Homepage: props => <HomePage {...props} />,
+    HomePage: props => <HomePage {...props} />,
     SearchPage: props => <SearchPage {...props} />,
     LoginPage: props => <LoginPage {...props} />,
     SignUpPage: props => <SignUpPage {...props} />,
