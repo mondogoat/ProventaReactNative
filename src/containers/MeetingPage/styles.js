@@ -8,34 +8,53 @@ export default (PageStyle = {
   container: {
     flex: 1
   },
-  //   region: {
-  //     fontSize: 20,
-  //     color: DARK_GRAY,
-  //     fontWeight: "500",
-  //     paddingBottom: SCREEN_HEIGHT * 0.01
-  //   },
   image: {
     width: "95%",
-    height: SCREEN_HEIGHT / 8,
+    height: SCREEN_HEIGHT / 7.5,
     resizeMode: "contain",
-    marginTop: SCREEN_HEIGHT * 0.1
+    marginTop: SCREEN_HEIGHT * 0.01
+  },
+
+  info: {
+    padding: SCREEN_WIDTH * 0.018,
+    alignItems: "center"
+  },
+  description: {
+    alignSelf: "center",
+    fontSize: 20,
+    color: DARK_GRAY,
+    paddingBottom: SCREEN_HEIGHT * 0.01
+  },
+  date: {
+    fontSize: 15,
+    color: GRAY,
+    paddingBottom: SCREEN_HEIGHT * 0.01
+  },
+  area: {
+    fontSize: 15,
+    color: GRAY,
+    paddingBottom: SCREEN_HEIGHT * 0.01
+  },
+  video: {
+    width: "95%",
+    height: SCREEN_HEIGHT / 3,
+    resizeMode: "contain"
+  },
+  header: {
+    fontSize: 20,
+    padding: SCREEN_WIDTH * 0.025,
+    color: DARK_GRAY,
+    fontWeight: "500",
+    paddingBottom: SCREEN_HEIGHT * 0.01
+  },
+  textArea: {
+    padding: SCREEN_WIDTH * 0.05
+  },
+  text: {
+    fontSize: 15,
+    lineHeight: 25,
+    color: DARK_GRAY
   }
-  //   info: {
-  //     padding: SCREEN_WIDTH * 0.025,
-  //     paddingTop: SCREEN_HEIGHT * 0.01
-  //   },
-  //   description: {
-  //     alignSelf: "flex-start",
-  //     fontSize: 15,
-  //     color: DARK_GRAY,
-  //     paddingBottom: SCREEN_HEIGHT * 0.01
-  //   },
-  //   date: {
-  //     alignSelf: "flex-start",
-  //     fontSize: 12,
-  //     color: GRAY,
-  //     paddingBottom: SCREEN_HEIGHT * 0.01
-  //   },
   //   expandButton: {
   //     padding: SCREEN_WIDTH * 0.025,
   //     paddingTop: SCREEN_HEIGHT * 0.035,
