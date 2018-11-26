@@ -11,7 +11,8 @@ export default (ComponentStyle = {
     marginTop: 30,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#ffffff"
   },
   buttonStyle: {
     marginTop: -5,

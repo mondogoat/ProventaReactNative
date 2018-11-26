@@ -11,6 +11,10 @@ export default (ComponentStyle = {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ffffff"
+    backgroundColor: "#ffffff",
+    position: "absolute",
+    flex: 0.2,
+    bottom: 0,
+    zIndex: 1
   }
 });
