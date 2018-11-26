@@ -10,7 +10,7 @@ const Header = ({ onPress, label }) => {
         <Image source={require("../../assets/menu_button.png")} />
       </TouchableOpacity>
       {/*Header Label  */}
-      <Text>{label}</Text>
+      <Text style={ComponentStyle.title}>{label}</Text>
       {/* Menu Button */}
       <TouchableOpacity
         onPress={onPress}

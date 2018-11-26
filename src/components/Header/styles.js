@@ -1,4 +1,5 @@
 import { Dimensions } from "react-native";
+import { DARK_GRAY } from "../../styles/common";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
@@ -18,5 +19,10 @@ export default (ComponentStyle = {
     marginTop: -5,
     resizeMode: "contain",
     justifyContent: "center"
+  },
+  title: {
+    fontSize: 15,
+    color: DARK_GRAY,
+    fontWeight: "600"
   }
 });
