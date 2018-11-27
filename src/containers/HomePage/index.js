@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, ScrollView, Image } from "react-native";
-import { Header, TabbedMenu, Card } from "../../components";
+import { Header, TabbedMenu, Card, ListItem } from "../../components";
 import PageStyle from "./styles";
 import { DrawerActions } from "react-navigation";
 
@@ -77,13 +77,16 @@ class HomePage extends Component {
   }
 
   renderEvents(events) {
+    const { navigation } = this.props;
     const meeting = events.map(({ id, title, description, event }) => {
       return (
         <View key={id}>
-          <Image style={PageStyle.eventTitle} source={{ uri: title }} />
-          <Text style={PageStyle.eventDescription}> {description}</Text>
-          <Text style={PageStyle.eventDate}> {event}</Text>
-          <View style={PageStyle.eventBorder} />
+          <ListItem onPress={() => navigation.navigate("MeetingPage")}>
+            <Image style={PageStyle.eventTitle} source={{ uri: title }} />
+            <Text style={PageStyle.eventDescription}> {description}</Text>
+            <Text style={PageStyle.eventDate}> {event}</Text>
+            <View style={PageStyle.eventBorder} />
+          </ListItem>
         </View>
       );
     });
@@ -100,20 +103,22 @@ class HomePage extends Component {
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <ScrollView>
-          <Card>
-            <Image
-              style={PageStyle.image}
-              source={require("../../assets/event_1.png")}
-            />
-            <View style={PageStyle.info}>
-              <Text style={PageStyle.description}>
-                Digital Transformation Strategy Meeting APAC - Manila 2018
-              </Text>
-              <Text style={PageStyle.date}>
-                22nd November 2018 | Marriot Grand Ballroom - Manila
-              </Text>
-            </View>
-          </Card>
+          <ListItem onPress={() => navigation.navigate("MeetingPage")}>
+            <Card>
+              <Image
+                style={PageStyle.image}
+                source={require("../../assets/event_1.png")}
+              />
+              <View style={PageStyle.info}>
+                <Text style={PageStyle.description}>
+                  Digital Transformation Strategy Meeting APAC - Manila 2018
+                </Text>
+                <Text style={PageStyle.date}>
+                  22nd November 2018 | Marriot Grand Ballroom - Manila
+                </Text>
+              </View>
+            </Card>
+          </ListItem>
           {this.renderCategories()}
         </ScrollView>
         <TabbedMenu navigation={navigation} />
