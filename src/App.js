@@ -18,14 +18,15 @@ class App extends Component {
   }
 }
 
-const AppDrawerNavigator = createDrawerNavigator(
-  {
-    HomePage: { screen: HomePage }
-  },
-  {
-    contentComponent: SideMenu
-  }
-);
+// const AppDrawerNavigator = createDrawerNavigator(
+//   {
+//     HomePage: { screen: HomePage },
+//     SideMenu: { screen: SideMenu }
+//   },
+//   {
+//     contentComponent: SideMenu
+//   }
+// );
 
 // const AppStack = StackNavigator(
 //   {
@@ -33,8 +34,10 @@ const AppDrawerNavigator = createDrawerNavigator(
 //     HomePage: props => <HomePage {...props} />,
 //     SearchPage: props => <SearchPage {...props} />,
 //     LoginPage: props => <LoginPage {...props} />,
-//     SignUpPage: props => <SignUpPage {...props} />
-//     // Drawer: { screen: AppDrawerNavigator }
+//     SignUpPage: props => <SignUpPage {...props} />,
+//     MeetingPage: props => <MeetingPage {...props} />,
+//     SideMenu: props => <SideMenu {...props} />,
+//     Drawer: { screen: AppDrawerNavigator }
 //   },
 //   {
 //     initialRouteName: "SplashPage",
@@ -47,12 +50,7 @@ const AppDrawerNavigator = createDrawerNavigator(
 
 const RootStack = createDrawerNavigator(
   {
-    SplashPage: props => <SplashPage {...props} />,
-    HomePage: props => <HomePage {...props} />,
-    SearchPage: props => <SearchPage {...props} />,
-    LoginPage: props => <LoginPage {...props} />,
-    SignUpPage: props => <SignUpPage {...props} />,
-    MeetingPage: props => <MeetingPage {...props} />
+    HomePage: props => <HomePage {...props} />
   },
   {
     intialRouteName: "SplashPage",
@@ -63,10 +61,19 @@ const RootStack = createDrawerNavigator(
 
 const AppStack = StackNavigator(
   {
-    RootStack: { screen: RootStack }
+    RootStack: { screen: RootStack },
+    SplashPage: props => <SplashPage {...props} />,
+    HomePage: props => <HomePage {...props} />,
+    SearchPage: props => <SearchPage {...props} />,
+    LoginPage: props => <LoginPage {...props} />,
+    SignUpPage: props => <SignUpPage {...props} />,
+    MeetingPage: props => <MeetingPage {...props} />
   },
   {
-    headerMode: "none"
+    headerMode: "none",
+    navigationOptions: {
+      headerVisible: false
+    }
   }
 );
 export default App;

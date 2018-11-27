@@ -104,6 +104,6 @@ export default (PageStyle = {
     marginBottom: SCREEN_HEIGHT * 0.03
   },
   mapContainer: {
-    padding: SCREEN_HEIGHT * 0.3
+    paddingBottom: SCREEN_HEIGHT * 0.3
   }
 });

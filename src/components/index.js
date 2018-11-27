@@ -5,3 +5,6 @@ export * from "./MenuButton";
 export * from "./Card";
 export * from "./ListItem";
 export * from "./Map";
+export * from "./StyledInput";
+export * from "./MainButton";
+export * from "./SocialButton";
