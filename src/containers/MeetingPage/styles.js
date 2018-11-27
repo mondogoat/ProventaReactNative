@@ -45,7 +45,8 @@ export default (PageStyle = {
     padding: SCREEN_WIDTH * 0.025,
     color: DARK_GRAY,
     fontWeight: "500",
-    paddingBottom: SCREEN_HEIGHT * 0.01
+    marginTop: SCREEN_HEIGHT * 0.02,
+    paddingBottom: SCREEN_HEIGHT * 0.0175
   },
   textArea: {
     padding: SCREEN_WIDTH * 0.05
@@ -54,48 +55,55 @@ export default (PageStyle = {
     fontSize: 15,
     lineHeight: 25,
     color: DARK_GRAY
+  },
+  expectationContainer: {
+    width: "95%",
+    backgroundColor: "#ffffff",
+    alignSelf: "center"
+  },
+  expectationList: {
+    backgroundColor: "#ffffff",
+    marginRight: SCREEN_WIDTH * 0.025,
+    marginLeft: SCREEN_WIDTH * 0.025,
+    paddingTop: SCREEN_WIDTH * 0.025,
+    justifyContent: "center",
+    flexDirection: "row"
+  },
+  expectationIcon: {
+    width: SCREEN_WIDTH * 0.5,
+    height: SCREEN_HEIGHT * 0.09,
+    marginTop: SCREEN_HEIGHT * 0.03,
+    resizeMode: "contain",
+    alignSelf: "center"
+  },
+  expectationTitle: {
+    fontSize: 15,
+    color: DARK_GRAY,
+    paddingTop: SCREEN_HEIGHT * 0.02,
+    paddingLeft: SCREEN_WIDTH * 0.02,
+    backgroundColor: "#ffffff",
+    fontWeight: "600"
+  },
+  expectationDescription: {
+    fontSize: 14,
+    color: DARK_GRAY,
+    marginTop: SCREEN_HEIGHT * 0.01,
+    paddingBottom: SCREEN_HEIGHT * 0.03,
+    paddingLeft: SCREEN_WIDTH * 0.02,
+    backgroundColor: "#ffffff"
+  },
+  expectationBorder: {
+    borderColor: GRAY,
+    borderWidth: SCREEN_HEIGHT * 0.001,
+    width: "85%",
+    alignSelf: "center",
+    opacity: 0.3
+  },
+  profileIcon: {
+    marginTop: SCREEN_HEIGHT * 0.01,
+    marginBottom: SCREEN_HEIGHT * 0.03
+  },
+  mapContainer: {
+    padding: SCREEN_HEIGHT * 0.3
   }
-  //   expandButton: {
-  //     padding: SCREEN_WIDTH * 0.025,
-  //     paddingTop: SCREEN_HEIGHT * 0.035,
-  //     paddingBottom: SCREEN_HEIGHT * 0.035,
-  //     width: "100%",
-  //     backgroundColor: "#ffffff",
-  //     alignItems: "center",
-  //     flex: 1
-  //   },
-  //   eventContainer: {
-  //     backgroundColor: "#ffffff"
-  //   },
-  //   eventList: {
-  //     padding: SCREEN_WIDTH * 0.025,
-  //     width: "100%",
-  //     alignItems: "flex-start"
-  //   },
-  //   eventTitle: {
-  //     width: SCREEN_WIDTH * 0.95,
-  //     height: SCREEN_HEIGHT * 0.07,
-  //     resizeMode: "contain"
-  //   },
-  //   eventDescription: {
-  //     fontSize: 15,
-  //     color: DARK_GRAY,
-  //     paddingTop: SCREEN_HEIGHT * 0.01,
-  //     paddingLeft: SCREEN_WIDTH * 0.02,
-  //     backgroundColor: "#ffffff"
-  //   },
-  //   eventDate: {
-  //     fontSize: 15,
-  //     color: DARK_GRAY,
-  //     paddingBottom: SCREEN_HEIGHT * 0.03,
-  //     paddingLeft: SCREEN_WIDTH * 0.02,
-  //     backgroundColor: "#ffffff"
-  //   },
-  //   eventBorder: {
-  //     borderColor: GRAY,
-  //     borderWidth: SCREEN_HEIGHT * 0.001,
-  //     width: "95%",
-  //     alignSelf: "center",
-  //     opacity: 0.3
-  //   }
 });
