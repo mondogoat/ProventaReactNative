@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Platform, StyleSheet } from "react-native";
+import { Image, View } from "react-native";
 import PageStyle from "./styles";
 
 class SplashPage extends Component {
@@ -11,7 +11,10 @@ class SplashPage extends Component {
   render() {
     return (
       <View style={PageStyle.container}>
-        <Text> This is a Splash Page</Text>
+        <Image
+          style={PageStyle.splashScreen}
+          source={require("../../assets/splash_image.png")}
+        />
       </View>
     );
   }
