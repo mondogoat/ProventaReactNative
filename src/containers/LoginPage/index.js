@@ -66,12 +66,14 @@ class LoginPage extends Component {
             {this.renderLoginForm()}
             <MainButton
               onPress={() => console.log("mainbutton")}
-              label="Login"
+              label="LOGIN"
             />
             <View style={PageStyle.sectionLine} />
             {this.renderSocialLinks()}
             <Text style={PageStyle.signUpLabel}>Don't have an account?</Text>
-            <Text style={PageStyle.signUpLink}> Sign up now </Text>
+            <TouchableOpacity onPress={() => navigation.navigate("SignUpPage")}>
+              <Text style={PageStyle.signUpLink}> Sign up now </Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
         <TabbedMenu navigation={navigation} />
