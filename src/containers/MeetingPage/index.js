@@ -206,7 +206,7 @@ class MeetingPage extends Component {
           {this.renderExpectations(this.state.expectations)}
           <Text style={PageStyle.header}> FACILITATORS </Text>
           {this.renderFacilitators(this.state.facilitators)}
-          <Text style={PageStyle.header}> MAP </Text>
+          <Text style={PageStyle.header}> VENUE </Text>
           {/* For refactoring, must be inside Card */}
           <View style={PageStyle.mapContainer} />
           <Map />
