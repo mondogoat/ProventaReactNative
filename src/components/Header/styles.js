@@ -9,7 +9,7 @@ export default (ComponentStyle = {
     height: SCREEN_HEIGHT / 12,
     width: SCREEN_WIDTH,
     padding: 10,
-    marginTop: 30,
+    marginTop: SCREEN_HEIGHT * 0.03,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

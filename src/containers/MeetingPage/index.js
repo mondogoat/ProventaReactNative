@@ -1,10 +1,69 @@
 import React, { Component } from "react";
 import { Text, View, ScrollView, Image } from "react-native";
-import { Header, TabbedMenu, Card, ListItem } from "../../components";
+import { Header, TabbedMenu, Card, Map } from "../../components";
 import PageStyle from "./styles";
 import { DrawerActions } from "react-navigation";
 
 class MeetingPage extends Component {
+  state = {
+    expectations: [
+      {
+        id: "exp1",
+        icon: require("../../assets/roundtable.png"),
+        title: "Interactive Roundtable Discussions",
+        description:
+          "Attendees can proactively share and ask questions to their peers about the success of their work in an informal setting."
+      },
+      {
+        id: "exp2",
+        icon: require("../../assets/agenda.png"),
+        title: "Tailor-fit and Personalized Agenda",
+        description:
+          "Attendees can proactively share and ask questions to their peers about the success of their work in an informal setting."
+      },
+      {
+        id: "exp3",
+        icon: require("../../assets/one-to-one-copy.png"),
+        title: "Director level one-to-one meetings",
+        description:
+          "Attendees can proactively share and ask questions to their peers about the success of their work in an informal setting."
+      },
+      {
+        id: "exp4",
+        icon: require("../../assets/networking-copy.png"),
+        title: "Networking Opportunities",
+        description:
+          "Attendees can proactively share and ask questions to their peers about the success of their work in an informal setting."
+      }
+    ],
+    facilitators: [
+      {
+        id: "faci1",
+        icon: require("../../assets/facilitator_1.png"),
+        name: "David Crain",
+        title: "Alibaba CEO"
+      },
+      {
+        id: "faci2",
+        icon: require("../../assets/facilitator_2.png"),
+        name: "Yvone Thompson",
+        title: "Sputnik Inc. CEO"
+      },
+      {
+        id: "faci3",
+        icon: require("../../assets/faclitator2.png"),
+        name: "Phet Putrie",
+        title: "Founder of Stark Industries"
+      },
+      {
+        id: "faci4",
+        icon: require("../../assets/facilitator_4.png"),
+        name: "Arnold Zachary",
+        title: "CEO Wacom Industries"
+      }
+    ]
+  };
+
   renderTitle() {
     return (
       <Card>
@@ -83,6 +142,53 @@ class MeetingPage extends Component {
     );
   }
 
+  renderExpectations(expectations) {
+    const expectation = expectations.map(({ id, title, description, icon }) => {
+      return (
+        <View style={PageStyle.expectationContainer}>
+          <View key={id} style={PageStyle.expectationList}>
+            <View style={{ width: "25%" }}>
+              <Image style={PageStyle.expectationIcon} source={icon} />
+            </View>
+            <View style={{ width: "75%" }}>
+              <Text style={PageStyle.expectationTitle}>{title}</Text>
+              <Text style={PageStyle.expectationDescription}>
+                {description}
+              </Text>
+            </View>
+          </View>
+          <View style={PageStyle.expectationBorder} />
+        </View>
+      );
+    });
+
+    return expectation;
+  }
+
+  renderFacilitators(facilitators) {
+    const facilitator = facilitators.map(({ id, icon, title, name }) => {
+      return (
+        <View key={id} style={PageStyle.expectationContainer}>
+          <View style={PageStyle.expectationList}>
+            <View style={{ width: "25%" }}>
+              <Image
+                style={[PageStyle.expectationIcon, PageStyle.profileIcon]}
+                source={icon}
+              />
+            </View>
+            <View style={{ width: "75%" }}>
+              <Text style={PageStyle.expectationTitle}>{name}</Text>
+              <Text style={PageStyle.expectationDescription}>{title}</Text>
+            </View>
+          </View>
+          <View style={PageStyle.expectationBorder} />
+        </View>
+      );
+    });
+
+    return facilitator;
+  }
+
   render() {
     const { navigation } = this.props;
     return (
@@ -96,6 +202,14 @@ class MeetingPage extends Component {
           {this.renderVideo()}
           <Text style={PageStyle.header}> OUR UNIQUE FORMAT </Text>
           {this.renderDescription()}
+          <Text style={PageStyle.header}> WHAT TO EXPECT </Text>
+          {this.renderExpectations(this.state.expectations)}
+          <Text style={PageStyle.header}> FACILITATORS </Text>
+          {this.renderFacilitators(this.state.facilitators)}
+          <Text style={PageStyle.header}> VENUE </Text>
+          {/* For refactoring, must be inside Card */}
+          <View style={PageStyle.mapContainer} />
+          <Map />
         </ScrollView>
         <TabbedMenu navigation={navigation} />
       </View>

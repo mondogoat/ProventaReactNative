@@ -36,8 +36,32 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* proventaappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* proventaappTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		4BA3F6EE9120562048892F34 /* libPods-proventaapp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC5808FF1096E562A375018 /* libPods-proventaapp-tvOSTests.a */; };
+		7BB63938FCC1B7114FFFCD0C /* libPods-proventaappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD066868410698C49A28F41 /* libPods-proventaappTests.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		960A439AB5259230D056ED32 /* libPods-proventaapp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF1CF8B1323396A6E06DAE9 /* libPods-proventaapp-tvOS.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		C7EA50AB0B9A51743B91E17A /* libPods-proventaapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4AA06ADFA074558AD7BC17 /* libPods-proventaapp.a */; };
+		FE86A02E21AD281400AFB8FB /* AIRGoogleMapUrlTile.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A00921AD281400AFB8FB /* AIRGoogleMapUrlTile.m */; };
+		FE86A02F21AD281400AFB8FB /* AIRGoogleMapPolygonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A00C21AD281400AFB8FB /* AIRGoogleMapPolygonManager.m */; };
+		FE86A03021AD281400AFB8FB /* AIRGoogleMapMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A00F21AD281400AFB8FB /* AIRGoogleMapMarker.m */; };
+		FE86A03121AD281400AFB8FB /* AIRGMSPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A01221AD281400AFB8FB /* AIRGMSPolygon.m */; };
+		FE86A03221AD281400AFB8FB /* AIRGoogleMapURLTileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A01321AD281400AFB8FB /* AIRGoogleMapURLTileManager.m */; };
+		FE86A03321AD281400AFB8FB /* AIRGoogleMapCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A01421AD281400AFB8FB /* AIRGoogleMapCircle.m */; };
+		FE86A03421AD281400AFB8FB /* DummyView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A01721AD281400AFB8FB /* DummyView.m */; };
+		FE86A03521AD281400AFB8FB /* AIRGoogleMapCircleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A01921AD281400AFB8FB /* AIRGoogleMapCircleManager.m */; };
+		FE86A03621AD281400AFB8FB /* AIRGoogleMapCalloutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A01B21AD281400AFB8FB /* AIRGoogleMapCalloutManager.m */; };
+		FE86A03721AD281400AFB8FB /* AIRGoogleMapMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A01C21AD281400AFB8FB /* AIRGoogleMapMarkerManager.m */; };
+		FE86A03821AD281400AFB8FB /* AIRGoogleMapPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A01E21AD281400AFB8FB /* AIRGoogleMapPolyline.m */; };
+		FE86A03921AD281400AFB8FB /* AIRGMSPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02021AD281400AFB8FB /* AIRGMSPolyline.m */; };
+		FE86A03A21AD281400AFB8FB /* AIRGoogleMapPolylineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02121AD281400AFB8FB /* AIRGoogleMapPolylineManager.m */; };
+		FE86A03B21AD281400AFB8FB /* AIRGoogleMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02221AD281400AFB8FB /* AIRGoogleMapManager.m */; };
+		FE86A03C21AD281400AFB8FB /* RCTConvert+GMSMapViewType.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02521AD281400AFB8FB /* RCTConvert+GMSMapViewType.m */; };
+		FE86A03D21AD281400AFB8FB /* AIRGoogleMapCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02621AD281400AFB8FB /* AIRGoogleMapCallout.m */; };
+		FE86A03E21AD281400AFB8FB /* AIRGoogleMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02721AD281400AFB8FB /* AIRGoogleMap.m */; };
+		FE86A03F21AD281400AFB8FB /* AIRGoogleMapPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02B21AD281400AFB8FB /* AIRGoogleMapPolygon.m */; };
+		FE86A04021AD281400AFB8FB /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02C21AD281400AFB8FB /* AIRGMSMarker.m */; };
+		FE86A04721AD295F00AFB8FB /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE86A04621AD291800AFB8FB /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,6 +338,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		FE86A04521AD291800AFB8FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE86A04121AD291700AFB8FB /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -339,10 +370,61 @@
 		2D02E47B1E0B4A5D006451C7 /* proventaapp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "proventaapp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* proventaapp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "proventaapp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DD066868410698C49A28F41 /* libPods-proventaappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proventaappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37A59C71018F5AA30D81371B /* Pods-proventaapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-proventaapp/Pods-proventaapp.release.xcconfig"; sourceTree = "<group>"; };
+		3FF1CF8B1323396A6E06DAE9 /* libPods-proventaapp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proventaapp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40EE562F0877B529C9BE32EA /* Pods-proventaapp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaapp-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-proventaapp-tvOS/Pods-proventaapp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		5F4AA06ADFA074558AD7BC17 /* libPods-proventaapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proventaapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66B6631CF0FBB929AA33331E /* Pods-proventaappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaappTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-proventaappTests/Pods-proventaappTests.release.xcconfig"; sourceTree = "<group>"; };
+		74291C69625DBE9C2DB6E4F3 /* Pods-proventaapp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaapp-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-proventaapp-tvOSTests/Pods-proventaapp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		9339494DCD2781049A9593A6 /* Pods-proventaapp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaapp-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proventaapp-tvOSTests/Pods-proventaapp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		DACFCCF273A8B55D0023BBCC /* Pods-proventaappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proventaappTests/Pods-proventaappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ECB8A7C94BFAAEFFDB3C0DAE /* Pods-proventaapp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaapp-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proventaapp-tvOS/Pods-proventaapp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F03439288832DA3B9F1B6CA2 /* Pods-proventaapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proventaapp/Pods-proventaapp.debug.xcconfig"; sourceTree = "<group>"; };
+		FE86A00821AD281400AFB8FB /* AIRGoogleMapPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapPolyline.h; sourceTree = "<group>"; };
+		FE86A00921AD281400AFB8FB /* AIRGoogleMapUrlTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapUrlTile.m; sourceTree = "<group>"; };
+		FE86A00A21AD281400AFB8FB /* AIRGoogleMapMarkerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapMarkerManager.h; sourceTree = "<group>"; };
+		FE86A00B21AD281400AFB8FB /* AIRGoogleMapCalloutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapCalloutManager.h; sourceTree = "<group>"; };
+		FE86A00C21AD281400AFB8FB /* AIRGoogleMapPolygonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapPolygonManager.m; sourceTree = "<group>"; };
+		FE86A00D21AD281400AFB8FB /* RCTConvert+GMSMapViewType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+GMSMapViewType.h"; sourceTree = "<group>"; };
+		FE86A00E21AD281400AFB8FB /* AIRGoogleMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapManager.h; sourceTree = "<group>"; };
+		FE86A00F21AD281400AFB8FB /* AIRGoogleMapMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapMarker.m; sourceTree = "<group>"; };
+		FE86A01021AD281400AFB8FB /* AIRGMSPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGMSPolyline.h; sourceTree = "<group>"; };
+		FE86A01121AD281400AFB8FB /* AIRGoogleMapPolylineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapPolylineManager.h; sourceTree = "<group>"; };
+		FE86A01221AD281400AFB8FB /* AIRGMSPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGMSPolygon.m; sourceTree = "<group>"; };
+		FE86A01321AD281400AFB8FB /* AIRGoogleMapURLTileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapURLTileManager.m; sourceTree = "<group>"; };
+		FE86A01421AD281400AFB8FB /* AIRGoogleMapCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapCircle.m; sourceTree = "<group>"; };
+		FE86A01521AD281400AFB8FB /* AIRGoogleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMap.h; sourceTree = "<group>"; };
+		FE86A01621AD281400AFB8FB /* AIRGoogleMapCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapCallout.h; sourceTree = "<group>"; };
+		FE86A01721AD281400AFB8FB /* DummyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyView.m; sourceTree = "<group>"; };
+		FE86A01821AD281400AFB8FB /* AIRGMSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGMSMarker.h; sourceTree = "<group>"; };
+		FE86A01921AD281400AFB8FB /* AIRGoogleMapCircleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapCircleManager.m; sourceTree = "<group>"; };
+		FE86A01A21AD281400AFB8FB /* AIRGoogleMapPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapPolygon.h; sourceTree = "<group>"; };
+		FE86A01B21AD281400AFB8FB /* AIRGoogleMapCalloutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapCalloutManager.m; sourceTree = "<group>"; };
+		FE86A01C21AD281400AFB8FB /* AIRGoogleMapMarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapMarkerManager.m; sourceTree = "<group>"; };
+		FE86A01D21AD281400AFB8FB /* AIRGoogleMapUrlTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapUrlTile.h; sourceTree = "<group>"; };
+		FE86A01E21AD281400AFB8FB /* AIRGoogleMapPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapPolyline.m; sourceTree = "<group>"; };
+		FE86A01F21AD281400AFB8FB /* AIRGMSPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGMSPolygon.h; sourceTree = "<group>"; };
+		FE86A02021AD281400AFB8FB /* AIRGMSPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGMSPolyline.m; sourceTree = "<group>"; };
+		FE86A02121AD281400AFB8FB /* AIRGoogleMapPolylineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapPolylineManager.m; sourceTree = "<group>"; };
+		FE86A02221AD281400AFB8FB /* AIRGoogleMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapManager.m; sourceTree = "<group>"; };
+		FE86A02321AD281400AFB8FB /* AIRGoogleMapMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapMarker.h; sourceTree = "<group>"; };
+		FE86A02421AD281400AFB8FB /* AIRGoogleMapPolygonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapPolygonManager.h; sourceTree = "<group>"; };
+		FE86A02521AD281400AFB8FB /* RCTConvert+GMSMapViewType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+GMSMapViewType.m"; sourceTree = "<group>"; };
+		FE86A02621AD281400AFB8FB /* AIRGoogleMapCallout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapCallout.m; sourceTree = "<group>"; };
+		FE86A02721AD281400AFB8FB /* AIRGoogleMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMap.m; sourceTree = "<group>"; };
+		FE86A02821AD281400AFB8FB /* AIRGoogleMapCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapCircle.h; sourceTree = "<group>"; };
+		FE86A02921AD281400AFB8FB /* AIRGoogleMapUrlTileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapUrlTileManager.h; sourceTree = "<group>"; };
+		FE86A02A21AD281400AFB8FB /* AIRGoogleMapCircleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapCircleManager.h; sourceTree = "<group>"; };
+		FE86A02B21AD281400AFB8FB /* AIRGoogleMapPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapPolygon.m; sourceTree = "<group>"; };
+		FE86A02C21AD281400AFB8FB /* AIRGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGMSMarker.m; sourceTree = "<group>"; };
+		FE86A02D21AD281400AFB8FB /* DummyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyView.h; sourceTree = "<group>"; };
+		FE86A04121AD291700AFB8FB /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
+		FFC5808FF1096E562A375018 /* libPods-proventaapp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proventaapp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				7BB63938FCC1B7114FFFCD0C /* libPods-proventaappTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +441,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE86A04721AD295F00AFB8FB /* libAirMaps.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -370,6 +454,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				C7EA50AB0B9A51743B91E17A /* libPods-proventaapp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +470,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
+				960A439AB5259230D056ED32 /* libPods-proventaapp-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
+				4BA3F6EE9120562048892F34 /* libPods-proventaapp-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,8 +606,27 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				5F4AA06ADFA074558AD7BC17 /* libPods-proventaapp.a */,
+				3FF1CF8B1323396A6E06DAE9 /* libPods-proventaapp-tvOS.a */,
+				FFC5808FF1096E562A375018 /* libPods-proventaapp-tvOSTests.a */,
+				2DD066868410698C49A28F41 /* libPods-proventaappTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		534C94C22A441CFEA098D092 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F03439288832DA3B9F1B6CA2 /* Pods-proventaapp.debug.xcconfig */,
+				37A59C71018F5AA30D81371B /* Pods-proventaapp.release.xcconfig */,
+				ECB8A7C94BFAAEFFDB3C0DAE /* Pods-proventaapp-tvOS.debug.xcconfig */,
+				40EE562F0877B529C9BE32EA /* Pods-proventaapp-tvOS.release.xcconfig */,
+				9339494DCD2781049A9593A6 /* Pods-proventaapp-tvOSTests.debug.xcconfig */,
+				74291C69625DBE9C2DB6E4F3 /* Pods-proventaapp-tvOSTests.release.xcconfig */,
+				DACFCCF273A8B55D0023BBCC /* Pods-proventaappTests.debug.xcconfig */,
+				66B6631CF0FBB929AA33331E /* Pods-proventaappTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -544,6 +650,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				FE86A04121AD291700AFB8FB /* AirMaps.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -572,11 +679,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FE86A00721AD281400AFB8FB /* AirGoogleMaps */,
 				13B07FAE1A68108700A75B9A /* proventaapp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* proventaappTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				534C94C22A441CFEA098D092 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -603,6 +712,60 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FE86A00721AD281400AFB8FB /* AirGoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				FE86A00821AD281400AFB8FB /* AIRGoogleMapPolyline.h */,
+				FE86A00921AD281400AFB8FB /* AIRGoogleMapUrlTile.m */,
+				FE86A00A21AD281400AFB8FB /* AIRGoogleMapMarkerManager.h */,
+				FE86A00B21AD281400AFB8FB /* AIRGoogleMapCalloutManager.h */,
+				FE86A00C21AD281400AFB8FB /* AIRGoogleMapPolygonManager.m */,
+				FE86A00D21AD281400AFB8FB /* RCTConvert+GMSMapViewType.h */,
+				FE86A00E21AD281400AFB8FB /* AIRGoogleMapManager.h */,
+				FE86A00F21AD281400AFB8FB /* AIRGoogleMapMarker.m */,
+				FE86A01021AD281400AFB8FB /* AIRGMSPolyline.h */,
+				FE86A01121AD281400AFB8FB /* AIRGoogleMapPolylineManager.h */,
+				FE86A01221AD281400AFB8FB /* AIRGMSPolygon.m */,
+				FE86A01321AD281400AFB8FB /* AIRGoogleMapURLTileManager.m */,
+				FE86A01421AD281400AFB8FB /* AIRGoogleMapCircle.m */,
+				FE86A01521AD281400AFB8FB /* AIRGoogleMap.h */,
+				FE86A01621AD281400AFB8FB /* AIRGoogleMapCallout.h */,
+				FE86A01721AD281400AFB8FB /* DummyView.m */,
+				FE86A01821AD281400AFB8FB /* AIRGMSMarker.h */,
+				FE86A01921AD281400AFB8FB /* AIRGoogleMapCircleManager.m */,
+				FE86A01A21AD281400AFB8FB /* AIRGoogleMapPolygon.h */,
+				FE86A01B21AD281400AFB8FB /* AIRGoogleMapCalloutManager.m */,
+				FE86A01C21AD281400AFB8FB /* AIRGoogleMapMarkerManager.m */,
+				FE86A01D21AD281400AFB8FB /* AIRGoogleMapUrlTile.h */,
+				FE86A01E21AD281400AFB8FB /* AIRGoogleMapPolyline.m */,
+				FE86A01F21AD281400AFB8FB /* AIRGMSPolygon.h */,
+				FE86A02021AD281400AFB8FB /* AIRGMSPolyline.m */,
+				FE86A02121AD281400AFB8FB /* AIRGoogleMapPolylineManager.m */,
+				FE86A02221AD281400AFB8FB /* AIRGoogleMapManager.m */,
+				FE86A02321AD281400AFB8FB /* AIRGoogleMapMarker.h */,
+				FE86A02421AD281400AFB8FB /* AIRGoogleMapPolygonManager.h */,
+				FE86A02521AD281400AFB8FB /* RCTConvert+GMSMapViewType.m */,
+				FE86A02621AD281400AFB8FB /* AIRGoogleMapCallout.m */,
+				FE86A02721AD281400AFB8FB /* AIRGoogleMap.m */,
+				FE86A02821AD281400AFB8FB /* AIRGoogleMapCircle.h */,
+				FE86A02921AD281400AFB8FB /* AIRGoogleMapUrlTileManager.h */,
+				FE86A02A21AD281400AFB8FB /* AIRGoogleMapCircleManager.h */,
+				FE86A02B21AD281400AFB8FB /* AIRGoogleMapPolygon.m */,
+				FE86A02C21AD281400AFB8FB /* AIRGMSMarker.m */,
+				FE86A02D21AD281400AFB8FB /* DummyView.h */,
+			);
+			name = AirGoogleMaps;
+			path = "../node_modules/react-native-maps/lib/ios/AirGoogleMaps";
+			sourceTree = "<group>";
+		};
+		FE86A04221AD291700AFB8FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE86A04621AD291800AFB8FB /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -610,6 +773,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "proventaappTests" */;
 			buildPhases = (
+				F0E8F704C17D8D437112C3A8 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -628,10 +792,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "proventaapp" */;
 			buildPhases = (
+				D43D5FE48281F749FDA51699 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				BB3072EE80B5701020A2D06F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -646,6 +812,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "proventaapp-tvOS" */;
 			buildPhases = (
+				575D624EF49B6A363ABB6BE1 /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
@@ -664,6 +831,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "proventaapp-tvOSTests" */;
 			buildPhases = (
+				9D5C0CEDF9014399A852043B /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -684,12 +852,16 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8SZTT5VBY5;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 8SZTT5VBY5;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -714,6 +886,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = FE86A04221AD291700AFB8FB /* Products */;
+					ProjectRef = FE86A04121AD291700AFB8FB /* AirMaps.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -1033,6 +1209,13 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FE86A04621AD291800AFB8FB /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = FE86A04521AD291800AFB8FB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1098,6 +1281,116 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		575D624EF49B6A363ABB6BE1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-proventaapp-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D5C0CEDF9014399A852043B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-proventaapp-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB3072EE80B5701020A2D06F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-proventaapp/Pods-proventaapp-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-proventaapp/Pods-proventaapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D43D5FE48281F749FDA51699 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-proventaapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0E8F704C17D8D437112C3A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-proventaappTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1113,8 +1406,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE86A03321AD281400AFB8FB /* AIRGoogleMapCircle.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				FE86A03B21AD281400AFB8FB /* AIRGoogleMapManager.m in Sources */,
+				FE86A03F21AD281400AFB8FB /* AIRGoogleMapPolygon.m in Sources */,
+				FE86A03E21AD281400AFB8FB /* AIRGoogleMap.m in Sources */,
+				FE86A03721AD281400AFB8FB /* AIRGoogleMapMarkerManager.m in Sources */,
+				FE86A03221AD281400AFB8FB /* AIRGoogleMapURLTileManager.m in Sources */,
+				FE86A02F21AD281400AFB8FB /* AIRGoogleMapPolygonManager.m in Sources */,
+				FE86A03421AD281400AFB8FB /* DummyView.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				FE86A03521AD281400AFB8FB /* AIRGoogleMapCircleManager.m in Sources */,
+				FE86A03D21AD281400AFB8FB /* AIRGoogleMapCallout.m in Sources */,
+				FE86A03921AD281400AFB8FB /* AIRGMSPolyline.m in Sources */,
+				FE86A03121AD281400AFB8FB /* AIRGMSPolygon.m in Sources */,
+				FE86A03C21AD281400AFB8FB /* RCTConvert+GMSMapViewType.m in Sources */,
+				FE86A03821AD281400AFB8FB /* AIRGoogleMapPolyline.m in Sources */,
+				FE86A02E21AD281400AFB8FB /* AIRGoogleMapUrlTile.m in Sources */,
+				FE86A04021AD281400AFB8FB /* AIRGMSMarker.m in Sources */,
+				FE86A03621AD281400AFB8FB /* AIRGoogleMapCalloutManager.m in Sources */,
+				FE86A03021AD281400AFB8FB /* AIRGoogleMapMarker.m in Sources */,
+				FE86A03A21AD281400AFB8FB /* AIRGoogleMapPolylineManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1165,12 +1477,15 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DACFCCF273A8B55D0023BBCC /* Pods-proventaappTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8SZTT5VBY5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = proventaappTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1186,9 +1501,12 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66B6631CF0FBB929AA33331E /* Pods-proventaappTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 8SZTT5VBY5;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = proventaappTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1204,10 +1522,25 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F03439288832DA3B9F1B6CA2 /* Pods-proventaapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 8SZTT5VBY5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"HAVE_GOOGLE_MAPS=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleMaps\"",
+					"\"${PODS_ROOT}/Headers/Public/React\"",
+					"\"${PODS_ROOT}/Headers/Public/yoga\"",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios",
+				);
 				INFOPLIST_FILE = proventaapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1223,9 +1556,19 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37A59C71018F5AA30D81371B /* Pods-proventaapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8SZTT5VBY5;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleMaps\"",
+					"\"${PODS_ROOT}/Headers/Public/React\"",
+					"\"${PODS_ROOT}/Headers/Public/yoga\"",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios",
+				);
 				INFOPLIST_FILE = proventaapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1241,6 +1584,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECB8A7C94BFAAEFFDB3C0DAE /* Pods-proventaapp-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1251,6 +1595,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "proventaapp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1267,6 +1612,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40EE562F0877B529C9BE32EA /* Pods-proventaapp-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1277,6 +1623,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "proventaapp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1293,6 +1640,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9339494DCD2781049A9593A6 /* Pods-proventaapp-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1302,6 +1650,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "proventaapp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1318,6 +1667,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74291C69625DBE9C2DB6E4F3 /* Pods-proventaapp-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1327,6 +1677,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "proventaapp-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
