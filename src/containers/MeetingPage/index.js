@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { Text, View, ScrollView, Image } from "react-native";
-import { Header, TabbedMenu, Card, Map } from "../../components";
+import {
+  Header,
+  TabbedMenu,
+  Card,
+  ListItem,
+  Video,
+  Map
+} from "../../components";
 import PageStyle from "./styles";
 import { DrawerActions } from "react-navigation";
 
@@ -86,10 +93,7 @@ class MeetingPage extends Component {
   renderVideo() {
     return (
       <Card>
-        <Image
-          style={PageStyle.video}
-          source={require("../../assets/video_placeholder.png")}
-        />
+        <Video />
       </Card>
     );
   }
@@ -200,7 +204,7 @@ class MeetingPage extends Component {
         <ScrollView>
           <Image
             style={PageStyle.backgroundImage}
-            source={require('../../assets/event.png')}
+            source={require("../../assets/event.png")}
           />
           <View style={PageStyle.overlapCardContainer}>
             {this.renderTitle()}
@@ -211,13 +215,14 @@ class MeetingPage extends Component {
             {this.renderExpectations(this.state.expectations)}
             <Text style={PageStyle.header}> FACILITATORS </Text>
             {this.renderFacilitators(this.state.facilitators)}
-            <Text style={[PageStyle.header, PageStyle.mapContainer]}>VENUE</Text>
+            <Text style={[PageStyle.header, PageStyle.mapContainer]}>
+              VENUE
+            </Text>
             {/* For refactoring, must be inside Card */}
             <View style={PageStyle.mapContainer} />
-            <Card>
+            {/* <Card>
               <Map />
-            </Card>
-            
+            </Card> */}
           </View>
         </ScrollView>
         <TabbedMenu navigation={navigation} />

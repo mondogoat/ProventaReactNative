@@ -11,7 +11,7 @@ export default (PageStyle = {
   image: {
     width: "95%",
     height: SCREEN_HEIGHT / 7.5,
-    resizeMode: "contain",
+    //resizeMode: "contain",
     marginTop: SCREEN_HEIGHT * 0.01
   },
 
@@ -108,9 +108,9 @@ export default (PageStyle = {
   },
   backgroundImage: {
     width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT * 0.3,
+    height: SCREEN_HEIGHT * 0.3
   },
   overlapCardContainer: {
-    bottom: SCREEN_HEIGHT * 0.125,
+    bottom: SCREEN_HEIGHT * 0.125
   }
 });
