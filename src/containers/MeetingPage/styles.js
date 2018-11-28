@@ -11,7 +11,7 @@ export default (PageStyle = {
   image: {
     width: "95%",
     height: SCREEN_HEIGHT / 7.5,
-    resizeMode: "contain",
+    //resizeMode: "contain",
     marginTop: SCREEN_HEIGHT * 0.01
   },
 
@@ -54,7 +54,13 @@ export default (PageStyle = {
     fontSize: 15,
     lineHeight: 25,
     color: DARK_GRAY
+  },
+  WebViewContainer: {
+    padding: SCREEN_WIDTH * 0.05,
+    height: SCREEN_HEIGHT / 3,
+    width: SCREEN_WIDTH * 0.95
   }
+
   //   expandButton: {
   //     padding: SCREEN_WIDTH * 0.025,
   //     paddingTop: SCREEN_HEIGHT * 0.035,

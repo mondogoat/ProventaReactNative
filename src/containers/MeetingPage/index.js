@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, ScrollView, Image } from "react-native";
-import { Header, TabbedMenu, Card, ListItem } from "../../components";
+import { Header, TabbedMenu, Card, ListItem, Video } from "../../components";
 import PageStyle from "./styles";
 import { DrawerActions } from "react-navigation";
 
@@ -27,10 +27,7 @@ class MeetingPage extends Component {
   renderVideo() {
     return (
       <Card>
-        <Image
-          style={PageStyle.video}
-          source={require("../../assets/video_placeholder.png")}
-        />
+        <Video />
       </Card>
     );
   }
