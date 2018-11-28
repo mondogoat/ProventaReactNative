@@ -198,18 +198,27 @@ class MeetingPage extends Component {
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <ScrollView>
-          {this.renderTitle()}
-          {this.renderVideo()}
-          <Text style={PageStyle.header}> OUR UNIQUE FORMAT </Text>
-          {this.renderDescription()}
-          <Text style={PageStyle.header}> WHAT TO EXPECT </Text>
-          {this.renderExpectations(this.state.expectations)}
-          <Text style={PageStyle.header}> FACILITATORS </Text>
-          {this.renderFacilitators(this.state.facilitators)}
-          <Text style={[PageStyle.header, PageStyle.mapContainer]}>VENUE</Text>
-          {/* For refactoring, must be inside Card */}
-          <View style={PageStyle.mapContainer} />
-          <Map />
+          <Image
+            style={PageStyle.backgroundImage}
+            source={require('../../assets/event.png')}
+          />
+          <View style={PageStyle.overlapCardContainer}>
+            {this.renderTitle()}
+            {this.renderVideo()}
+            <Text style={PageStyle.header}> OUR UNIQUE FORMAT </Text>
+            {this.renderDescription()}
+            <Text style={PageStyle.header}> WHAT TO EXPECT </Text>
+            {this.renderExpectations(this.state.expectations)}
+            <Text style={PageStyle.header}> FACILITATORS </Text>
+            {this.renderFacilitators(this.state.facilitators)}
+            <Text style={[PageStyle.header, PageStyle.mapContainer]}>VENUE</Text>
+            {/* For refactoring, must be inside Card */}
+            <View style={PageStyle.mapContainer} />
+            <Card>
+              <Map />
+            </Card>
+            
+          </View>
         </ScrollView>
         <TabbedMenu navigation={navigation} />
       </View>

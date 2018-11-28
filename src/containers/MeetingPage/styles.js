@@ -105,5 +105,12 @@ export default (PageStyle = {
   },
   mapContainer: {
     paddingBottom: SCREEN_HEIGHT * 0.3
+  },
+  backgroundImage: {
+    width: SCREEN_WIDTH,
+    height: SCREEN_HEIGHT * 0.3,
+  },
+  overlapCardContainer: {
+    bottom: SCREEN_HEIGHT * 0.125,
   }
 });
