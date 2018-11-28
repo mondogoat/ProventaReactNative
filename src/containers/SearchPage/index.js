@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Text, View, Image, ScrollView, TextInput } from "react-native";
-import { Header, TabbedMenu } from "../../components";
+import { Header, TabbedMenu, ListItem } from "../../components";
 import PageStyle from "./styles";
+import { DrawerActions } from "react-navigation";
 
 class SearchPage extends Component {
   state = {
@@ -28,15 +29,18 @@ class SearchPage extends Component {
   };
 
   renderSearches(searches) {
+    const { navigation } = this.props;
     const search = searches.map(({ id, title, description, event }) => {
       return (
         <View key={id} style={PageStyle.eventList}>
-          <View style={PageStyle.eventContainer}>
-            <Image style={PageStyle.eventTitle} source={{ uri: title }} />
-            <Text style={PageStyle.eventDescription}> {description}</Text>
-            <Text style={PageStyle.eventDate}> {event}</Text>
-            <View style={PageStyle.eventBorder} />
-          </View>
+          <ListItem onPress={() => navigation.navigate("MeetingPage")}>
+            <View style={PageStyle.eventContainer}>
+              <Image style={PageStyle.eventTitle} source={{ uri: title }} />
+              <Text style={PageStyle.eventDescription}> {description}</Text>
+              <Text style={PageStyle.eventDate}> {event}</Text>
+              <View style={PageStyle.eventBorder} />
+            </View>
+          </ListItem>
         </View>
       );
     });

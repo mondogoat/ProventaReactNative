@@ -100,7 +100,9 @@ class HomePage extends Component {
       <View style={PageStyle.container}>
         <Header
           label="STRATEGY MEETINGS"
-          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+          onPress={() => {
+            navigation.dispatch(DrawerActions.openDrawer());
+          }}
         />
         <ScrollView>
           <ListItem onPress={() => navigation.navigate("MeetingPage")}>

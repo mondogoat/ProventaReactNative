@@ -1,4 +1,4 @@
-import { Dimensions } from "react-native";
+import { Dimensions, Platform } from "react-native";
 import { DARK_GRAY } from "../../styles/common";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -9,7 +9,8 @@ export default (ComponentStyle = {
     height: SCREEN_HEIGHT / 12,
     width: SCREEN_WIDTH,
     padding: 10,
-    marginTop: 30,
+    marginTop:
+      Platform.OS === "ios" ? SCREEN_HEIGHT * 0.05 : SCREEN_HEIGHT * 0.003,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
