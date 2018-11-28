@@ -145,8 +145,8 @@ class MeetingPage extends Component {
   renderExpectations(expectations) {
     const expectation = expectations.map(({ id, title, description, icon }) => {
       return (
-        <View style={PageStyle.expectationContainer}>
-          <View key={id} style={PageStyle.expectationList}>
+        <View key={id} style={PageStyle.expectationContainer}>
+          <View style={PageStyle.expectationList}>
             <View style={{ width: "25%" }}>
               <Image style={PageStyle.expectationIcon} source={icon} />
             </View>
