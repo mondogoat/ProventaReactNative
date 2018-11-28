@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Dimensions } from "react-native";
-import { createDrawerNavigator, StackNavigator } from "react-navigation";
+import {
+  createDrawerNavigator,
+  createStackNavigator,
+  StackNavigator
+} from "react-navigation";
 
 import SplashPage from "./containers/SplashPage";
 import HomePage from "./containers/HomePage";
@@ -48,12 +52,29 @@ class App extends Component {
 //   }
 // );
 
-const RootStack = createDrawerNavigator(
+const AnonymousStack = createStackNavigator(
   {
-    HomePage: props => <HomePage {...props} />
+    SplashPage: props => <SplashPage {...props} />,
+    HomePage: props => <HomePage {...props} />,
+    SearchPage: props => <SearchPage {...props} />,
+    LoginPage: props => <LoginPage {...props} />,
+    SignUpPage: props => <SignUpPage {...props} />,
+    MeetingPage: props => <MeetingPage {...props} />
   },
   {
     intialRouteName: "SplashPage",
+    headerMode: "none",
+    navigationOptions: {
+      headerVisible: false
+    }
+  }
+);
+
+const RootStack = createDrawerNavigator(
+  {
+    AnonymousStack: { screen: AnonymousStack }
+  },
+  {
     drawerWidth: SCREEN_WIDTH * 0.8,
     contentComponent: SideMenu
   }
@@ -61,13 +82,7 @@ const RootStack = createDrawerNavigator(
 
 const AppStack = StackNavigator(
   {
-    RootStack: { screen: RootStack },
-    SplashPage: props => <SplashPage {...props} />,
-    HomePage: props => <HomePage {...props} />,
-    SearchPage: props => <SearchPage {...props} />,
-    LoginPage: props => <LoginPage {...props} />,
-    SignUpPage: props => <SignUpPage {...props} />,
-    MeetingPage: props => <MeetingPage {...props} />
+    RootStack: { screen: RootStack }
   },
   {
     headerMode: "none",
