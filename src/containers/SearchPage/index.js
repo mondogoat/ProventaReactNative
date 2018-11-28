@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, Image, ScrollView, TextInput } from "react-native";
 import { Header, TabbedMenu, ListItem } from "../../components";
 import PageStyle from "./styles";
+import { DrawerActions } from "react-navigation";
 
 class SearchPage extends Component {
   state = {
