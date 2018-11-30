@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Text, View, ScrollView, Image } from "react-native";
+import { Text, View, ScrollView, TouchableOpacity, Image } from "react-native";
 import {
   Header,
   TabbedMenu,
   Card,
   ListItem,
   Video,
-  Map
+  Map,
+  ModalScreen
 } from "../../components";
 import PageStyle from "./styles";
 import { DrawerActions } from "react-navigation";
@@ -45,30 +46,32 @@ class MeetingPage extends Component {
     ],
     facilitators: [
       {
-        id: "faci1",
+        id: 0,
         icon: require("../../assets/facilitator_1.png"),
         name: "David Crain",
         title: "Alibaba CEO"
       },
       {
-        id: "faci2",
+        id: 1,
         icon: require("../../assets/facilitator_2.png"),
         name: "Yvone Thompson",
         title: "Sputnik Inc. CEO"
       },
       {
-        id: "faci3",
+        id: 2,
         icon: require("../../assets/faclitator2.png"),
         name: "Phet Putrie",
         title: "Founder of Stark Industries"
       },
       {
-        id: "faci4",
+        id: 3,
         icon: require("../../assets/facilitator_4.png"),
         name: "Arnold Zachary",
         title: "CEO Wacom Industries"
       }
-    ]
+    ],
+    modalVisible: null,
+    selectedIndex: 1
   };
 
   renderTitle() {
@@ -169,23 +172,44 @@ class MeetingPage extends Component {
     return expectation;
   }
 
+  toggleModal() {
+    this.setState({ modalVisible: true });
+  }
+
   renderFacilitators(facilitators) {
     const facilitator = facilitators.map(({ id, icon, title, name }) => {
       return (
         <View key={id} style={PageStyle.expectationContainer}>
-          <View style={PageStyle.expectationList}>
-            <View style={{ width: "25%" }}>
-              <Image
-                style={[PageStyle.expectationIcon, PageStyle.profileIcon]}
-                source={icon}
-              />
+          <ListItem
+            onPress={() => {
+              this.setState(
+                {
+                  selectedIndex: id
+                },
+                () => {
+                  this.toggleModal();
+                }
+              );
+            }}
+          >
+            <View style={PageStyle.expectationList}>
+              <View style={{ width: "25%" }}>
+                <Image
+                  style={[PageStyle.expectationIcon, PageStyle.profileIcon]}
+                  source={icon}
+                />
+              </View>
+              <View style={{ width: "75%" }}>
+                <Text style={PageStyle.expectationTitle}>{name}</Text>
+                <Text style={PageStyle.expectationDescription}>{title}</Text>
+              </View>
             </View>
-            <View style={{ width: "75%" }}>
-              <Text style={PageStyle.expectationTitle}>{name}</Text>
-              <Text style={PageStyle.expectationDescription}>{title}</Text>
-            </View>
-          </View>
-          <View style={PageStyle.expectationBorder} />
+            <View style={PageStyle.expectationBorder} />
+          </ListItem>
+          <ModalScreen
+            facilitator={this.state.facilitators[this.state.selectedIndex]}
+            modalVisible={this.state.modalVisible}
+          />
         </View>
       );
     });
@@ -220,9 +244,9 @@ class MeetingPage extends Component {
             </Text>
             {/* For refactoring, must be inside Card */}
             <View style={PageStyle.mapContainer} />
-            {/* <Card>
+            <Card>
               <Map />
-            </Card> */}
+            </Card>
           </View>
         </ScrollView>
         <TabbedMenu navigation={navigation} />

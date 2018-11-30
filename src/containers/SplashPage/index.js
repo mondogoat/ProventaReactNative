@@ -6,7 +6,7 @@ class SplashPage extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.navigation.navigate("HomePage");
-    }, 1500);
+    }, 1000);
   }
   render() {
     return (

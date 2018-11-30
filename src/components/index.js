@@ -9,3 +9,4 @@ export * from "./Map";
 export * from "./StyledInput";
 export * from "./MainButton";
 export * from "./SocialButton";
+export * from "./ModalScreen";
