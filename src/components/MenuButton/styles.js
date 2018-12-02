@@ -4,9 +4,16 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 
 export default (ComponentStyle = {
-  container: {
+  containerA: {
     height: SCREEN_HEIGHT / 8,
     width: SCREEN_WIDTH / 3,
+    padding: 15,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  containerSI: {
+    height: SCREEN_HEIGHT / 8,
+    width: SCREEN_WIDTH / 5,
     padding: 15,
     justifyContent: "center",
     alignItems: "center"
