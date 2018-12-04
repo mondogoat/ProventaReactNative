@@ -41,10 +41,10 @@ class App extends Component {
 
 const SignedInStack = createStackNavigator(
   {
-    SplashPage: props => <SplashPage {...props} />,
-    HomePage: props => <HomePage {...props} />,
-    MeetingPage: props => <MeetingPage {...props} />,
-    SettingsPage: props => <SettingPage {...props} />,
+    // SplashPage: props => <SplashPage {...props} />,
+    // HomePage: props => <HomePage {...props} />,
+    // MeetingPage: props => <MeetingPage {...props} />,
+    SettingsPage: props => <SettingsPage {...props} />,
     // insert user, calendar and notification if in use
     NotificationPage: props => <SettingPage {...props} />,
     InformationPage: props => <InformationPage {...props} />,
