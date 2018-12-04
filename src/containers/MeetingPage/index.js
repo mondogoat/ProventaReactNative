@@ -220,9 +220,9 @@ class MeetingPage extends Component {
             </Text>
             {/* For refactoring, must be inside Card */}
             <View style={PageStyle.mapContainer} />
-            {/* <Card>
+            <Card>
               <Map />
-            </Card> */}
+            </Card>
           </View>
         </ScrollView>
         <TabbedMenu navigation={navigation} />
