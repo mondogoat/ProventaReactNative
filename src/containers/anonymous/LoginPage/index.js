@@ -65,7 +65,9 @@ class LoginPage extends Component {
           <View style={PageStyle.card}>
             {this.renderLoginForm()}
             <MainButton
-              onPress={() => navigation.navigate("MeetingPage")}
+              onPress={() =>
+                navigation.navigate("MeetingPage", { status: "loggedin" })
+              }
               label="LOGIN"
             />
             <View style={PageStyle.sectionLine} />
