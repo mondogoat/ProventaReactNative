@@ -2,12 +2,30 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import ComponentStyle from "./styles";
 
-const Header = ({ onPress, label }) => {
+const Header = ({ onPress, label, status }) => {
+  renderBackButton = () => {
+    if (status === "details") {
+      return (
+        <Image
+          style={ComponentStyle.buttonImage}
+          source={require("../../assets/back_button.png")}
+        />
+      );
+    } else {
+      return (
+        <Image
+          style={ComponentStyle.buttonImage}
+          source={require("../../assets/menu_button.png")}
+        />
+      );
+    }
+  };
+
   return (
     <View style={ComponentStyle.container}>
       {/* Menu Button */}
       <TouchableOpacity onPress={onPress} style={ComponentStyle.buttonStyle}>
-        <Image source={require("../../assets/menu_button.png")} />
+        {this.renderBackButton()}
       </TouchableOpacity>
       {/*Header Label  */}
       <Text style={ComponentStyle.title}>{label}</Text>
@@ -15,11 +33,14 @@ const Header = ({ onPress, label }) => {
       <TouchableOpacity
         onPress={onPress}
         style={ComponentStyle.buttonStyle}
-        disabled={true}
+        disabled={status === "loggedin" ? false : true}
       >
         <Image
-          style={{ opacity: 0 }}
-          source={require("../../assets/menu_button.png")}
+          style={[
+            ComponentStyle.buttonImage,
+            status === "loggedin" ? { opacity: 1 } : { opacity: 0 }
+          ]}
+          source={require("../../assets/settings_button.png")}
         />
       </TouchableOpacity>
     </View>

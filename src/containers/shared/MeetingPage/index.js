@@ -219,10 +219,12 @@ class MeetingPage extends Component {
 
   render() {
     const { navigation } = this.props;
+    const status = navigation.getParam("status");
     return (
       <View style={PageStyle.container}>
         <Header
           label="MEETING DETAILS"
+          status={status}
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <ScrollView>
@@ -249,7 +251,7 @@ class MeetingPage extends Component {
             </Card>
           </View>
         </ScrollView>
-        <TabbedMenu status="loggedin" navigation={navigation} />
+        <TabbedMenu status={status} navigation={navigation} />
       </View>
     );
   }

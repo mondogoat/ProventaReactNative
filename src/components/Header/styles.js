@@ -17,11 +17,15 @@ export default (ComponentStyle = {
     backgroundColor: "#ffffff"
   },
   buttonStyle: {
-    marginTop: -5,
-    resizeMode: "contain",
-    justifyContent: "center"
+    marginTop: "2%"
+  },
+  buttonImage: {
+    width: SCREEN_WIDTH / 9,
+    height: "50%",
+    resizeMode: "contain"
   },
   title: {
+    marginTop: "1%",
     fontSize: 15,
     color: DARK_GRAY,
     fontWeight: "600"
