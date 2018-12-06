@@ -18,7 +18,7 @@ class LoginPage extends Component {
         <SocialButton
           type="linkedin"
           label="Log in with LinkedIn"
-          icon={require("../../../assets/linkedin.png")}
+          icon={require("../../../assets/linkedin_button.png")}
         />
         <SocialButton
           type="google"

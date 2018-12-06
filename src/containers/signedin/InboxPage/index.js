@@ -16,7 +16,7 @@ class InboxPage extends Component {
             navigation.dispatch(DrawerActions.openDrawer());
           }}
         />
-        <Text> This is Inbox Page</Text>
+
         <TabbedMenu navigation={navigation} status="loggedin" />
       </View>
     );
