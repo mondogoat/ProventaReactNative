@@ -251,7 +251,7 @@ class MeetingPage extends Component {
             </Card>
           </View>
         </ScrollView>
-        <TabbedMenu status="loggedin" navigation={navigation} />
+        <TabbedMenu status={status} navigation={navigation} />
       </View>
     );
   }

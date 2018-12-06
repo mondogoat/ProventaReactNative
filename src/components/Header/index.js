@@ -3,14 +3,29 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import ComponentStyle from "./styles";
 
 const Header = ({ onPress, label, status }) => {
-  return (
-    <View style={ComponentStyle.container}>
-      {/* Menu Button */}
-      <TouchableOpacity onPress={onPress} style={ComponentStyle.buttonStyle}>
+  renderBackButton = () => {
+    if (status === "details") {
+      return (
+        <Image
+          style={ComponentStyle.buttonImage}
+          source={require("../../assets/back_button.png")}
+        />
+      );
+    } else {
+      return (
         <Image
           style={ComponentStyle.buttonImage}
           source={require("../../assets/menu_button.png")}
         />
+      );
+    }
+  };
+
+  return (
+    <View style={ComponentStyle.container}>
+      {/* Menu Button */}
+      <TouchableOpacity onPress={onPress} style={ComponentStyle.buttonStyle}>
+        {this.renderBackButton()}
       </TouchableOpacity>
       {/*Header Label  */}
       <Text style={ComponentStyle.title}>{label}</Text>

@@ -10,27 +10,27 @@ class InformationPage extends Component {
       {
         id: 0,
         image: require("../../../assets/facilitators_icon.png"),
-        name: "Facilitators"
+        name: "FACILITATORS"
       },
       {
         id: 1,
         image: require("../../../assets/participators_icon.png"),
-        name: "Participants"
+        name: "PARTICIPANTS"
       },
       {
         id: 2,
         image: require("../../../assets/sponsors_icon.png"),
-        name: "Sponsors"
+        name: "SPONSORS"
       },
       {
         id: 3,
         image: require("../../../assets/map_icon.png"),
-        name: "Floor Map"
+        name: "FLOOR MAP"
       },
       {
         id: 4,
         image: require("../../../assets/feedback_icon.png"),
-        name: "Sponsors"
+        name: "FEEDBACK"
       }
     ]
   };

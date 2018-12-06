@@ -25,7 +25,6 @@ export default (PageStyle = {
   listIcon: {
     width: SCREEN_WIDTH * 0.5,
     height: SCREEN_HEIGHT * 0.09,
-    //marginTop: SCREEN_HEIGHT * 0.03,
     resizeMode: "contain",
     alignSelf: "center"
   },
@@ -58,5 +57,30 @@ export default (PageStyle = {
     width: "85%",
     alignSelf: "center",
     opacity: 0.3
+  },
+  boxContainer: {
+    width: "95%",
+    backgroundColor: "#ffffff",
+    alignSelf: "center"
+  },
+  box: {
+    width: "100%",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    paddingBottom: SCREEN_HEIGHT * 0.04
+  },
+  boxTitle: {
+    fontSize: 15
+  },
+  boxImage: {
+    width: SCREEN_WIDTH * 0.4,
+    height: SCREEN_HEIGHT / 5,
+    resizeMode: "contain"
+  },
+  mapImage: {
+    width: SCREEN_WIDTH * 0.95,
+    height: SCREEN_HEIGHT * 0.6,
+    resizeMode: "contain"
   }
 });
