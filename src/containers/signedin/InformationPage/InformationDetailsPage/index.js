@@ -65,7 +65,7 @@ class InformationDetailsPage extends Component {
       }
     ],
     floorplan: {
-      image: require("../../../../assets/floor_plan.png")
+      image: require("../../../../assets/floor_map.png")
     }
   };
 

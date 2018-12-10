@@ -39,7 +39,7 @@ export default (PageStyle = {
   menuBorder: {
     borderColor: GRAY,
     borderWidth: SCREEN_HEIGHT * 0.001,
-    width: "90%",
+    width: "85%",
     alignSelf: "center",
     opacity: 0.2
   }

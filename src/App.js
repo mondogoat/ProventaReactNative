@@ -43,7 +43,7 @@ const SignedInStack = createStackNavigator(
   {
     // SplashPage: props => <SplashPage {...props} />,
     // HomePage: props => <HomePage {...props} />,
-    // MeetingPage: props => <MeetingPage {...props} />,
+    MeetingLoginPage: props => <MeetingPage {...props} />,
     SettingsPage: props => <SettingsPage {...props} />,
     // insert user, calendar and notification if in use
     NotificationPage: props => <SettingPage {...props} />,
@@ -51,6 +51,7 @@ const SignedInStack = createStackNavigator(
     InformationDetailsPage: props => <InformationDetailsPage {...props} />,
     SchedulePage: props => <SchedulePage {...props} />,
     InboxPage: props => <InboxPage {...props} />,
+    InboxDetailsPage: props => <InboxDetailsPage {...props} />,
     CheckInPage: props => <CheckInPage {...props} />
   },
   {

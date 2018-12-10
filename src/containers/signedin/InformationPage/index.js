@@ -10,6 +10,7 @@ class InformationPage extends Component {
       {
         id: 0,
         image: require("../../../assets/facilitators_icon.png"),
+
         name: "FACILITATORS"
       },
       {
@@ -63,6 +64,7 @@ class InformationPage extends Component {
 
     return menuItem;
   }
+
   render() {
     const { navigation } = this.props;
     return (
