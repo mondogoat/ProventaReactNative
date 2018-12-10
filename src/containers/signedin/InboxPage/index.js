@@ -58,64 +58,69 @@ class InboxPage extends Component {
   renderEmails(emails) {
     const { navigation } = this.props;
 
-    const email = emails.map(({ id, title, date, description, status }) => {
-      return (
-        <View key={id} style={PageStyle.list}>
-          <ListItem
-            onPress={() =>
-              navigation.navigate("InboxDetailsPage", {
-                content: "details"
-              })
-            }
-          >
-            <View style={PageStyle.list}>
-              <View style={{ width: "10%" }}>
-                <View
-                  style={[
-                    PageStyle.listStatus,
-                    status === "read" ? { opacity: 0 } : { opacity: 1 }
-                  ]}
-                  source="../../../assets/read_icon.png"
-                />
+    const email = emails.map(
+      ({ id, title, date, description, status, body }) => {
+        return (
+          <View key={id} style={PageStyle.list}>
+            <ListItem
+              onPress={() =>
+                navigation.navigate("InboxDetailsPage", {
+                  title: title,
+                  date: date,
+                  description: description,
+                  body: body
+                })
+              }
+            >
+              <View style={PageStyle.list}>
+                <View style={{ width: "10%" }}>
+                  <View
+                    style={[
+                      PageStyle.listStatus,
+                      status === "read" ? { opacity: 0 } : { opacity: 1 }
+                    ]}
+                    source="../../../assets/read_icon.png"
+                  />
+                </View>
+                <View style={{ width: "90%" }}>
+                  <Text
+                    style={[
+                      PageStyle.listTitle,
+                      status === "read"
+                        ? PageStyle.listTitle
+                        : PageStyle.readStatus
+                    ]}
+                  >
+                    {title}
+                  </Text>
+                  <Text
+                    style={[
+                      PageStyle.listDate,
+                      status === "read"
+                        ? PageStyle.listDate
+                        : PageStyle.readStatus
+                    ]}
+                  >
+                    {date}
+                  </Text>
+                  <Text
+                    style={[
+                      PageStyle.listDescription,
+                      status === "read"
+                        ? PageStyle.listDescription
+                        : PageStyle.readStatus
+                    ]}
+                  >
+                    {description}
+                  </Text>
+                </View>
               </View>
-              <View style={{ width: "90%" }}>
-                <Text
-                  style={[
-                    PageStyle.listTitle,
-                    status === "read"
-                      ? PageStyle.listTitle
-                      : PageStyle.readStatus
-                  ]}
-                >
-                  {title}
-                </Text>
-                <Text
-                  style={[
-                    PageStyle.listDate,
-                    status === "read"
-                      ? PageStyle.listDate
-                      : PageStyle.readStatus
-                  ]}
-                >
-                  {date}
-                </Text>
-                <Text
-                  style={[
-                    PageStyle.listDescription,
-                    status === "read"
-                      ? PageStyle.listDescription
-                      : PageStyle.readStatus
-                  ]}
-                >
-                  {description}
-                </Text>
-              </View>
-            </View>
-            <View style={PageStyle.listBorder} />
-          </ListItem>
-        </View>
-      );
-    });
+              <View style={PageStyle.listBorder} />
+            </ListItem>
+          </View>
+        );
+      }
+    );
 
     return email;
   }

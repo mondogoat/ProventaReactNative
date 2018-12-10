@@ -10,27 +10,31 @@ class InformationPage extends Component {
       {
         id: 0,
         image: require("../../../assets/facilitators_icon.png"),
-
+        label: "Facilitators",
         name: "FACILITATORS"
       },
       {
         id: 1,
         image: require("../../../assets/participators_icon.png"),
+        label: "Participants",
         name: "PARTICIPANTS"
       },
       {
         id: 2,
         image: require("../../../assets/sponsors_icon.png"),
+        label: "Sponsor",
         name: "SPONSORS"
       },
       {
         id: 3,
         image: require("../../../assets/map_icon.png"),
+        label: "Floor Map",
         name: "FLOOR MAP"
       },
       {
         id: 4,
         image: require("../../../assets/feedback_icon.png"),
+        label: "Feedback",
         name: "FEEDBACK"
       }
     ]
@@ -38,7 +42,7 @@ class InformationPage extends Component {
 
   renderMenu(menu) {
     const { navigation } = this.props;
-    const menuItem = menu.map(({ id, image, name }) => {
+    const menuItem = menu.map(({ id, image, label, name }) => {
       return (
         <View key={id} style={PageStyle.menuContainer}>
           <ListItem
@@ -53,7 +57,7 @@ class InformationPage extends Component {
                 <Image style={PageStyle.menuIcon} source={image} />
               </View>
               <View style={{ width: "75%" }}>
-                <Text style={PageStyle.menuTitle}>{name}</Text>
+                <Text style={PageStyle.menuTitle}>{label}</Text>
               </View>
             </View>
             <View style={PageStyle.menuBorder} />
