@@ -7,7 +7,6 @@ class InboxDetailsPage extends Component {
     const { navigation } = this.props;
     const title = navigation.getParam("title");
     const date = navigation.getParam("date");
-    const description = navigation.getParam("description");
     const body = navigation.getParam("body");
     return (
       <View>

@@ -24,6 +24,7 @@ import CalendarPage from "./containers/signedin/SettingsPage/CalendarPage";
 import NotificationPage from "./containers/signedin/SettingsPage/NotificationPage";
 import InformationPage from "./containers/signedin/InformationPage";
 import InformationDetailsPage from "./containers/signedin/InformationPage/InformationDetailsPage";
+import FacilitatorDetailsPage from "./containers/signedin/InformationPage/FacilitatorDetailsPage";
 import SchedulePage from "./containers/signedin/SchedulePage";
 import ScheduleDetailsPage from "./containers/signedin//SchedulePage/ScheduleDetailsPage";
 import InboxPage from "./containers/signedin/InboxPage";
@@ -49,6 +50,7 @@ const SignedInStack = createStackNavigator(
     NotificationPage: props => <SettingPage {...props} />,
     InformationPage: props => <InformationPage {...props} />,
     InformationDetailsPage: props => <InformationDetailsPage {...props} />,
+    FacilitatorDetailsPage: props => <FacilitatorDetailsPage {...props} />,
     SchedulePage: props => <SchedulePage {...props} />,
     InboxPage: props => <InboxPage {...props} />,
     InboxDetailsPage: props => <InboxDetailsPage {...props} />,

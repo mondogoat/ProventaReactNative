@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { View, ScrollView, Text, Image } from "react-native";
 import { Header, TabbedMenu, Card, ListItem } from "../../../../components";
 import PageStyle from "./styles";
-import { DrawerActions } from "react-navigation";
 
 class InformationDetailsPage extends Component {
   state = {
@@ -74,7 +73,16 @@ class InformationDetailsPage extends Component {
     const facilitator = facilitators.map(({ id, icon, title, name }) => {
       return (
         <View key={id} style={PageStyle.listContainer}>
-          <ListItem onPress={() => console.log("pressed")}>
+          <ListItem
+            onPress={() => {
+              console.log("schedl");
+              navigation.navigate("FacilitatorDetailsPage", {
+                icon: icon,
+                title: title,
+                name: name
+              });
+            }}
+          >
             <View style={PageStyle.list}>
               <View style={{ width: "25%" }}>
                 <Image
