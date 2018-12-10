@@ -70,7 +70,7 @@ class MeetingPage extends Component {
         title: "CEO Wacom Industries"
       }
     ],
-    modalVisible: null,
+    modalVisible: false,
     selectedIndex: 1
   };
 
@@ -217,6 +217,25 @@ class MeetingPage extends Component {
     return facilitator;
   }
 
+  renderDetails() {
+    const { navigation } = this.props;
+    const status = navigation.getParam("status");
+
+    if (status !== "loggedin")
+      return (
+        <View>
+          <Text style={PageStyle.header}> FACILITATORS </Text>
+          {this.renderFacilitators(this.state.facilitators)}
+          <Text style={[PageStyle.header, PageStyle.mapContainer]}>VENUE</Text>
+          {/* For refactoring, must be inside Card */}
+          <View style={PageStyle.mapContainer} />
+          <Card>
+            <Map />
+          </Card>
+        </View>
+      );
+  }
+
   render() {
     const { navigation } = this.props;
     const status = navigation.getParam("status");
@@ -225,6 +244,7 @@ class MeetingPage extends Component {
         <Header
           label="MEETING DETAILS"
           status={status}
+          navigation={navigation}
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <ScrollView>
@@ -239,16 +259,7 @@ class MeetingPage extends Component {
             {this.renderDescription()}
             <Text style={PageStyle.header}> WHAT TO EXPECT </Text>
             {this.renderExpectations(this.state.expectations)}
-            <Text style={PageStyle.header}> FACILITATORS </Text>
-            {this.renderFacilitators(this.state.facilitators)}
-            <Text style={[PageStyle.header, PageStyle.mapContainer]}>
-              VENUE
-            </Text>
-            {/* For refactoring, must be inside Card */}
-            <View style={PageStyle.mapContainer} />
-            <Card>
-              <Map />
-            </Card>
+            {this.renderDetails()}
           </View>
         </ScrollView>
         <TabbedMenu status={status} navigation={navigation} />
