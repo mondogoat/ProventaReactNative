@@ -52,6 +52,7 @@ const SignedInStack = createStackNavigator(
     InformationDetailsPage: props => <InformationDetailsPage {...props} />,
     FacilitatorDetailsPage: props => <FacilitatorDetailsPage {...props} />,
     SchedulePage: props => <SchedulePage {...props} />,
+    ScheduleDetailsPage: props => <ScheduleDetailsPage {...props} />,
     InboxPage: props => <InboxPage {...props} />,
     InboxDetailsPage: props => <InboxDetailsPage {...props} />,
     CheckInPage: props => <CheckInPage {...props} />

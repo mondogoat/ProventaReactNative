@@ -68,7 +68,7 @@ class InformationPage extends Component {
 
     return menuItem;
   }
-
+  
   render() {
     const { navigation } = this.props;
     return (
