@@ -2,9 +2,12 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import ComponentStyle from "./styles";
 
-const Header = ({ onPress, label, status }) => {
+
+const Header = ({ onPress, label, status, navigation }) => {
   renderBackButton = () => {
+    // const content = navigation.getParam("content");
     if (status === "details") {
+      // if (status === "details" || content === "settings") {
       return (
         <Image
           style={ComponentStyle.buttonImage}

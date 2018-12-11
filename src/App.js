@@ -24,6 +24,7 @@ import CalendarPage from "./containers/signedin/SettingsPage/CalendarPage";
 import NotificationPage from "./containers/signedin/SettingsPage/NotificationPage";
 import InformationPage from "./containers/signedin/InformationPage";
 import InformationDetailsPage from "./containers/signedin/InformationPage/InformationDetailsPage";
+import FacilitatorDetailsPage from "./containers/signedin/InformationPage/FacilitatorDetailsPage";
 import SchedulePage from "./containers/signedin/SchedulePage";
 import ScheduleDetailsPage from "./containers/signedin//SchedulePage/ScheduleDetailsPage";
 import InboxPage from "./containers/signedin/InboxPage";
@@ -43,15 +44,17 @@ const SignedInStack = createStackNavigator(
   {
     // SplashPage: props => <SplashPage {...props} />,
     // HomePage: props => <HomePage {...props} />,
-    // MeetingPage: props => <MeetingPage {...props} />,
+    MeetingLoginPage: props => <MeetingPage {...props} />,
     SettingsPage: props => <SettingsPage {...props} />,
     // insert user, calendar and notification if in use
     NotificationPage: props => <SettingPage {...props} />,
     InformationPage: props => <InformationPage {...props} />,
     InformationDetailsPage: props => <InformationDetailsPage {...props} />,
+    FacilitatorDetailsPage: props => <FacilitatorDetailsPage {...props} />,
     SchedulePage: props => <SchedulePage {...props} />,
     ScheduleDetailsPage: props => <ScheduleDetailsPage {...props} />,
     InboxPage: props => <InboxPage {...props} />,
+    InboxDetailsPage: props => <InboxDetailsPage {...props} />,
     CheckInPage: props => <CheckInPage {...props} />
   },
   {
