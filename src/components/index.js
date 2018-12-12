@@ -11,3 +11,4 @@ export * from "./MainButton";
 export * from "./SocialButton";
 export * from "./ModalScreen";
 export * from "./ToggleButton";
+export * from "./Accordion";

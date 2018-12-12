@@ -1,13 +1,14 @@
 import { Dimensions } from "react-native";
-import { GRAY, DARK_GRAY } from "../../../styles/common";
+import { GRAY, DARK_GRAY } from "../../styles/common";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 
-export default (PageStyle = {
+export default (ComponentStyle = {
   container: {
-    flex: 1,
+    flex: 1
   },
+
   ListContainer: {
     width: "95%",
     backgroundColor: "#ffffff",
@@ -28,6 +29,8 @@ export default (PageStyle = {
     paddingTop: SCREEN_WIDTH * 0.025,
     // justifyContent: "center",
     flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
     borderColor: GRAY,
     borderBottomWidth: 1,
   },
@@ -50,18 +53,4 @@ export default (PageStyle = {
     marginTop: SCREEN_HEIGHT * 0.02,
     paddingBottom: SCREEN_HEIGHT * 0.0175
   },
-  dropdownList: {
-    width: "90%",
-    backgroundColor: "#ffffff",
-    padding: SCREEN_WIDTH * 0.05,
-    marginLeft: SCREEN_WIDTH * 0.05,
-    marginRight: SCREEN_WIDTH * 0.05,
-    // marginBottom: 0,
-    // paddingBottom: SCREEN_WIDTH * 0.065,
-    // paddingTop: SCREEN_WIDTH * 0.025,
-    flexDirection: "row",
-    borderColor: GRAY,
-    borderBottomWidth: 1,
-    backgroundColor:"#fbfbfb"
-  }
 });
