@@ -70,7 +70,7 @@ class MeetingPage extends Component {
         title: "CEO Wacom Industries"
       }
     ],
-    modalVisible: null,
+    modalVisible: false,
     selectedIndex: 1
   };
 
@@ -225,6 +225,12 @@ class MeetingPage extends Component {
         <Header
           label="MEETING DETAILS"
           status={status}
+          settings={() =>
+            navigation.navigate("SettingsPage", {
+              content: "settings",
+              previousRoute: "MeetingLoginPage"
+            })
+          }
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <ScrollView>

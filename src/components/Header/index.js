@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import ComponentStyle from "./styles";
 
-const Header = ({ onPress, label, status }) => {
+const Header = ({ onPress, label, status, settings }) => {
   renderBackButton = () => {
     if (status === "details") {
       return (
@@ -31,7 +31,7 @@ const Header = ({ onPress, label, status }) => {
       <Text style={ComponentStyle.title}>{label}</Text>
       {/* Menu Button */}
       <TouchableOpacity
-        onPress={onPress}
+        onPress={settings}
         style={ComponentStyle.buttonStyle}
         disabled={status === "loggedin" ? false : true}
       >

@@ -8,10 +8,9 @@ class ToggleButton extends Component {
       <ToggleSwitch
         isOn={false}
         onColor="green"
-        offColor="red"
-        label="Sample"
-        labelStyle={{ color: "black", fontWeight: "900" }}
-        size="large"
+        offColor="gray"
+        style={{ padding: 20 }}
+        size="small"
         onToggle={isOn => console.log("changed to : ", isOn)}
       />
     );
