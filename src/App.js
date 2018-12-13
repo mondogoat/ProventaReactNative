@@ -47,8 +47,10 @@ const SignedInStack = createStackNavigator(
     MeetingLoginPage: props => <MeetingPage {...props} />,
     SettingsPage: props => <SettingsPage {...props} />,
     // insert user, calendar and notification if in use
-    NotificationPage: props => <SettingPage {...props} />,
+    CalendarPage: props => <CalendarPage {...props} />,
     InformationPage: props => <InformationPage {...props} />,
+    NotificationPage: props => <NotificationPage {...props} />,
+    UserPage: props => <UserPage {...props} />,
     InformationDetailsPage: props => <InformationDetailsPage {...props} />,
     FacilitatorDetailsPage: props => <FacilitatorDetailsPage {...props} />,
     SchedulePage: props => <SchedulePage {...props} />,

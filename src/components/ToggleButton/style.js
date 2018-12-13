@@ -1,12 +1,12 @@
 import { Dimensions } from "react-native";
+import { GRAY, DARK_GRAY } from "../../styles/common";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 
-export default (PageStyle = {
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+export default (ComponentStyle = {
+  labelStyle: {
+    color: "black",
+    fontWeight: "900"
   }
 });
