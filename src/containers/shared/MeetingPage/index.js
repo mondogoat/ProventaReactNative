@@ -244,7 +244,12 @@ class MeetingPage extends Component {
         <Header
           label="MEETING DETAILS"
           status={status}
-          navigation={navigation}
+          settings={() =>
+            navigation.navigate("SettingsPage", {
+              content: "settings",
+              previousRoute: "MeetingLoginPage"
+            })
+          }
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <ScrollView>
