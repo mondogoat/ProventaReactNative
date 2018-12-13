@@ -19,7 +19,7 @@ class SchedulePage extends Component {
         title: "Registration and Breakfast Networking",
         floorplan: {
           location: "Grand Ballroom",
-          image: require("../../../assets/event.png")
+          image: require("../../../assets/floor_map.png")
         },
         events: []
       },
@@ -36,7 +36,7 @@ class SchedulePage extends Component {
         title: "Opening Remarks",
         floorplan: {
           location: "Grand Ballroom",
-          image: require("../../../assets/event.png")
+          image: require("../../../assets/floor_map.png")
         },
         events: []
       },
@@ -53,7 +53,7 @@ class SchedulePage extends Component {
         title: "First Speaker",
         floorplan: {
           location: "Grand Ballroom",
-          image: require("../../../assets/event.png")
+          image: require("../../../assets/floor_map.png")
         },
         events: []
       },
@@ -70,7 +70,7 @@ class SchedulePage extends Component {
         title: "Lunch",
         floorplan: {
           location: "Grand Ballroom",
-          image: require("../../../assets/event.png")
+          image: require("../../../assets/floor_map.png")
         },
         events: []
       }
@@ -91,39 +91,63 @@ class SchedulePage extends Component {
         title: "Breakout Session",
         floorplan: {
           location: "Grand Ballroom",
-          image: require("../../../assets/event.png")
+          image: require("../../../assets/floor_map.png")
         },
         events: [
           {
             id: 0,
             title: "Big Data and Analytics",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 1,
             title: "AI and Machine Learning",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 2,
             title: "Internet of Things (IoT)",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 3,
             title: "Devops",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           }
         ]
@@ -141,39 +165,63 @@ class SchedulePage extends Component {
         title: "Last Speaker",
         floorplan: {
           location: "Grand Ballroom",
-          image: require("../../../assets/event.png")
+          image: require("../../../assets/floor_map.png")
         },
         events: [
           {
             id: 0,
             title: "Big Data and Analytics 4",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom 4",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 1,
             title: "AI and Machine Learning",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 2,
             title: "Internet of Things (IoT)",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 3,
             title: "Devops",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           }
         ]
@@ -191,39 +239,64 @@ class SchedulePage extends Component {
         title: "Closing Remarks",
         floorplan: {
           location: "Grand Ballroom 2",
-          image: require("../../../assets/event.png")
+          image: require("../../../assets/floor_map.png")
         },
         events: [
           {
             id: 0,
             title: "Big Data and Analytics 2",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom 2",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
+            
           },
           {
             id: 1,
             title: "AI and Machine Learning",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 2,
             title: "Internet of Things (IoT)",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 3,
             title: "Devops",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           }
         ]
@@ -242,39 +315,63 @@ class SchedulePage extends Component {
         floorplan: 
         {
           location: "Grand Ballroom 3",
-          image: require("../../../assets/event.png")
+          image: require("../../../assets/floor_map.png")
         },
         events: [
           {
             id: 0,
             title: "Big Data and Analytics 3",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 1,
             title: "AI and Machine Learning",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 2,
             title: "Internet of Things (IoT)",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           },
           {
             id: 3,
             title: "Devops",
+            topic: "Building the next-gen Business",
+            description: "Round Table Discusion",
+            speaker: {
+              name: "Sang Young II",
+              title: "Alibaba CEO"
+            },
             floorplan: {
               location: "Grand Ballroom",
-              image: require("../../../assets/event.png")
+              image: require("../../../assets/floor_map.png")
             }
           }
         ]
@@ -296,14 +393,21 @@ class SchedulePage extends Component {
                     selectedIndex: id
                   },
                   () => {
+                    console.log(floorplan.image)
                     this.props.navigation.navigate("ScheduleDetailsPage",{
-                      location: floorplan.location
+                      location: floorplan.location,
+                      image: floorplan.image,
+                      label: "SCHEDULE DETAILS"
+                      // imageUrl: floorplan.image
                     })
+                    
                   }
                 );
               }}
             >
-              <View style={PageStyle.scheduleList}>
+              <View style={[
+                id == sessions.length-1 ? [PageStyle.scheduleList, { borderBottomWidth: 0 }]
+                : PageStyle.scheduleList]}>
                 <View>
                   <Text style={PageStyle.text}>
                     {time.startingHour}:{time.startingMinute} {time.meridian} - {time.endingHour}:{time.endingMinute} {time.meridian}
@@ -346,7 +450,14 @@ class SchedulePage extends Component {
                 () => {
                   this.props.navigation.navigate("ScheduleDetailsPage",
                     {
-                      location: events[id].floorplan.location
+                      label:  events[id].title,
+                      eventTitle: events[id].title,
+                      location: events[id].floorplan.location,
+                      image: events[id].floorplan.image,
+                      topic: events[id].topic,
+                      description: events[id].description,
+                      name: events[id].speaker.name,
+                      nameTitle: events[id].speaker.title
                     })
                 }
               );
@@ -363,6 +474,9 @@ class SchedulePage extends Component {
     });
     return event;
   };
+  renderFloorPlan(map) {
+    return <Image source={map.image} style={PageStyle.mapImage} />;
+  }
 
   render() {
     const { navigation } = this.props;
