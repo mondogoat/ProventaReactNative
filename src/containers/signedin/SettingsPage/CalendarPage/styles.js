@@ -16,7 +16,7 @@ export default (PageStyle = {
   menuList: {
     backgroundColor: "#ffffff",
     marginRight: SCREEN_WIDTH * 0.025,
-    // marginLeft: SCREEN_WIDTH * 0.01,
+    //marginLeft: SCREEN_WIDTH * 0.01,
     paddingTop: SCREEN_HEIGHT * 0.025,
     paddingBottom: SCREEN_HEIGHT * 0.025,
     justifyContent: "center",
@@ -32,7 +32,8 @@ export default (PageStyle = {
   menuTitle: {
     fontSize: 15,
     color: DARK_GRAY,
-    paddingLeft: SCREEN_WIDTH * 0.01,
+    paddingLeft: SCREEN_WIDTH * 0.07,
+    paddingTop: SCREEN_WIDTH * 0.015,
     backgroundColor: "#ffffff",
     fontWeight: "600"
   },

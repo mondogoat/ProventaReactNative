@@ -41,7 +41,7 @@ class SettingsPage extends Component {
     const { navigation } = this.props;
     const settingsItem = settings.map(({ id, icon, label, name, route }) => {
       return (
-        <View id={id}>
+        <View key={id}>
           <ListItem
             onPress={() => navigation.navigate(route, { content: name })}
           >
