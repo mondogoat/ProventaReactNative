@@ -8,8 +8,7 @@ class SchedulePage extends Component {
     morningSessions: [
       {
         id: 0,
-        time: 
-        {
+        time: {
           startingHour: "7",
           startingMinute: "00",
           meridian: "am",
@@ -25,8 +24,7 @@ class SchedulePage extends Component {
       },
       {
         id: 1,
-        time: 
-        {
+        time: {
           startingHour: "8",
           startingMinute: "00",
           meridian: "am",
@@ -42,8 +40,7 @@ class SchedulePage extends Component {
       },
       {
         id: 2,
-        time: 
-        {
+        time: {
           startingHour: "9",
           startingMinute: "00",
           meridian: "am",
@@ -59,8 +56,7 @@ class SchedulePage extends Component {
       },
       {
         id: 3,
-        time: 
-        {
+        time: {
           startingHour: "10",
           startingMinute: "00",
           meridian: "am",
@@ -74,20 +70,18 @@ class SchedulePage extends Component {
         },
         events: []
       }
-      
     ],
     afternoonSessions: [
       {
         id: 0,
         // time: "11:30-1:30",
-        time: 
-          {
-            startingHour: "12",
-            startingMinute: "00",
-            meridian: "pm",
-            endingHour: "15",
-            endingMinute: "00"
-          },
+        time: {
+          startingHour: "12",
+          startingMinute: "00",
+          meridian: "pm",
+          endingHour: "15",
+          endingMinute: "00"
+        },
         title: "Breakout Session",
         floorplan: {
           location: "Grand Ballroom",
@@ -154,8 +148,7 @@ class SchedulePage extends Component {
       },
       {
         id: 1,
-        time: 
-        {
+        time: {
           startingHour: "15",
           startingMinute: "00",
           meridian: "pm",
@@ -228,8 +221,7 @@ class SchedulePage extends Component {
       },
       {
         id: 2,
-        time: 
-        {
+        time: {
           startingHour: "16",
           startingMinute: "00",
           meridian: "pm",
@@ -255,7 +247,6 @@ class SchedulePage extends Component {
               location: "Grand Ballroom 2",
               image: require("../../../assets/floor_map.png")
             }
-            
           },
           {
             id: 1,
@@ -303,8 +294,7 @@ class SchedulePage extends Component {
       },
       {
         id: 3,
-        time: 
-        {
+        time: {
           startingHour: "17",
           startingMinute: "00",
           meridian: "pm",
@@ -312,8 +302,7 @@ class SchedulePage extends Component {
           endingMinute: "00"
         },
         title: "Dinner",
-        floorplan: 
-        {
+        floorplan: {
           location: "Grand Ballroom 3",
           image: require("../../../assets/floor_map.png")
         },
@@ -379,11 +368,10 @@ class SchedulePage extends Component {
     ],
     selectedIndex: 1
   };
-  
-  renderSessions(sessions){
-    const session = sessions.map(({ id, time, title, events, floorplan}) => {
-      if(events.length==0)
-      {
+
+  renderSessions(sessions) {
+    const session = sessions.map(({ id, time, title, events, floorplan }) => {
+      if (events.length == 0) {
         return (
           <View key={id} style={PageStyle.ListContainer}>
             <ListItem
@@ -393,41 +381,39 @@ class SchedulePage extends Component {
                     selectedIndex: id
                   },
                   () => {
-                    console.log(floorplan.image)
-                    this.props.navigation.navigate("ScheduleDetailsPage",{
+                    console.log(floorplan.image);
+                    this.props.navigation.navigate("ScheduleDetailsPage", {
                       location: floorplan.location,
                       image: floorplan.image,
                       label: "SCHEDULE DETAILS"
                       // imageUrl: floorplan.image
-                    })
-                    
+                    });
                   }
                 );
               }}
             >
-              <View style={[
-                id == sessions.length-1 ? [PageStyle.scheduleList, { borderBottomWidth: 0 }]
-                : PageStyle.scheduleList]}>
+              <View
+                style={[
+                  id == sessions.length - 1
+                    ? [PageStyle.scheduleList, { borderBottomWidth: 0 }]
+                    : PageStyle.scheduleList
+                ]}
+              >
                 <View>
                   <Text style={PageStyle.text}>
-                    {time.startingHour}:{time.startingMinute} {time.meridian} - {time.endingHour}:{time.endingMinute} {time.meridian}
+                    {time.startingHour}:{time.startingMinute} {time.meridian} -{" "}
+                    {time.endingHour}:{time.endingMinute} {time.meridian}
                   </Text>
-                  <Text style={PageStyle.title}>
-                    {title}
-                  </Text>
+                  <Text style={PageStyle.title}>{title}</Text>
                 </View>
               </View>
             </ListItem>
           </View>
         );
-      }
-      else{
+      } else {
         return (
           <View key={id} style={PageStyle.ListContainer}>
-            <Accordion
-              sessionTitle={title}
-              sessionTime={time}
-              >
+            <Accordion sessionTitle={title} sessionTime={time}>
               {this.renderDropdownList(events)}
             </Accordion>
           </View>
@@ -435,10 +421,10 @@ class SchedulePage extends Component {
       }
     });
     return session;
-  };
+  }
 
-  renderDropdownList(events){
-    const event = events.map(({ id, title}) => {
+  renderDropdownList(events) {
+    const event = events.map(({ id, title }) => {
       return (
         <View key={id} style={PageStyle.dropdownList}>
           <ListItem
@@ -448,32 +434,29 @@ class SchedulePage extends Component {
                   selectedIndex: id
                 },
                 () => {
-                  this.props.navigation.navigate("ScheduleDetailsPage",
-                    {
-                      label:  events[id].title,
-                      eventTitle: events[id].title,
-                      location: events[id].floorplan.location,
-                      image: events[id].floorplan.image,
-                      topic: events[id].topic,
-                      description: events[id].description,
-                      name: events[id].speaker.name,
-                      nameTitle: events[id].speaker.title
-                    })
+                  this.props.navigation.navigate("ScheduleDetailsPage", {
+                    label: events[id].title,
+                    eventTitle: events[id].title,
+                    location: events[id].floorplan.location,
+                    image: events[id].floorplan.image,
+                    topic: events[id].topic,
+                    description: events[id].description,
+                    name: events[id].speaker.name,
+                    nameTitle: events[id].speaker.title
+                  });
                 }
               );
             }}
           >
-            <View >
-              <Text style={PageStyle.title}>
-                {title}
-              </Text>
+            <View>
+              <Text style={PageStyle.title}>{title}</Text>
             </View>
           </ListItem>
         </View>
       );
     });
     return event;
-  };
+  }
   renderFloorPlan(map) {
     return <Image source={map.image} style={PageStyle.mapImage} />;
   }
@@ -488,6 +471,12 @@ class SchedulePage extends Component {
           onPress={() => {
             navigation.dispatch(DrawerActions.openDrawer());
           }}
+          settings={() =>
+            navigation.navigate("SettingsPage", {
+              content: "settings",
+              previousRoute: "SchedulePage"
+            })
+          }
         />
         <ScrollView>
           <Text style={PageStyle.header}> MORNING SESSION </Text>

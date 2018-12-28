@@ -68,7 +68,7 @@ class InformationPage extends Component {
 
     return menuItem;
   }
-  
+
   render() {
     const { navigation } = this.props;
     return (
@@ -76,6 +76,12 @@ class InformationPage extends Component {
         <Header
           label="INFORMATION"
           status="loggedin"
+          settings={() =>
+            navigation.navigate("SettingsPage", {
+              content: "settings",
+              previousRoute: "InformationPage"
+            })
+          }
           onPress={() => {
             navigation.dispatch(DrawerActions.openDrawer());
           }}

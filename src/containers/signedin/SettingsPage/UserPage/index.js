@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
-import { Header } from "../../../../components";
+import { Header, InputBox } from "../../../../components";
 import PageStyle from "./styles";
 
 class UserPage extends Component {
@@ -14,6 +14,12 @@ class UserPage extends Component {
           onPress={() => {
             navigation.goBack();
           }}
+        />
+
+        <InputBox
+          label="Name"
+          placeholder="Toni"
+          onChangeText={() => console.log("name")}
         />
       </View>
     );
