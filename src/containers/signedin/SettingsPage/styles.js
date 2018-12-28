@@ -44,11 +44,12 @@ export default (PageStyle = {
     opacity: 0.2
   },
   header: {
-    fontSize: 14,
+    fontSize: 15,
     padding: SCREEN_WIDTH * 0.025,
     color: DARK_GRAY,
     fontWeight: "500",
     marginTop: SCREEN_HEIGHT * 0.01,
-    paddingBottom: SCREEN_HEIGHT * 0.0075
+    paddingBottom: SCREEN_HEIGHT * 0.0075,
+    marginLeft: SCREEN_WIDTH * 0.02
   }
 });

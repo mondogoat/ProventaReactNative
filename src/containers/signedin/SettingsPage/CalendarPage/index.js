@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
-import { ToggleButton, Header, Card, ListItem } from "../../../../components";
+import { View, Text, Switch } from "react-native";
+import { Header, Card, ListItem } from "../../../../components";
 import PageStyle from "./styles";
 
 class CalendarPage extends Component {
@@ -8,26 +8,50 @@ class CalendarPage extends Component {
     calendarItems: [
       {
         id: 0,
-        label: "Sync to Google Calendar"
+        label: "Sync to Google Calendar",
+        toggleStatus: false
       },
       {
         id: 1,
-        label: "Sync to iCloud Calendar"
+        label: "Sync to Phone Calendar",
+        toggleStatus: false
       }
     ]
   };
 
+  toggle(i) {
+    const options = [...this.state.calendarItems];
+    options[i].toggleStatus = !options[i].toggleStatus;
+
+    this.setState({ options });
+
+    if (
+      options[i].label === "Sync to Google Calendar" &&
+      options[i].toggleStatus === true
+    ) {
+      alert("Synced to Google Calendar");
+    } else if (
+      options[i].label === "Sync to Phone Calendar" &&
+      options[i].toggleStatus === true
+    ) {
+      alert("Synced to Phone Calendar");
+    }
+  }
+
   renderCalendarItems(options) {
     const calendarItem = options.map(({ id, label }) => {
       return (
-        <View id={id}>
+        <View key={id}>
           <ListItem>
             <View style={PageStyle.menuList}>
-              <View style={{ width: "75%" }}>
+              <View style={{ width: "82%" }}>
                 <Text style={PageStyle.menuTitle}>{label}</Text>
               </View>
-              <View style={{ width: "25%" }}>
-                <ToggleButton />
+              <View style={{ width: "18%" }}>
+                <Switch
+                  value={this.state.calendarItems[id].toggleStatus}
+                  onValueChange={this.toggle.bind(this, id)}
+                />
               </View>
             </View>
             <View style={PageStyle.menuBorder} />
