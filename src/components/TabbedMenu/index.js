@@ -35,7 +35,12 @@ class TabbedMenu extends Component {
           status="SI"
           image={require("../../assets/proventa_logo_gray.png")}
           label="Menu"
-          onPress={() => navigation.navigate("MeetingPage")}
+          onPress={() =>
+            navigation.navigate("MeetingLoginPage", {
+              status: "loggedin",
+              content: "settings"
+            })
+          }
         />
         <MenuButton
           status="SI"

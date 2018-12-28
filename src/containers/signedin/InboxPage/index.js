@@ -132,6 +132,12 @@ class InboxPage extends Component {
         <Header
           label="INBOX"
           status="loggedin"
+          settings={() =>
+            navigation.navigate("SettingsPage", {
+              content: "settings",
+              previousRoute: "InboxPage"
+            })
+          }
           onPress={() => {
             navigation.dispatch(DrawerActions.openDrawer());
           }}

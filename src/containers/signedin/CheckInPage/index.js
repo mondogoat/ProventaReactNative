@@ -15,6 +15,12 @@ class CheckInPage extends Component {
           onPress={() => {
             navigation.dispatch(DrawerActions.openDrawer());
           }}
+          settings={() =>
+            navigation.navigate("SettingsPage", {
+              content: "settings",
+              previousRoute: "CheckInPage"
+            })
+          }
         />
         <Text> This is Check In Page</Text>
         <TabbedMenu navigation={navigation} status="loggedin" />
