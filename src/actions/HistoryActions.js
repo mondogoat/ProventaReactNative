@@ -21,7 +21,7 @@ export const fetchHistory = userId => {
 };
 
 //Update History
-export const updateCalendarSettings = (form, callback) => {
+export const updateHistory = (form, callback) => {
   try {
     const request = await axios.PATCH(
       `${SERVER_ADDRESS}/${form.userId}/history`,
