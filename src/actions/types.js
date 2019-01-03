@@ -59,3 +59,13 @@ export const MESSAGE_UPDATE_FAIL = "message_update_fail";
 
 //Searching meetings
 export const FETCH_FILTERED_MEETINGS = "fetch_filtered_meetings";
+
+//============================ HISTORY ACTIONS ============================//
+
+//Getting list of history
+export const FETCH_HISTORY = "fetch_history";
+
+//Update current history
+export const HISTORY_UPDATE = "history_update";
+export const HISTORY_UPDATE_SUCCESS = "history_update_success";
+export const HISTORY_UPDATE_FAIL = "history_update_fail";
