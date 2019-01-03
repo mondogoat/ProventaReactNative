@@ -46,12 +46,12 @@ export const updateProfile = (form, callback) => {
     if (request.status === "SUCCESS") {
       dispatch({
         type: PROFILE_UPDATE_SUCCESS,
-        payload: "Profile Update Success"
+        payload: "Profile Update Successful"
       });
     } else {
       dispatch({
         type: PROFILE_UPDATE_FAIL,
-        payload: "Profile Update Fail"
+        payload: "Profile Update Failed"
       });
     }
   } catch (error) {

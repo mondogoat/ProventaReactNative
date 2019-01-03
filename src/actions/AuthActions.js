@@ -26,7 +26,7 @@ export const signUp = (form, callback) => async dispatch => {
     if (request.result === "SUCCESS") {
       dispatch({
         type: AUTH_SIGNUP_SUCCESS,
-        payload: "Sign Up Success"
+        payload: "Sign Up Successful"
       });
     } else {
       dispatch({
