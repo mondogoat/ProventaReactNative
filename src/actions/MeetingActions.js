@@ -31,7 +31,7 @@ export const fetchMeetings = (status, userId) => {
 
 
 //Retrieve fitered meetings
-export const fetchMeetings = (query) => {
+export const fetchFilteredMeetings = (query) => {
     try {
     const request = await axios.GET(`${SERVER_ADDRESS}/meetings/${query}`);
       if (request.status === "SUCCESS") {
