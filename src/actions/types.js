@@ -35,8 +35,10 @@ export const PROFILE_UPDATE_FAIL = "profile_update_fail";
 // i.e ( "email_notifications" , true )
 export const SETTINGS_UPDATE = "settings_update";
 
-// Getting Current Settings
-export const FETCH_SETTINGS = "fetch_settings";
+// Getting Current Calendar Settings
+export const FETCH_CALENDAR_SETTINGS = "fetch_calendar_settings";
+// Getting Current Notification Settings
+export const FETCH_NOTIFICATION_SETTINGS = "fetch_notification_settings";
 
 // Updating Settings
 export const SETTINGS_CONFIG_SUCCESS = "settings_config_success";
