@@ -15,9 +15,9 @@ export const updateUser = ({ prop, value }) => {
 };
 
 //Retrieve user profile
-export const fetchProfile = () => {
+export const fetchProfile = token => {
   try {
-    const request = await axios.GET(`${SERVER_ADDRESS}/user`);
+    const request = await axios.GET(`${SERVER_ADDRESS}/user/${token}`);
 
     if (request.status === "SUCCESS") {
       dispatch({
@@ -33,7 +33,7 @@ export const fetchProfile = () => {
 //Update User Profile
 export const updateProfile = (form, callback) => {
   try {
-    const request = await axios.PATCH(`${SERVER_ADDRESS}/user`, {
+    const request = await axios.PATCH(`${SERVER_ADDRESS}/user/${form.userId}`, {
       firstName: form.firstName,
       lastName: form.lastName,
       emailAddress: form.emailAddress,
