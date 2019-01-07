@@ -30,6 +30,38 @@ export const fetchProfile = token => {
   }
 };
 
+//TODO Create POST User Profile
+
+//Update User Profile
+export const updateProfile = (form, callback) => {
+  try {
+    const request = await axios.POST(`${SERVER_ADDRESS}/user`, {
+      firstName: form.firstName,
+      lastName: form.lastName,
+      emailAddress: form.emailAddress,
+      position: form.position,
+      company: form.company,
+      contactNumber: form.contactNumber,
+      linkedIn: form.linkedIn
+    });
+
+    if (request.status === "SUCCESS") {
+      dispatch({
+        type: PROFILE_UPDATE_SUCCESS,
+        payload: "Profile Creation Successful"
+      });
+    } else {
+      dispatch({
+        type: PROFILE_UPDATE_FAIL,
+        payload: "Profile Creation Failed"
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 //Update User Profile
 export const updateProfile = (form, callback) => {
   try {
