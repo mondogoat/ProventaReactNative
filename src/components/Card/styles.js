@@ -7,6 +7,8 @@ export default (ComponentStyle = {
   container: {
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
+    position: "relative",
     width: SCREEN_WIDTH * 0.95,
     borderRadius: 1.5,
     shadowColor: "#F5F5F5",

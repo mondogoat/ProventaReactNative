@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Switch } from "react-native";
-import { Header, Card, ListItem } from "../../../../components";
+import { Header, Card, ListItem, TabbedMenu } from "../../../../components";
 import PageStyle from "./styles";
 
 class CalendarPage extends Component {
@@ -74,6 +74,7 @@ class CalendarPage extends Component {
           }}
         />
         <Card>{this.renderCalendarItems(this.state.calendarItems)}</Card>
+        <TabbedMenu navigation={navigation} status="loggedin" />
       </View>
     );
   }
