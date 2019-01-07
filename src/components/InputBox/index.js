@@ -6,7 +6,7 @@ class InputBox extends Component {
   render() {
     const { label, placeholder, onChangeText } = this.props;
     return (
-      <View style={ComponentStyle.searchSection}>
+      <View style={ComponentStyle.container}>
         <Text style={ComponentStyle.label}> {label}</Text>
         <TextInput
           style={ComponentStyle.input}

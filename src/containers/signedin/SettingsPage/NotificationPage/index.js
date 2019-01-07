@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Switch } from "react-native";
-import { Header, Card, ListItem } from "../../../../components";
+import { Header, Card, ListItem, TabbedMenu } from "../../../../components";
 import PageStyle from "./styles";
 
 class Notificationpage extends Component {
@@ -84,6 +84,7 @@ class Notificationpage extends Component {
           }}
         />
         <Card>{this.renderNotifItems(this.state.notifItems)}</Card>
+        <TabbedMenu navigation={navigation} status="loggedin" />
       </View>
     );
   }

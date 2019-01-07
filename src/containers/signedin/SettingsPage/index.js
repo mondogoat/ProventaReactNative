@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Image } from "react-native";
-import { Header, ListItem, Card } from "../../../components";
+import { Header, ListItem, Card, TabbedMenu } from "../../../components";
 import PageStyle from "./styles";
 
 class SettingsPage extends Component {
@@ -78,6 +78,7 @@ class SettingsPage extends Component {
         />
         <Text style={PageStyle.header}>GENERAL</Text>
         <Card>{this.renderSettingsItems(this.state.settingsItems)}</Card>
+        <TabbedMenu navigation={navigation} status="loggedin" />
       </View>
     );
   }
