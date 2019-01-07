@@ -12,7 +12,6 @@ export const AUTH_SIGNUP_SUCCESS = "auth_signup_success";
 export const AUTH_SIGNUP_FAIL = "auth_signup_fail";
 
 //Login, Login with Google, Login with LinkedIn
-export const AUTH_LOGIN = "auth_login";
 export const AUTH_LOGIN_SUCCESS = "auth_login_success";
 export const AUTH_LOGIN_FAIL = "auth_login_fail";
 

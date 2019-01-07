@@ -18,7 +18,7 @@ export const updateAuth = ({ prop, value }) => {
 export const signUp = (form, callback) => async dispatch => {
   try {
     const request = await axios.post(`${SERVER_ADDRESS}/signup`, {
-      email: form.emailAddress,
+      emailAddress: form.emailAddress,
       password: form.password
     });
 
@@ -45,8 +45,8 @@ export const signUp = (form, callback) => async dispatch => {
 
 export const login = (form, callback) => async dispatch => {
   try {
-    await axios.post(`${SERVER_ADDRESS}/login`, {
-      email: form.emailAddress,
+    const request = await axios.post(`${SERVER_ADDRESS}/login`, {
+      emailAddress: form.emailAddress,
       password: form.password
     });
 
