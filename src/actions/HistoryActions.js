@@ -20,6 +20,31 @@ export const fetchHistory = userId => {
   }
 };
 
+//Create History
+export const createHistory = (form, callback) => {
+  try {
+    const request = await axios.POST(`${SERVER_ADDRESS}/history`, {
+      userId: form.userId,
+      meetingId: form.meetingId,
+      date: form.date
+    });
+
+    if (request.status === "SUCCESS") {
+      dispatch({
+        type: HISTORY_UPDATE_SUCCESS,
+        payload: "History Log Successful"
+      });
+    } else {
+      dispatch({
+        type: HISTORY_UPDATE_FAIL,
+        payload: "History Log Failed"
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //Update History
 export const updateHistory = (form, callback) => {
   try {
