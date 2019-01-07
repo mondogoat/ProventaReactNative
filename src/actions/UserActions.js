@@ -33,7 +33,7 @@ export const fetchProfile = token => {
 //TODO Create POST User Profile
 
 //Update User Profile
-export const updateProfile = (form, callback) => {
+export const createProfile = (form, callback) => {
   try {
     const request = await axios.POST(`${SERVER_ADDRESS}/user`, {
       firstName: form.firstName,
@@ -60,7 +60,6 @@ export const updateProfile = (form, callback) => {
     console.log(error);
   }
 };
-
 
 //Update User Profile
 export const updateProfile = (form, callback) => {
