@@ -19,7 +19,7 @@ export const updateSettings = ({ prop, value }) => {
 export const fetchCalendarSettings = userId => {
   try {
     const request = await axios.GET(
-      `${SERVER_ADDRESS}/${userId}/settings/calendar`
+      `${SERVER_ADDRESS}/user/${userId}/settings/calendar`
     );
 
     if (request.status === "SUCCESS") {
@@ -37,7 +37,7 @@ export const fetchCalendarSettings = userId => {
 export const fetchNotificationSettings = userId => {
   try {
     const request = await axios.GET(
-      `${SERVER_ADDRESS}/${userId}/settings/notification`
+      `${SERVER_ADDRESS}/user/${userId}/settings/notification`
     );
 
     if (request.status === "SUCCESS") {
