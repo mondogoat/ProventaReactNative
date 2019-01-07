@@ -13,6 +13,7 @@ export const fetchMeetings = (status, userId) => {
     //Status determines if user is anonymous or signedIn
     if (status === "anonymous") {
       const request = await axios.GET(`${SERVER_ADDRESS}/meetings`);
+      // const request = await axios.GET(`https://f26a42a0-4b0f-4b15-91cf-90f1774b2f4a.mock.pstmn.io/meetings?x-api-key=aa39a0c36de24f86a285dbd63e1b7ffd`)
       dispatch({
         type: FETCH_MEETINGS,
         payload: request.data
