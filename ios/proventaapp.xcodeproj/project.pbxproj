@@ -338,6 +338,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		FE6F2A5D21E5B48C00ADB53C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE6F2A3321E5B48C00ADB53C /* RNCamera.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RNCamera;
+		};
 		FE86A04521AD291800AFB8FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FE86A04121AD291700AFB8FB /* AirMaps.xcodeproj */;
@@ -385,6 +392,7 @@
 		DACFCCF273A8B55D0023BBCC /* Pods-proventaappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proventaappTests/Pods-proventaappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ECB8A7C94BFAAEFFDB3C0DAE /* Pods-proventaapp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaapp-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proventaapp-tvOS/Pods-proventaapp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F03439288832DA3B9F1B6CA2 /* Pods-proventaapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proventaapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proventaapp/Pods-proventaapp.debug.xcconfig"; sourceTree = "<group>"; };
+		FE6F2A3321E5B48C00ADB53C /* RNCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
 		FE86A00821AD281400AFB8FB /* AIRGoogleMapPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapPolyline.h; sourceTree = "<group>"; };
 		FE86A00921AD281400AFB8FB /* AIRGoogleMapUrlTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapUrlTile.m; sourceTree = "<group>"; };
 		FE86A00A21AD281400AFB8FB /* AIRGoogleMapMarkerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapMarkerManager.h; sourceTree = "<group>"; };
@@ -650,6 +658,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				FE6F2A3321E5B48C00ADB53C /* RNCamera.xcodeproj */,
 				FE86A04121AD291700AFB8FB /* AirMaps.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -708,6 +717,14 @@
 			children = (
 				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE6F2A3421E5B48C00ADB53C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE6F2A5E21E5B48C00ADB53C /* libRNCamera.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -937,6 +954,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = FE6F2A3421E5B48C00ADB53C /* Products */;
+					ProjectRef = FE6F2A3321E5B48C00ADB53C /* RNCamera.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1209,6 +1230,13 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FE6F2A5E21E5B48C00ADB53C /* libRNCamera.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCamera.a;
+			remoteRef = FE6F2A5D21E5B48C00ADB53C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		FE86A04621AD291800AFB8FB /* libAirMaps.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1333,7 +1361,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-proventaapp/Pods-proventaapp-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-proventaapp/Pods-proventaapp-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1344,7 +1372,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-proventaapp/Pods-proventaapp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-proventaapp/Pods-proventaapp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D43D5FE48281F749FDA51699 /* [CP] Check Pods Manifest.lock */ = {
