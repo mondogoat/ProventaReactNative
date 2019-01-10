@@ -25,7 +25,8 @@ class ModalScreen extends Component {
       open: false
     });
   }
-  renderContent(icon, name, title) {
+
+  renderFacilitator(icon, name, title) {
     return (
       <View style={ComponentStyle.container}>
         <TouchableOpacity
@@ -84,8 +85,6 @@ class ModalScreen extends Component {
   render() {
     const { facilitator } = this.props;
     const { icon, name, title } = facilitator;
-    console.log("hello");
-    console.log(this.props);
     return (
       <Modal
         animationType="slide"
@@ -96,7 +95,7 @@ class ModalScreen extends Component {
         }}
       >
         <View style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.7)" }}>
-          {this.renderContent(icon, name, title)}
+          {this.renderFacilitator(icon, name, title)}
         </View>
       </Modal>
     );

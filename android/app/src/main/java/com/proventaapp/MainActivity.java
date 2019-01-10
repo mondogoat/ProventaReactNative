@@ -1,4 +1,5 @@
 package com.proventaapp;
+import com.calendarevents.CalendarEventsPackage;
 
 import com.facebook.react.ReactActivity;
 
@@ -12,4 +13,11 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "proventaapp";
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        CalendarEventsPackage.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
 }

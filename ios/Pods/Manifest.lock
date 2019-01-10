@@ -6,16 +6,28 @@ PODS:
     - GoogleMaps/Base
   - React (0.57.5):
     - React/Core (= 0.57.5)
+  - react-native-camera (1.8.0):
+    - React
+    - react-native-camera/RCT (= 1.8.0)
+    - react-native-camera/RN (= 1.8.0)
+  - react-native-camera/RCT (1.8.0):
+    - React
+  - react-native-camera/RN (1.8.0):
+    - React
   - react-native-maps (0.20.1):
     - React
   - React/Core (0.57.5):
     - yoga (= 0.57.5.React)
+  - ReactNativePermissions (1.1.1):
+    - React
   - yoga (0.57.5.React)
 
 DEPENDENCIES:
   - GoogleMaps
   - React (from `../node_modules/react-native`)
+  - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-maps (from `../node_modules/react-native-maps`)
+  - ReactNativePermissions (from `../node_modules/react-native-permissions`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -25,17 +37,23 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   React:
     :path: "../node_modules/react-native"
+  react-native-camera:
+    :path: "../node_modules/react-native-camera"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
+  ReactNativePermissions:
+    :path: "../node_modules/react-native-permissions"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
-  React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
-  react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
-  yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
+  React: 01aa04500b2957c2767e1dff9fe12e09444a467c
+  react-native-camera: d0384b1c8216b3b0389a8b625533b1339f6b286f
+  react-native-maps: 6ab4fa4f78e88824ec300de0eb412f0556b6a84b
+  ReactNativePermissions: 2e324bb3baf12702e3ec27f76c8ae1158fa69fc6
+  yoga: a5c0ba30ebe82c13612b4c9301ad29708b8978dc
 
-PODFILE CHECKSUM: 7ddf22cab463c4c01c30c8e54bbe2c37b99bd72e
+PODFILE CHECKSUM: e3f49ea9703e5dff56a060fb9605b99c262552fe
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.2
