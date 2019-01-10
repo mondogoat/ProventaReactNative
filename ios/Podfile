@@ -17,6 +17,8 @@ target 'proventaapp' do
 
     pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
 
+    pod 'react-native-calendar-events', :path => '../node_modules/react-native-calendar-events'
+
   end
 
   target 'proventaappTests' do

@@ -9,7 +9,9 @@
     <string>Your message to user when the photo library is accessed for the first time</string>
     <!-- Include this only if you are planning to use the microphone for video recording -->
     <key>NSMicrophoneUsageDescription</key>
-<string>Your message to user when the microsphone is accessed for the first time</string>
+    <string>Your message to user when the microsphone is accessed for the first time</string>
+	<key>NSCalendarsUsageDescription</key>
+    <string>This app requires access to the calendar</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

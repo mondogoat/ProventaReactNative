@@ -4,7 +4,6 @@ import { Header, TabbedMenu } from "../../../components";
 import PageStyle from "./styles";
 import { DrawerActions } from "react-navigation";
 import QRCodeScanner from "react-native-qrcode-scanner";
-import Camera from "react-native-camera";
 
 class CheckInPage extends Component {
   state = {
