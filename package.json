@@ -12,6 +12,7 @@
     "react-native-calendar-events": "^1.6.4",
     "react-native-camera": "^1.8.0",
     "react-native-modal": "^7.0.1",
+    "react-native-onesignal": "^3.2.12",
     "react-native-qrcode-scanner": "^1.1.2",
     "react-navigation": "^2.16.0"
   },
