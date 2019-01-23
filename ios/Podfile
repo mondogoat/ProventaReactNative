@@ -19,6 +19,8 @@ target 'proventaapp' do
 
     pod 'react-native-calendar-events', :path => '../node_modules/react-native-calendar-events'
 
+    pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
+
   end
 
   target 'proventaappTests' do
@@ -34,8 +36,6 @@ target 'proventaapp' do
   pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
  
   pod 'GoogleMaps'
-
-
 
 end
 

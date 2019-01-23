@@ -7,7 +7,7 @@ buildscript {
         compileSdkVersion = 27
         targetSdkVersion = 26
         supportLibVersion = "27.1.1"
-        googlePlayServicesVersion = "12.0.1"
+        googlePlayServicesVersion = "10.2.4"
     }
     repositories {
         google()
@@ -15,8 +15,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-//        classpath 'com.google.gms:google-services:3.2.1'
-        classpath 'com.google.gms:google-services:3.2.0'
+        classpath 'com.google.gms:google-services:3.2.1'
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -35,12 +35,12 @@ allprojects {
             url "$rootDir/../node_modules/react-native/android"
         }
 
-//        configurations.all {
-//            resolutionStrategy {
-//                force "com.google.android.gms:play-services-basement:$googlePlayServicesVersion"
-//                force "com.google.android.gms:play-services-tasks:$googlePlayServicesVersion"
-//            }
-//        }
+        configurations.all {
+            resolutionStrategy {
+                force "com.google.android.gms:play-services-basement:$googlePlayServicesVersion"
+                force "com.google.android.gms:play-services-tasks:$googlePlayServicesVersion"
+            }
+        }
     }
 }
 

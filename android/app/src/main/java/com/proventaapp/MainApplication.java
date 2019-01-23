@@ -3,7 +3,7 @@ package com.proventaapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.amazonaws.amplify.pushnotification.RNPushNotificationPackage;
+import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import com.calendarevents.CalendarEventsPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -11,6 +11,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.onesignal.OneSignal;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNPushNotificationPackage(),
+            new ReactNativeOneSignalPackage(),
             new CalendarEventsPackage(),
             new RNCameraPackage(),
             new MapsPackage()
@@ -49,5 +50,11 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+
+    // OneSignal Initialization
+    OneSignal.startInit(this)
+            .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+            .unsubscribeWhenNotificationsAreDisabled(true)
+            .init();
   }
 }

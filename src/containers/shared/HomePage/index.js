@@ -1,28 +1,65 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { DrawerActions } from "react-navigation";
-import { Text, View, ScrollView, Image, ActivityIndicator } from "react-native";
-import PageStyle from "./styles";
+import { Text, View, ScrollView, Image } from "react-native";
 import { Header, TabbedMenu, Card, ListItem } from "../../../components";
-import { fetchStaticMeetings } from "../../../actions";
+import PageStyle from "./styles";
+import { DrawerActions } from "react-navigation";
 
 class HomePage extends Component {
-  componentDidMount() {
-    this.props.fetchStaticMeetings("anonymous", null);
-  }
-
-  renderContent() {
-    const { hasLoadedMeetings } = this.props;
-    console.log(hasLoadedMeetings);
-    if (hasLoadedMeetings) {
-      return <View>{this.renderCategories()}</View>;
-    }
-    return <ActivityIndicator loaded={hasLoadedMeetings} size="large" />;
-  }
+  state = {
+    meetings: [
+      {
+        id: 1,
+        region: "APAC",
+        events: [
+          {
+            id: "apac1",
+            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
+            description: "HR Leaders Strategy Meeting APAC",
+            event: "Singapore 2018"
+          },
+          {
+            id: "apac2",
+            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
+            description: "HR Leaders Strategy Meeting APAC",
+            event: "Malaysia 2018"
+          },
+          {
+            id: "apac3",
+            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
+            description: "HR Leaders Strategy Meeting APAC",
+            event: "Hongkong 2018"
+          }
+        ]
+      },
+      {
+        id: 2,
+        region: "EUROPE",
+        events: [
+          {
+            id: "europe1",
+            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
+            description: "HR Leaders Strategy Meeting APAC",
+            event: "France 2018"
+          },
+          {
+            id: "europe2",
+            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
+            description: "HR Leaders Strategy Meeting APAC",
+            event: "Germany 2018"
+          },
+          {
+            id: "europe",
+            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
+            description: "HR Leaders Strategy Meeting APAC",
+            event: "Italy 2018"
+          }
+        ]
+      }
+    ]
+  };
 
   renderCategories() {
-    const { meetings } = this.props;
-    const meeting = meetings.map(({ id, region, events }) => {
+    const category = this.state.meetings.map(({ id, region, events }) => {
       return (
         <View key={id} style={PageStyle.eventList}>
           <Text style={PageStyle.region}> {region}</Text>
@@ -36,12 +73,12 @@ class HomePage extends Component {
       );
     });
 
-    return meeting;
+    return category;
   }
 
   renderEvents(events) {
     const { navigation } = this.props;
-    const event = events.map(({ id, title, description, event }) => {
+    const meeting = events.map(({ id, title, description, event }) => {
       return (
         <View key={id}>
           <ListItem onPress={() => navigation.navigate("MeetingPage")}>
@@ -54,7 +91,7 @@ class HomePage extends Component {
       );
     });
 
-    return event;
+    return meeting;
   }
 
   render() {
@@ -84,7 +121,7 @@ class HomePage extends Component {
               </View>
             </Card>
           </ListItem>
-          {this.renderContent()}
+          {this.renderCategories()}
         </ScrollView>
         <TabbedMenu navigation={navigation} />
       </View>
@@ -92,16 +129,4 @@ class HomePage extends Component {
   }
 }
 
-const mapStatetoProps = ({ meeting }) => {
-  const { meetings, hasLoadedMeetings } = meeting;
-
-  return {
-    meetings,
-    hasLoadedMeetings
-  };
-};
-
-export default connect(
-  mapStatetoProps,
-  { fetchStaticMeetings }
-)(HomePage);
+export default HomePage;

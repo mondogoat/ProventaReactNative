@@ -6,7 +6,6 @@ import {
   AUTH_LOGIN_FAIL,
   SERVER_ADDRESS
 } from "./types";
-import axios from "axios";
 
 //Update emailAddress and password field
 export const updateAuth = ({ prop, value }) => {
@@ -55,8 +54,7 @@ export const login = (form, callback) => async dispatch => {
     if (request.result === "SUCCESS") {
       dispatch({
         type: AUTH_LOGIN_SUCCESS,
-        payload: "Login Success",
-        token: request.token
+        payload: "Login Success"
       });
     } else {
       dispatch({

@@ -28,8 +28,8 @@ class CalendarPage extends Component {
           endingHour: "8",
           endingMinute: "00"
         },
-        startDate: new Date("02/21/2019 08:30:00"),
-        endDate: new Date("02/21/2019 12:30:00"),
+        startDate: new Date("02/16/2019 08:30:00"),
+        endDate: new Date("02/16/2019 12:30:00"),
         title: "Pearl Pay Discussion",
         floorplan: {
           location: "Grand Ballroom"
@@ -46,8 +46,8 @@ class CalendarPage extends Component {
           endingHour: "8",
           endingMinute: "00"
         },
-        startDate: new Date("02/22/2019 10:30:00"),
-        endDate: new Date("02/22/2019 14:00:00"),
+        startDate: new Date("02/17/2019 10:30:00"),
+        endDate: new Date("02/17/2019 14:00:00"),
         title: "Skylabs Introduction",
         floorplan: {
           location: "Concert Hall"
@@ -64,8 +64,8 @@ class CalendarPage extends Component {
           endingHour: "8",
           endingMinute: "00"
         },
-        startDate: new Date("02/23/2019 8:30:00"),
-        endDate: new Date("02/23/2019 11:00:00"),
+        startDate: new Date("02/14/2019 8:30:00"),
+        endDate: new Date("02/14/2019 11:00:00"),
         title: "Skylabs Introduction",
         floorplan: {
           location: "Concert Hall"
@@ -79,12 +79,12 @@ class CalendarPage extends Component {
 
   resolvePromises(promise, meetingItems, i) {
     return promise
-      .then(function () {
-        return new Promise(function (r) {
+      .then(function() {
+        return new Promise(function(r) {
           return setTimeout(r, 300);
         });
       })
-      .then(function () {
+      .then(function() {
         RNCalendarEvents.saveEvent(meetingItems[i].title, {
           location: meetingItems[i].floorplan.location,
           startDate: meetingItems[i].startDate.toISOString(),
@@ -99,10 +99,10 @@ class CalendarPage extends Component {
       promise = this.resolvePromises(promise, meetingItems, i);
     }
     promise
-      .then(function () {
+      .then(function() {
         alert("You have successfully synced all events to your local phone.");
       })
-      .catch(function (e) {
+      .catch(function(e) {
         console.log(e.message);
       });
   }
@@ -112,6 +112,7 @@ class CalendarPage extends Component {
     options[i].toggleStatus = !options[i].toggleStatus;
 
     this.setState({ options });
+
     if (
       options[i].label === "Sync to Google Calendar" &&
       options[i].toggleStatus === true
