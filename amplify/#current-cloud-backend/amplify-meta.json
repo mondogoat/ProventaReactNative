@@ -1,0 +1,49 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "roventaeactative-20190122113217-authRole",
+			"UnauthRoleArn": "arn:aws:iam::783386353463:role/roventaeactative-20190122113217-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::783386353463:role/roventaeactative-20190122113217-authRole",
+			"Region": "ap-southeast-1",
+			"DeploymentBucketName": "roventaeactative-20190122113217-deployment",
+			"UnauthRoleName": "roventaeactative-20190122113217-unauthRole",
+			"StackName": "roventaeactative-20190122113217",
+			"StackId": "arn:aws:cloudformation:ap-southeast-1:783386353463:stack/roventaeactative-20190122113217/51a46780-1df6-11e9-9f27-0234ddb63b12"
+		}
+	},
+	"notifications": {
+		"ProventeMeetings": {
+			"service": "Pinpoint",
+			"output": {
+				"Name": "ProventeMeetings",
+				"Id": "97ee28a3346d4dd2aa8782cc481eee54",
+				"Region": "us-west-2",
+				"APNS": {
+					"ApplicationId": "97ee28a3346d4dd2aa8782cc481eee54",
+					"CreationDate": "2019-01-22T03:39:00.641Z",
+					"DefaultAuthenticationMethod": "Certificate",
+					"Enabled": true,
+					"HasCredential": true,
+					"HasTokenKey": false,
+					"Id": "apns",
+					"IsArchived": false,
+					"LastModifiedDate": "2019-01-22T03:39:00.642Z",
+					"Platform": "APNS",
+					"Version": 1
+				},
+				"FCM": {
+					"ApplicationId": "97ee28a3346d4dd2aa8782cc481eee54",
+					"CreationDate": "2019-01-22T05:27:18.623Z",
+					"Enabled": true,
+					"HasCredential": true,
+					"Id": "gcm",
+					"IsArchived": false,
+					"LastModifiedDate": "2019-01-22T05:27:18.623Z",
+					"Platform": "GCM",
+					"Version": 1
+				}
+			},
+			"lastPushTimeStamp": "2019-01-22T03:36:31.513Z"
+		}
+	}
+}

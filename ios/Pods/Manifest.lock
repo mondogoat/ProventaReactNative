@@ -6,6 +6,8 @@ PODS:
     - GoogleMaps/Base
   - React (0.57.5):
     - React/Core (= 0.57.5)
+  - react-native-calendar-events (1.6.4):
+    - React
   - react-native-camera (1.8.0):
     - React
     - react-native-camera/RCT (= 1.8.0)
@@ -25,6 +27,7 @@ PODS:
 DEPENDENCIES:
   - GoogleMaps
   - React (from `../node_modules/react-native`)
+  - react-native-calendar-events (from `../node_modules/react-native-calendar-events`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - ReactNativePermissions (from `../node_modules/react-native-permissions`)
@@ -37,6 +40,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   React:
     :path: "../node_modules/react-native"
+  react-native-calendar-events:
+    :path: "../node_modules/react-native-calendar-events"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
   react-native-maps:
@@ -49,11 +54,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   React: 01aa04500b2957c2767e1dff9fe12e09444a467c
+  react-native-calendar-events: ee9573e355711ac679e071be70789542431f4ce3
   react-native-camera: d0384b1c8216b3b0389a8b625533b1339f6b286f
   react-native-maps: 6ab4fa4f78e88824ec300de0eb412f0556b6a84b
   ReactNativePermissions: 2e324bb3baf12702e3ec27f76c8ae1158fa69fc6
   yoga: a5c0ba30ebe82c13612b4c9301ad29708b8978dc
 
-PODFILE CHECKSUM: e3f49ea9703e5dff56a060fb9605b99c262552fe
+PODFILE CHECKSUM: ef7c9ebc59b7b82d531068960b2236f3bce38efd
 
 COCOAPODS: 1.6.0.beta.2

@@ -5,6 +5,7 @@ import {
   SETTINGS_CONFIG_SUCCESS,
   SETTINGS_CONFIG_FAIL
 } from "./types";
+import axios from "axios";
 
 //Update syncGoogle and syncCalendar field
 //Update push, sms, or email
@@ -19,13 +20,16 @@ export const updateSettings = ({ prop, value }) => {
 export const fetchCalendarSettings = userId => {
   try {
     const request = await axios.GET(
-      `${SERVER_ADDRESS}/user/${userId}/settings/calendar`
+      `${SERVER_ADDRESS}/settings/calendar/?userId=${userId}`
     );
 
     if (request.status === "SUCCESS") {
       dispatch({
         type: FETCH_CALENDAR_SETTINGS,
-        payload: request.data
+        payload: {
+          message: "Retrieved Calendar Settings Successfully",
+          data: request.data
+        }
       });
     }
   } catch (error) {
@@ -84,8 +88,8 @@ export const updateNotificationSettings = (form, callback) => {
     const request = await axios.PATCH(
       `${SERVER_ADDRESS}/${form.userId}/settings/notification`,
       {
-        push: form.syncGoogle,
-        sms: form.syncCalendar,
+        push: form.push,
+        sms: form.sms,
         email: form.email
       }
     );

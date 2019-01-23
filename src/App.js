@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dimensions } from "react-native";
+import { Dimensions, Platform } from "react-native";
 import {
   createDrawerNavigator,
   createStackNavigator,
@@ -17,7 +17,6 @@ import LoginPage from "./containers/anonymous/LoginPage";
 import SignUpPage from "./containers/anonymous/SignUpPage";
 
 //signedinroutes
-
 import SettingsPage from "./containers/signedin/SettingsPage";
 import UserPage from "./containers/signedin/SettingsPage/UserPage";
 import CalendarPage from "./containers/signedin/SettingsPage/CalendarPage";
@@ -31,42 +30,39 @@ import InboxPage from "./containers/signedin/InboxPage";
 import InboxDetailsPage from "./containers/signedin/InboxPage/InboxDetailsPage";
 import CheckInPage from "./containers/signedin/CheckInPage";
 import { SideMenu } from "../src/components";
-
-import OneSignal from "react-native-onesignal";
-
+// AWS SNS Push
+import { PushNotificationIOS } from 'react-native';
+import Analytics from '@aws-amplify/analytics';
+import PushNotification from '@aws-amplify/pushnotification';
+import aws_exports from '../aws-exports';
+Analytics.configure(aws_exports);
+PushNotification.configure(aws_exports);
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
+
 class App extends Component {
-  constructor(properties) {
-    super(properties);
-    OneSignal.init("d17849d7-73d4-4dfd-ae5a-76f8bce59ae3");
+  componentDidMount() {
+    // get the notification data when notification is received
+    PushNotification.onNotification((notification) => {
 
-    OneSignal.addEventListener("received", this.onReceived.bind(this));
-    OneSignal.addEventListener("opened", this.onOpened.bind(this));
-    OneSignal.addEventListener("ids", this.onIds.bind(this));
-    OneSignal.configure();
+      // Note that the notification object structure is different from Android and IOS
+      console.log('in app notification', notification);
+      console.log("hello")
+
+      // required on iOS only (see fetchCompletionHandler docs: https://facebook.github.io/react-native/docs/pushnotificationios.html)
+      notification.finish(PushNotificationIOS.FetchResult.NoData);
+    });
+
+    // get the registration token
+    PushNotification.onRegister((token) => {
+      console.log('in app registration', token);
+    });
+
+    // get the notification data when notification is opened
+    PushNotification.onNotificationOpened((notification) => {
+      console.log('the notification is opened', notification);
+    });
   }
-
-  componentWillUnmount() {
-    OneSignal.removeEventListener("received", this.onReceived);
-    OneSignal.removeEventListener("opened", this.onOpened);
-    OneSignal.removeEventListener("ids", this.onIds);
-  }
-
-  onReceived = notification => {
-    console.log("Notification received: ", notification);
-  };
-
-  onOpened = openResult => {
-    console.log("Message: ", openResult.notification.payload.body);
-    console.log("Data: ", openResult.notification.payload.additionalData);
-    console.log("isActive: ", openResult.notification.isAppInFocus);
-    console.log("openResult: ", openResult);
-  };
-
-  onIds = device => {
-    console.log("Device info: ", device);
-  };
 
   render() {
     return <AppStack />;

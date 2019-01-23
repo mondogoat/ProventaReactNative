@@ -1,65 +1,28 @@
 import React, { Component } from "react";
-import { Text, View, ScrollView, Image } from "react-native";
-import { Header, TabbedMenu, Card, ListItem } from "../../../components";
-import PageStyle from "./styles";
+import { connect } from "react-redux";
 import { DrawerActions } from "react-navigation";
+import { Text, View, ScrollView, Image, ActivityIndicator } from "react-native";
+import PageStyle from "./styles";
+import { Header, TabbedMenu, Card, ListItem } from "../../../components";
+import { fetchStaticMeetings } from "../../../actions";
 
 class HomePage extends Component {
-  state = {
-    meetings: [
-      {
-        id: 1,
-        region: "APAC",
-        events: [
-          {
-            id: "apac1",
-            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
-            description: "HR Leaders Strategy Meeting APAC",
-            event: "Singapore 2018"
-          },
-          {
-            id: "apac2",
-            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
-            description: "HR Leaders Strategy Meeting APAC",
-            event: "Malaysia 2018"
-          },
-          {
-            id: "apac3",
-            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
-            description: "HR Leaders Strategy Meeting APAC",
-            event: "Hongkong 2018"
-          }
-        ]
-      },
-      {
-        id: 2,
-        region: "EUROPE",
-        events: [
-          {
-            id: "europe1",
-            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
-            description: "HR Leaders Strategy Meeting APAC",
-            event: "France 2018"
-          },
-          {
-            id: "europe2",
-            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
-            description: "HR Leaders Strategy Meeting APAC",
-            event: "Germany 2018"
-          },
-          {
-            id: "europe",
-            title: "https://i.ibb.co/QYRP3H7/event-description-1.png",
-            description: "HR Leaders Strategy Meeting APAC",
-            event: "Italy 2018"
-          }
-        ]
-      }
-    ]
-  };
+  componentDidMount() {
+    this.props.fetchStaticMeetings("anonymous", null);
+  }
+
+  renderContent() {
+    const { hasLoadedMeetings } = this.props;
+    console.log(hasLoadedMeetings);
+    if (hasLoadedMeetings) {
+      return <View>{this.renderCategories()}</View>;
+    }
+    return <ActivityIndicator loaded={hasLoadedMeetings} size="large" />;
+  }
 
   renderCategories() {
-    const category = this.state.meetings.map(({ id, region, events }) => {
+    const { meetings } = this.props;
+    const meeting = meetings.map(({ id, region, events }) => {
       return (
         <View key={id} style={PageStyle.eventList}>
           <Text style={PageStyle.region}> {region}</Text>
@@ -73,12 +36,12 @@ class HomePage extends Component {
       );
     });
 
-    return category;
+    return meeting;
   }
 
   renderEvents(events) {
     const { navigation } = this.props;
-    const meeting = events.map(({ id, title, description, event }) => {
+    const event = events.map(({ id, title, description, event }) => {
       return (
         <View key={id}>
           <ListItem onPress={() => navigation.navigate("MeetingPage")}>
@@ -91,7 +54,7 @@ class HomePage extends Component {
       );
     });
 
-    return meeting;
+    return event;
   }
 
   render() {
@@ -121,7 +84,7 @@ class HomePage extends Component {
               </View>
             </Card>
           </ListItem>
-          {this.renderCategories()}
+          {this.renderContent()}
         </ScrollView>
         <TabbedMenu navigation={navigation} />
       </View>
@@ -129,4 +92,16 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+const mapStatetoProps = ({ meeting }) => {
+  const { meetings, hasLoadedMeetings } = meeting;
+
+  return {
+    meetings,
+    hasLoadedMeetings
+  };
+};
+
+export default connect(
+  mapStatetoProps,
+  { fetchStaticMeetings }
+)(HomePage);

@@ -1,19 +1,4 @@
-buildscript {
-    repositories {
-        maven { url 'https://plugins.gradle.org/m2/'}
-    }
-    dependencies {
-        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.11.0, 0.99.99]'
-    }
-}
-apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
-
-repositories {
-    maven { url 'https://maven.google.com' }
-}
 apply plugin: "com.android.application"
-apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
-
 
 
 import com.android.build.OutputFile
@@ -123,11 +108,6 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
-        manifestPlaceholders = [
-                onesignal_app_id: 'd17849d7-73d4-4dfd-ae5a-76f8bce59ae3',
-                // Project number pulled from dashboard, local value is ignored.
-                onesignal_google_project_number: 'REMOTE'
-        ]
     }
     splits {
         abi {
@@ -160,7 +140,7 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-onesignal')
+    compile project(':@aws-amplify_pushnotification')
     compile project(':react-native-calendar-events')
     compile project(':react-native-camera')
     compile project(':react-native-maps')
@@ -177,11 +157,12 @@ dependencies {
         exclude group: 'com.google.android.gms', module: 'play-services-maps'
     }
 
-    implementation 'com.google.android.gms:play-services-base:10.2.4'
-    implementation 'com.google.android.gms:play-services-maps:10.2.4'
+    implementation 'com.google.android.gms:play-services-base:12.0.1'
+    implementation 'com.google.android.gms:play-services-maps:12.0.1'
     implementation 'com.android.support:support-v4:27.1.1'
 
-    implementation 'com.onesignal:OneSignal:[3.9.1, 3.99.99]'
+    implementation 'com.google.firebase:firebase-core:12.0.1'
+    implementation  'com.google.firebase:firebase-messaging:12.0.1'
 
 }
 
@@ -191,3 +172,7 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+
+apply plugin: 'com.google.gms.google-services'
+
+//com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

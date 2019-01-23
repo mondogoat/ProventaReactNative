@@ -1,5 +1,6 @@
 // SERVER ADDRESS
-export const SERVER_ADDRESS = "https://hostedproventa.com/api";
+export const SERVER_ADDRESS =
+  "https://db01611e-768d-4f1b-bee2-10080afe2c3f.mock.pstmn.io";
 
 //============================ AUTH ACTIONS ============================//
 

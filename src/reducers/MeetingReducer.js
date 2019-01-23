@@ -9,6 +9,7 @@ import {
 
 const INITIAL_STATE = {
   meetings: [],
+  hasLoadedMeetings: false,
   inbox: [],
   filteredMeetings: [],
   status: "",
@@ -20,7 +21,7 @@ export default function(state = INITIAL_STATE, action) {
     case MESSAGE_UPDATE:
       return { ...state, [action.payload.prop]: action.payload };
     case FETCH_MEETINGS:
-      return { ...state, meetings: action.payload };
+      return { ...state, meetings: action.payload, hasLoadedMeetings: true };
     case FETCH_INBOX:
       return { ...state, emails: action.payload };
     case FETCH_FILTERED_MEETINGS:

@@ -3,6 +3,7 @@ import {
   HISTORY_UPDATE_SUCCESS,
   HISTORY_UPDATE_FAIL
 } from "./types";
+import axios from "axios";
 
 //Retrieve list of history
 export const fetchHistory = userId => {
@@ -38,33 +39,6 @@ export const createHistory = (form, callback) => {
       dispatch({
         type: HISTORY_UPDATE_FAIL,
         payload: "History Log Failed"
-      });
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//Update History
-export const updateHistory = (form, callback) => {
-  try {
-    const request = await axios.PATCH(
-      `${SERVER_ADDRESS}/${form.userId}/history`,
-      {
-        meetingId: form.meetingId,
-        date: form.date
-      }
-    );
-
-    if (request.status === "SUCCESS") {
-      dispatch({
-        type: HISTORY_UPDATE_SUCCESS,
-        payload: "History Update Successful"
-      });
-    } else {
-      dispatch({
-        type: HISTORY_UPDATE_FAIL,
-        payload: "History Update Failed"
       });
     }
   } catch (error) {

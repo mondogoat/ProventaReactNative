@@ -5,6 +5,7 @@ import {
   PROFILE_UPDATE_FAIL,
   SERVER_ADDRESS
 } from "./types";
+import axios from "axios";
 
 //Update emailAddress and password field
 export const updateUser = ({ prop, value }) => {
@@ -17,7 +18,7 @@ export const updateUser = ({ prop, value }) => {
 //Retrieve user profile
 export const fetchProfile = token => {
   try {
-    const request = await axios.GET(`${SERVER_ADDRESS}/user/${token}`);
+    const request = await axios.GET(`${SERVER_ADDRESS}/user`);
 
     if (request.status === "SUCCESS") {
       dispatch({
@@ -48,7 +49,10 @@ export const createProfile = (form, callback) => {
     if (request.status === "SUCCESS") {
       dispatch({
         type: PROFILE_UPDATE_SUCCESS,
-        payload: "Profile Creation Successful"
+        payload: {
+          message: "Profile Creation Successful",
+          data: request.data
+        }
       });
     } else {
       dispatch({
@@ -64,7 +68,7 @@ export const createProfile = (form, callback) => {
 //Update User Profile
 export const updateProfile = (form, callback) => {
   try {
-    const request = await axios.PATCH(`${SERVER_ADDRESS}/user/${form.userId}`, {
+    const request = await axios.PATCH(`${SERVER_ADDRESS}/user/?id=${form.id}`, {
       firstName: form.firstName,
       lastName: form.lastName,
       emailAddress: form.emailAddress,
@@ -77,7 +81,10 @@ export const updateProfile = (form, callback) => {
     if (request.status === "SUCCESS") {
       dispatch({
         type: PROFILE_UPDATE_SUCCESS,
-        payload: "Profile Update Successful"
+        payload: {
+          message: "Profile Update Successful",
+          data: request.data
+        }
       });
     } else {
       dispatch({

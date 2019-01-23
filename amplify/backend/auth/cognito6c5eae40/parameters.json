@@ -1,0 +1,16 @@
+{
+    "identityPoolName": "proventareactnative_identitypool_6fa1d809",
+    "allowUnauthenticatedIdentities": true,
+    "thirdPartyAuth": false,
+    "lambdaLogPolicy": "proventareactnative_lambda_log_policy",
+    "openIdLambdaRoleName": "proventareactnative_openid_lambda_role",
+    "openIdRolePolicy": "proventareactnative_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "proventareactnative_openid_lambda_iam_policy",
+    "openIdLogPolicy": "proventareactnative_openid_lambda_log_policy",
+    "authSelections": "identityPoolOnly",
+    "resourceName": "cognito6c5eae40",
+    "unAuthRoleName": "roventaeactative-20190122113217-unauthRole",
+    "authRoleName": "roventaeactative-20190122113217-authRole",
+    "unAuthRoleArn": "arn:aws:iam::783386353463:role/roventaeactative-20190122113217-unauthRole",
+    "authRoleArn": "arn:aws:iam::783386353463:role/roventaeactative-20190122113217-authRole"
+}

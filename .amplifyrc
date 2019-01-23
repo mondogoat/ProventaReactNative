@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "roventaeactative-20190122113217-authRole",
+            "UnauthRoleArn": "arn:aws:iam::783386353463:role/roventaeactative-20190122113217-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::783386353463:role/roventaeactative-20190122113217-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "roventaeactative-20190122113217-deployment",
+            "UnauthRoleName": "roventaeactative-20190122113217-unauthRole",
+            "StackName": "roventaeactative-20190122113217",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:783386353463:stack/roventaeactative-20190122113217/51a46780-1df6-11e9-9f27-0234ddb63b12"
+        }
+    }
+}
