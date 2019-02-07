@@ -1,0 +1,38 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "roventaeactative-20190123173317-authRole",
+			"UnauthRoleArn": "arn:aws:iam::355872486441:role/roventaeactative-20190123173317-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::355872486441:role/roventaeactative-20190123173317-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "roventaeactative-20190123173317-deployment",
+			"UnauthRoleName": "roventaeactative-20190123173317-unauthRole",
+			"StackName": "roventaeactative-20190123173317",
+			"StackId": "arn:aws:cloudformation:us-west-2:355872486441:stack/roventaeactative-20190123173317/eaf49580-1ef1-11e9-b6be-0a152f9ae918"
+		}
+	},
+	"notifications": {
+		"ProventaMeetings": {
+			"service": "Pinpoint",
+			"output": {
+				"Name": "ProventaMeetings",
+				"Id": "fab924dae8d74f09907b50480c1cf7e5",
+				"Region": "us-west-2",
+				"APNS": {
+					"ApplicationId": "fab924dae8d74f09907b50480c1cf7e5",
+					"CreationDate": "2019-01-23T09:35:02.891Z",
+					"DefaultAuthenticationMethod": "Certificate",
+					"Enabled": true,
+					"HasCredential": true,
+					"HasTokenKey": false,
+					"Id": "apns",
+					"IsArchived": false,
+					"LastModifiedDate": "2019-01-23T09:35:02.891Z",
+					"Platform": "APNS",
+					"Version": 1
+				}
+			},
+			"lastPushTimeStamp": "2019-01-23T09:34:29.665Z"
+		}
+	}
+}

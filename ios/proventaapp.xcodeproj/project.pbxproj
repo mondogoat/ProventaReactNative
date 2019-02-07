@@ -65,6 +65,7 @@
 		FE86A03F21AD281400AFB8FB /* AIRGoogleMapPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02B21AD281400AFB8FB /* AIRGoogleMapPolygon.m */; };
 		FE86A04021AD281400AFB8FB /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A02C21AD281400AFB8FB /* AIRGMSMarker.m */; };
 		FE86A04721AD295F00AFB8FB /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE86A04621AD291800AFB8FB /* libAirMaps.a */; };
+		FEFF494921F86B3100954A0B /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFF494621F86B1500954A0B /* libRCTPushNotification.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,6 +363,20 @@
 			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
 			remoteInfo = AirMaps;
 		};
+		FEFF494521F86B1500954A0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEFF494021F86B1500954A0B /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTPushNotification;
+		};
+		FEFF494721F86B1500954A0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEFF494021F86B1500954A0B /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D05745F1DE6004600184BB4;
+			remoteInfo = "RCTPushNotification-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -445,6 +460,8 @@
 		FE86A02C21AD281400AFB8FB /* AIRGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGMSMarker.m; sourceTree = "<group>"; };
 		FE86A02D21AD281400AFB8FB /* DummyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyView.h; sourceTree = "<group>"; };
 		FE86A04121AD291700AFB8FB /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
+		FEFF494021F86B1500954A0B /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
+		FEFF494A21F86EDE00954A0B /* proventaapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = proventaapp.entitlements; path = proventaapp/proventaapp.entitlements; sourceTree = "<group>"; };
 		FFC5808FF1096E562A375018 /* libPods-proventaapp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proventaapp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -462,6 +479,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEFF494921F86B3100954A0B /* libRCTPushNotification.a in Frameworks */,
 				FE01BFFE21E5F5530066DD38 /* libRNCalendarEvents.a in Frameworks */,
 				FE01BFFD21E5F3DE0066DD38 /* CoreFoundation.framework in Frameworks */,
 				FE01BFFB21E5F3D70066DD38 /* EventKit.framework in Frameworks */,
@@ -592,6 +610,7 @@
 		13B07FAE1A68108700A75B9A /* proventaapp */ = {
 			isa = PBXGroup;
 			children = (
+				FEFF494A21F86EDE00954A0B /* proventaapp.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -676,6 +695,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				FEFF494021F86B1500954A0B /* RCTPushNotification.xcodeproj */,
 				FE01BF9521E5F27A0066DD38 /* RNCalendarEvents.xcodeproj */,
 				FE6F2A3321E5B48C00ADB53C /* RNCamera.xcodeproj */,
 				FE86A04121AD291700AFB8FB /* AirMaps.xcodeproj */,
@@ -810,6 +830,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FEFF494121F86B1500954A0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEFF494621F86B1500954A0B /* libRCTPushNotification.a */,
+				FEFF494821F86B1500954A0B /* libRCTPushNotification-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -902,10 +931,20 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 8SZTT5VBY5;
+						ProvisioningStyle = Manual;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 8SZTT5VBY5;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -961,6 +1000,10 @@
 				{
 					ProductGroup = 00C302D41ABCB9D200DB3ED1 /* Products */;
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = FEFF494121F86B1500954A0B /* Products */;
+					ProjectRef = FEFF494021F86B1500954A0B /* RCTPushNotification.xcodeproj */;
 				},
 				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
@@ -1282,6 +1325,20 @@
 			remoteRef = FE86A04521AD291800AFB8FB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FEFF494621F86B1500954A0B /* libRCTPushNotification.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTPushNotification.a;
+			remoteRef = FEFF494521F86B1500954A0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FEFF494821F86B1500954A0B /* libRCTPushNotification-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTPushNotification-tvOS.a";
+			remoteRef = FEFF494721F86B1500954A0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1546,6 +1603,8 @@
 			baseConfigurationReference = DACFCCF273A8B55D0023BBCC /* Pods-proventaappTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8SZTT5VBY5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1561,6 +1620,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/proventaapp.app/proventaapp";
 			};
 			name = Debug;
@@ -1570,6 +1630,8 @@
 			baseConfigurationReference = 66B6631CF0FBB929AA33331E /* Pods-proventaappTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 8SZTT5VBY5;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1582,6 +1644,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/proventaapp.app/proventaapp";
 			};
 			name = Release;
@@ -1591,6 +1654,9 @@
 			baseConfigurationReference = F03439288832DA3B9F1B6CA2 /* Pods-proventaapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = proventaapp/proventaapp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 8SZTT5VBY5;
@@ -1616,6 +1682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = proventaapp;
+				PROVISIONING_PROFILE_SPECIFIER = ProventaMeetingsDistributionProfile;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1625,6 +1692,9 @@
 			baseConfigurationReference = 37A59C71018F5AA30D81371B /* Pods-proventaapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = proventaapp/proventaapp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8SZTT5VBY5;
 				HEADER_SEARCH_PATHS = (
@@ -1644,6 +1714,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = proventaapp;
+				PROVISIONING_PROFILE_SPECIFIER = ProventaMeetingsDistributionProfile;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

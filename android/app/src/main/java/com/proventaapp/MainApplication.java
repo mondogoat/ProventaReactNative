@@ -3,6 +3,7 @@ package com.proventaapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.amazonaws.amplify.pushnotification.RNPushNotificationPackage;
 import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
 import com.calendarevents.CalendarEventsPackage;
 import org.reactnative.camera.RNCameraPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNPushNotificationPackage(),
             new ReactNativeOneSignalPackage(),
             new CalendarEventsPackage(),
             new RNCameraPackage(),

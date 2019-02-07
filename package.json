@@ -7,6 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@aws-amplify/pushnotification": "^1.0.22",
+    "aws-amplify": "^1.1.19",
+    "aws-amplify-react-native": "^2.1.7",
     "react": "16.6.1",
     "react-native": "0.57.5",
     "react-native-calendar-events": "^1.6.4",
