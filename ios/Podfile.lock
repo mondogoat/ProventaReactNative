@@ -4,8 +4,24 @@ PODS:
   - GoogleMaps/Base (2.7.0)
   - GoogleMaps/Maps (2.7.0):
     - GoogleMaps/Base
+  - GoogleSignIn (4.4.0):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.2.0):
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - GoogleToolboxForMac/Defines (2.2.0)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.0)":
+    - GoogleToolboxForMac/DebugUtils (= 2.2.0)
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
+  - GTMSessionFetcher/Core (1.2.1)
+  - OneSignal (2.9.4)
   - React (0.57.5):
     - React/Core (= 0.57.5)
+  - react-native-calendar-events (1.6.4):
+    - React
   - react-native-camera (1.8.0):
     - React
     - react-native-camera/RCT (= 1.8.0)
@@ -16,44 +32,71 @@ PODS:
     - React
   - react-native-maps (0.20.1):
     - React
+  - react-native-onesignal (3.2.12):
+    - OneSignal (= 2.9.4)
+    - React
   - React/Core (0.57.5):
     - yoga (= 0.57.5.React)
   - ReactNativePermissions (1.1.1):
+    - React
+  - RNGoogleSignin (1.1.0):
+    - GoogleSignIn
     - React
   - yoga (0.57.5.React)
 
 DEPENDENCIES:
   - GoogleMaps
+  - GoogleSignIn
   - React (from `../node_modules/react-native`)
+  - react-native-calendar-events (from `../node_modules/react-native-calendar-events`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-maps (from `../node_modules/react-native-maps`)
+  - react-native-onesignal (from `../node_modules/react-native-onesignal`)
   - ReactNativePermissions (from `../node_modules/react-native-permissions`)
+  - RNGoogleSignin (from `../node_modules/react-native-google-signin`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - GoogleMaps
+    - GoogleSignIn
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
+    - OneSignal
 
 EXTERNAL SOURCES:
   React:
     :path: "../node_modules/react-native"
+  react-native-calendar-events:
+    :path: "../node_modules/react-native-calendar-events"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
+  react-native-onesignal:
+    :path: "../node_modules/react-native-onesignal"
   ReactNativePermissions:
     :path: "../node_modules/react-native-permissions"
+  RNGoogleSignin:
+    :path: "../node_modules/react-native-google-signin"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
+  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
+  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  OneSignal: a41f5a896177275662da07e23d6a809c0e105a89
   React: 01aa04500b2957c2767e1dff9fe12e09444a467c
+  react-native-calendar-events: ee9573e355711ac679e071be70789542431f4ce3
   react-native-camera: d0384b1c8216b3b0389a8b625533b1339f6b286f
   react-native-maps: 6ab4fa4f78e88824ec300de0eb412f0556b6a84b
+  react-native-onesignal: a189670032c4cd1b02985c2d23c41ce63d5a2dbd
   ReactNativePermissions: 2e324bb3baf12702e3ec27f76c8ae1158fa69fc6
+  RNGoogleSignin: bd1b65d312b696ad5522c08b693aa1abf19b96f2
   yoga: a5c0ba30ebe82c13612b4c9301ad29708b8978dc
 
-PODFILE CHECKSUM: e3f49ea9703e5dff56a060fb9605b99c262552fe
+PODFILE CHECKSUM: 3ebf684fbb24e8ae6616398a14b6d6817449ed98
 
 COCOAPODS: 1.6.0.beta.2

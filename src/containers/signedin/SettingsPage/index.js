@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Image } from "react-native";
 import { Header, ListItem, Card, TabbedMenu } from "../../../components";
 import PageStyle from "./styles";
+import { GoogleSignin } from "react-native-google-signin";
 
 class SettingsPage extends Component {
   state = {
@@ -37,13 +38,46 @@ class SettingsPage extends Component {
     ]
   };
 
+
+  componentDidMount() {
+    GoogleSignin.configure({
+      iosClientId:
+        "631979342854-a1s3b73lpv13rla3aq1uh07e6hntr9k3.apps.googleusercontent.com", //only for ios
+      webClientId:
+        "631979342854-v68oaojlkgttth4j9bqp103ea1po8egb.apps.googleusercontent.com" //only for android
+    });
+  }
+
+  signOut = async () => {
+    try {
+      await GoogleSignin.revokeAccess();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  revokeAccess = async () => {
+    try {
+      await GoogleSignin.revokeAccess();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   renderSettingsItems(settings) {
     const { navigation } = this.props;
     const settingsItem = settings.map(({ id, icon, label, name, route }) => {
       return (
         <View key={id}>
           <ListItem
-            onPress={() => navigation.navigate(route, { content: name })}
+            onPress={() => {
+              if (name === "LOG OUT") {
+                this.revokeAccess();
+                this.signOut();
+              }
+              navigation.navigate(route, { content: name })
+            }}
           >
             <View style={PageStyle.menuList}>
               <View style={{ width: "25%" }}>

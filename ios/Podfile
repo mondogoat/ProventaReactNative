@@ -21,6 +21,8 @@ target 'proventaapp' do
 
     pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
 
+    pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+
   end
 
   target 'proventaappTests' do
@@ -36,6 +38,7 @@ target 'proventaapp' do
   pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
  
   pod 'GoogleMaps'
+  pod 'GoogleSignIn'
 
 end
 

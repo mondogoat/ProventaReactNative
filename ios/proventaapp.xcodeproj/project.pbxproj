@@ -45,6 +45,8 @@
 		FE01BFFB21E5F3D70066DD38 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE01BFFA21E5F3D70066DD38 /* EventKit.framework */; };
 		FE01BFFD21E5F3DE0066DD38 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE01BFFC21E5F3DE0066DD38 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FE01BFFE21E5F5530066DD38 /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE01BFC021E5F27B0066DD38 /* libRNCalendarEvents.a */; };
+		FE7A65E72213EDD000F308CB /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7A65E62213EDB600F308CB /* libRNGoogleSignin.a */; };
+		FE7A65E92213EE7C00F308CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE7A65E82213EE7C00F308CB /* GoogleService-Info.plist */; };
 		FE86A02E21AD281400AFB8FB /* AIRGoogleMapUrlTile.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A00921AD281400AFB8FB /* AIRGoogleMapUrlTile.m */; };
 		FE86A02F21AD281400AFB8FB /* AIRGoogleMapPolygonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A00C21AD281400AFB8FB /* AIRGoogleMapPolygonManager.m */; };
 		FE86A03021AD281400AFB8FB /* AIRGoogleMapMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = FE86A00F21AD281400AFB8FB /* AIRGoogleMapMarker.m */; };
@@ -356,6 +358,13 @@
 			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
 			remoteInfo = RNCamera;
 		};
+		FE7A65E52213EDB600F308CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE7A65B72213EDB600F308CB /* RNGoogleSignin.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9FD355121D3E4A2900D06170;
+			remoteInfo = RNGoogleSignin;
+		};
 		FE86A04521AD291800AFB8FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FE86A04121AD291700AFB8FB /* AirMaps.xcodeproj */;
@@ -421,6 +430,8 @@
 		FE01BFFA21E5F3D70066DD38 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		FE01BFFC21E5F3DE0066DD38 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		FE6F2A3321E5B48C00ADB53C /* RNCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
+		FE7A65B72213EDB600F308CB /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
+		FE7A65E82213EE7C00F308CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FE86A00821AD281400AFB8FB /* AIRGoogleMapPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapPolyline.h; sourceTree = "<group>"; };
 		FE86A00921AD281400AFB8FB /* AIRGoogleMapUrlTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapUrlTile.m; sourceTree = "<group>"; };
 		FE86A00A21AD281400AFB8FB /* AIRGoogleMapMarkerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGoogleMapMarkerManager.h; sourceTree = "<group>"; };
@@ -479,6 +490,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE7A65E72213EDD000F308CB /* libRNGoogleSignin.a in Frameworks */,
 				FEFF494921F86B3100954A0B /* libRCTPushNotification.a in Frameworks */,
 				FE01BFFE21E5F5530066DD38 /* libRNCalendarEvents.a in Frameworks */,
 				FE01BFFD21E5F3DE0066DD38 /* CoreFoundation.framework in Frameworks */,
@@ -695,6 +707,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				FE7A65B72213EDB600F308CB /* RNGoogleSignin.xcodeproj */,
 				FEFF494021F86B1500954A0B /* RCTPushNotification.xcodeproj */,
 				FE01BF9521E5F27A0066DD38 /* RNCalendarEvents.xcodeproj */,
 				FE6F2A3321E5B48C00ADB53C /* RNCamera.xcodeproj */,
@@ -727,6 +740,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				FE7A65E82213EE7C00F308CB /* GoogleService-Info.plist */,
 				FE86A00721AD281400AFB8FB /* AirGoogleMaps */,
 				13B07FAE1A68108700A75B9A /* proventaapp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -772,6 +786,14 @@
 			isa = PBXGroup;
 			children = (
 				FE6F2A5E21E5B48C00ADB53C /* libRNCamera.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE7A65B82213EDB600F308CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE7A65E62213EDB600F308CB /* libRNGoogleSignin.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -908,6 +930,7 @@
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
+				EFA0F1FD16A55A1B50ED65DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1032,6 +1055,10 @@
 				{
 					ProductGroup = FE6F2A3421E5B48C00ADB53C /* Products */;
 					ProjectRef = FE6F2A3321E5B48C00ADB53C /* RNCamera.xcodeproj */;
+				},
+				{
+					ProductGroup = FE7A65B82213EDB600F308CB /* Products */;
+					ProjectRef = FE7A65B72213EDB600F308CB /* RNGoogleSignin.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1318,6 +1345,13 @@
 			remoteRef = FE6F2A5D21E5B48C00ADB53C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FE7A65E62213EDB600F308CB /* libRNGoogleSignin.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGoogleSignin.a;
+			remoteRef = FE7A65E52213EDB600F308CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		FE86A04621AD291800AFB8FB /* libAirMaps.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1353,6 +1387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE7A65E92213EE7C00F308CB /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
@@ -1388,7 +1423,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1458,12 +1493,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-proventaapp/Pods-proventaapp-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1490,6 +1527,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFA0F1FD16A55A1B50ED65DF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-proventaapp-tvOSTests/Pods-proventaapp-tvOSTests-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-proventaapp-tvOSTests/Pods-proventaapp-tvOSTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F0E8F704C17D8D437112C3A8 /* [CP] Check Pods Manifest.lock */ = {

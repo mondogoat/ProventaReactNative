@@ -160,6 +160,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-google-signin')
     compile project(':@aws-amplify_pushnotification')
     compile project(':react-native-onesignal')
     compile project(':react-native-calendar-events')

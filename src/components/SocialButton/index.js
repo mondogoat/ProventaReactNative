@@ -4,10 +4,10 @@ import ComponentStyle from "./styles";
 
 class SocialButton extends Component {
   render() {
-    const { icon, type, label } = this.props;
+    const { icon, type, label, onPress } = this.props;
     return (
       <View style={ComponentStyle.container}>
-        <TouchableOpacity onPress={() => console.log("linkedIn")}>
+        <TouchableOpacity onPress={onPress}>
           <View
             style={[
               type === "google"
