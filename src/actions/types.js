@@ -1,5 +1,5 @@
 // SERVER ADDRESS
-export const SERVER_ADDRESS = "https://hostedproventa.com/api";
+export const SERVER_ADDRESS = "https://proventa-meetings.herokuapp.com";
 
 //============================ AUTH ACTIONS ============================//
 

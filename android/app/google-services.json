@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "631979342854",
+    "firebase_url": "https://proventa-test.firebaseio.com",
+    "project_id": "proventa-test",
+    "storage_bucket": "proventa-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631979342854:android:49c84ecf97fad50e",
+        "android_client_info": {
+          "package_name": "com.proventaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631979342854-v68oaojlkgttth4j9bqp103ea1po8egb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5diif4wgn7SS0d8V6jXYz0DYqQrkY8bw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

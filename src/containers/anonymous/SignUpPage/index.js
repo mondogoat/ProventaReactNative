@@ -10,6 +10,8 @@ import {
 } from "../../../components";
 import PageStyle from "./styles";
 import { DrawerActions } from "react-navigation";
+import { connect } from "react-redux";
+import { signUp, updateAuth } from "../../../actions";
 
 class SignUpPage extends Component {
   renderSocialLinks() {
@@ -34,16 +36,16 @@ class SignUpPage extends Component {
         <StyledInput
           type="email"
           placeholder="Email Address"
-          onChangeText={() => {
-            console.log("email");
+          onChangeText={(value) => {
+            this.props.updateAuth({ prop: "email", value })
           }}
           icon={require("../../../assets/login_user.png")}
         />
         <StyledInput
           type="password"
           placeholder="Password"
-          onChangeText={() => {
-            console.log("password");
+          onChangeText={(value) => {
+            this.props.updateAuth({ prop: "password", value })
           }}
           icon={require("../../../assets/login_password.png")}
           visibilityIcon={require("../../../assets/login_eye.png")}
@@ -51,6 +53,17 @@ class SignUpPage extends Component {
       </View>
     );
   }
+
+  clickSignUp() {
+    const data = {
+      email: this.props.email.value,
+      password: this.props.password.value
+    }
+
+    console.log(data);
+    this.props.signUp(data);
+  }
+
   render() {
     const { navigation } = this.props;
     return (
@@ -66,7 +79,7 @@ class SignUpPage extends Component {
             {this.renderLoginForm()}
             <Text style={PageStyle.subText}> Minimum of 6 characters </Text>
             <MainButton
-              onPress={() => console.log("mainbutton")}
+              onPress={() => this.clickSignUp()}
               label="SIGN UP"
             />
             <View style={PageStyle.sectionLine} />
@@ -79,4 +92,15 @@ class SignUpPage extends Component {
   }
 }
 
-export default SignUpPage;
+const mapStateToProps = ({ auth }) => {
+  const { email, password } = auth;
+
+  return { email, password };
+};
+
+export default connect(
+  mapStateToProps,
+  { signUp, updateAuth }
+)(SignUpPage);
+
+

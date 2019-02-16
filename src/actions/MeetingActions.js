@@ -33,18 +33,18 @@ export const fetchMeetings = (status, userId) => {
 
 //Retrieve fitered meetings
 export const fetchFilteredMeetings = (query) => {
-    try {
+  try {
     const request = await axios.GET(`${SERVER_ADDRESS}/meetings/${query}`);
-      if (request.status === "SUCCESS") {
-        dispatch({
-            type: FETCH_FILTERED_MEETINGS,
-            payload: request.data
-          });
-      }
-    } catch (error) {
-      console.log(error);
+    if (request.status === "SUCCESS") {
+      dispatch({
+        type: FETCH_FILTERED_MEETINGS,
+        payload: request.data
+      });
     }
-  };
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 //Retrieve user inbox
 export const fetchInbox = userId => {
@@ -70,7 +70,7 @@ export const updateMessage = ({ prop, value }) => {
 };
 
 //Update message status
-export const updateMessage= (form, callback) => {
+export const updateMessageStatus = (form, callback) => {
   try {
     const request = await axios.PATCH(
       `${SERVER_ADDRESS}/message/${form.message.id}`,
