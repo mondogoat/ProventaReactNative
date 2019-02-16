@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { View, Text, ScrollView } from "react-native";
-import { Header, InputBox, TabbedMenu, Card } from "../../../../components";
+import {
+  Header,
+  InputBox,
+  TabbedMenu,
+  Card,
+  MainButton
+} from "../../../../components";
 import PageStyle from "./styles";
 
 class UserPage extends Component {
@@ -47,6 +53,11 @@ class UserPage extends Component {
                 label="Contact Number"
                 placeholder="+63998 217 5566"
                 onChangeText={() => console.log("Contact Number")}
+              />
+
+              <MainButton
+                onPress={() => console.log("mainbutton")}
+                label="UPDATE"
               />
             </View>
           </Card>
