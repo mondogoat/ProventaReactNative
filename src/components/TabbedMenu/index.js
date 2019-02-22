@@ -1,0 +1,82 @@
+import React, { Component } from "react";
+import { View } from "react-native";
+import ComponentStyle from "./styles";
+import { MenuButton } from "../MenuButton";
+
+class TabbedMenu extends Component {
+  renderAnonymous() {
+    const { navigation } = this.props;
+    return (
+      <View style={ComponentStyle.container}>
+        <MenuButton
+          image={require("../../assets/search_button.png")}
+          label="Menu"
+          onPress={() => navigation.navigate("SearchPage")}
+        />
+        <MenuButton
+          image={require("../../assets/home_button.png")}
+          label="Menu"
+          onPress={() => navigation.navigate("HomePage")}
+        />
+        <MenuButton
+          image={require("../../assets/login_button.png")}
+          label="Menu"
+          onPress={() => navigation.navigate("LoginPage")}
+        />
+      </View>
+    );
+  }
+
+  renderSignedIn() {
+    const { navigation } = this.props;
+    return (
+      <View style={ComponentStyle.container}>
+        <MenuButton
+          status="SI"
+          image={require("../../assets/proventa_logo_gray.png")}
+          label="Menu"
+          onPress={() =>
+            navigation.navigate("MeetingLoginPage", {
+              status: "loggedin",
+              content: "settings"
+            })
+          }
+        />
+        <MenuButton
+          status="SI"
+          image={require("../../assets/info_button.png")}
+          label="Menu"
+          onPress={() => navigation.navigate("InformationPage")}
+        />
+        <MenuButton
+          status="SI"
+          image={require("../../assets/schedule_button.png")}
+          label="Menu"
+          onPress={() => navigation.navigate("SchedulePage")}
+        />
+        <MenuButton
+          status="SI"
+          image={require("../../assets/inbox_button.png")}
+          label="Menu"
+          onPress={() => navigation.navigate("InboxPage")}
+        />
+        <MenuButton
+          status="SI"
+          image={require("../../assets/checkin_button.png")}
+          label="Menu"
+          onPress={() => navigation.navigate("CheckInPage")}
+        />
+      </View>
+    );
+  }
+
+  render() {
+    const { status } = this.props;
+
+    if (status == "loggedin") {
+      return this.renderSignedIn();
+    } else return this.renderAnonymous();
+  }
+}
+
+export { TabbedMenu };
