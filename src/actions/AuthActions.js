@@ -7,7 +7,9 @@ import {
   SERVER_ADDRESS
 } from "./types";
 
-//Update emailAddress and password field
+import axios from "axios";
+
+// Update emailAddress and password field
 export const updateAuth = ({ prop, value }) => {
   return {
     type: AUTH_UPDATE,
@@ -15,13 +17,31 @@ export const updateAuth = ({ prop, value }) => {
   };
 };
 
-export const signUp = (form, callback) => async dispatch => {
+export const signUp = (data) => async dispatch => {
   try {
-    const request = await axios.post(`${SERVER_ADDRESS}/signup`, {
-      emailAddress: form.emailAddress,
-      password: form.password
-    });
+    console.log("api");
+    console.log(data);
 
+    var headers = {
+      headers: { "Content-Type": "application/json" }
+    };
+
+    const request = await axios.post(`https://proventa-meetings.herokuapp.com/users`, {
+      email: data.email,
+      password: data.password,
+      firstName: "GUEST",
+      lastName: "GUEST",
+      // position: "",
+      // company: "",
+      // contactNumber: "",
+      // linkedIn: ""
+    }, headers);
+
+    console.log(request);
+    dispatch({
+      type: AUTH_SIGNUP_SUCCESS,
+      payload: "Sign Up Successful"
+    });
     //Sign Up Success
     if (request.result === "SUCCESS") {
       dispatch({
@@ -37,36 +57,36 @@ export const signUp = (form, callback) => async dispatch => {
 
     //This is called after the POST function is done
     // For UI trigger
-    callback();
+    // callback();
   } catch (error) {
     console.log(error);
   }
 };
 
-export const login = (form, callback) => async dispatch => {
-  try {
-    const request = await axios.post(`${SERVER_ADDRESS}/login`, {
-      emailAddress: form.emailAddress,
-      password: form.password
-    });
+// export const login = (form, callback) => async dispatch => {
+//   try {
+//     const request = await axios.post(`${SERVER_ADDRESS}/login`, {
+//       emailAddress: form.emailAddress,
+//       password: form.password
+//     });
 
-    //Login Success
-    if (request.result === "SUCCESS") {
-      dispatch({
-        type: AUTH_LOGIN_SUCCESS,
-        payload: "Login Success"
-      });
-    } else {
-      dispatch({
-        type: AUTH_LOGIN_FAIL,
-        payload: "Login Failed"
-      });
-    }
+//     //Login Success
+//     if (request.result === "SUCCESS") {
+//       dispatch({
+//         type: AUTH_LOGIN_SUCCESS,
+//         payload: "Login Success"
+//       });
+//     } else {
+//       dispatch({
+//         type: AUTH_LOGIN_FAIL,
+//         payload: "Login Failed"
+//       });
+//     }
 
-    //This is called after the POST function is done
-    // For UI trigger
-    callback();
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     //This is called after the POST function is done
+//     // For UI trigger
+//     callback();
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };

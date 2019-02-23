@@ -32,6 +32,7 @@ import InboxDetailsPage from "./containers/signedin/InboxPage/InboxDetailsPage";
 import CheckInPage from "./containers/signedin/CheckInPage";
 import { SideMenu } from "../src/components";
 
+<<<<<<< HEAD
 import { PushNotificationIOS } from "react-native";
 import Analytics from "@aws-amplify/analytics";
 import PushNotification from "@aws-amplify/pushnotification";
@@ -44,6 +45,22 @@ import reducers from "./reducers";
 import reduxThunk from "redux-thunk";
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+=======
+import { PushNotificationIOS } from 'react-native';
+import Analytics from '@aws-amplify/analytics';
+import PushNotification from '@aws-amplify/pushnotification';
+import aws_exports from '../aws-exports';
+>>>>>>> 257e047ae78bdd083d839d8e8ba9820bfb3b24a3
+
+
+//Middleware
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reducers from "./reducers";
+import reduxThunk from "redux-thunk";
+
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+
 
 // PushNotification need to work with Analytics
 Analytics.configure(aws_exports);
@@ -52,9 +69,15 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 
 class App extends Component {
   componentDidMount() {
+<<<<<<< HEAD
     PushNotification.onNotification(notification => {
       // Note that the notification object structure is different from Android and IOS
       console.log("in app notification", notification);
+=======
+    PushNotification.onNotification((notification) => {
+      // Note that the notification object structure is different from Android and IOS
+      console.log('in app notification', notification);
+>>>>>>> 257e047ae78bdd083d839d8e8ba9820bfb3b24a3
 
       // required on iOS only (see fetchCompletionHandler docs: https://facebook.github.io/react-native/docs/pushnotificationios.html)
       notification.finish(PushNotificationIOS.FetchResult.NoData);
@@ -66,8 +89,13 @@ class App extends Component {
     });
 
     // get the notification data when notification is opened
+<<<<<<< HEAD
     PushNotification.onNotificationOpened(notification => {
       console.log("the notification is opened", notification);
+=======
+    PushNotification.onNotificationOpened((notification) => {
+      console.log('the notification is opened', notification);
+>>>>>>> 257e047ae78bdd083d839d8e8ba9820bfb3b24a3
     });
   }
 
