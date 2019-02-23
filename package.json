@@ -10,6 +10,7 @@
     "@aws-amplify/pushnotification": "^1.0.22",
     "aws-amplify": "^1.1.19",
     "aws-amplify-react-native": "^2.1.7",
+    "axios": "^0.18.0",
     "react": "16.6.1",
     "react-native": "0.57.5",
     "react-native-calendar-events": "^1.6.4",
@@ -18,7 +19,10 @@
     "react-native-modal": "^7.0.1",
     "react-native-onesignal": "^3.2.12",
     "react-native-qrcode-scanner": "^1.1.2",
-    "react-navigation": "^2.16.0"
+    "react-navigation": "^2.16.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

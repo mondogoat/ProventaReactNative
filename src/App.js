@@ -32,10 +32,18 @@ import InboxDetailsPage from "./containers/signedin/InboxPage/InboxDetailsPage";
 import CheckInPage from "./containers/signedin/CheckInPage";
 import { SideMenu } from "../src/components";
 
-import { PushNotificationIOS } from 'react-native';
-import Analytics from '@aws-amplify/analytics';
-import PushNotification from '@aws-amplify/pushnotification'; 
-import aws_exports from '../aws-exports';
+import { PushNotificationIOS } from "react-native";
+import Analytics from "@aws-amplify/analytics";
+import PushNotification from "@aws-amplify/pushnotification";
+import aws_exports from "../aws-exports";
+
+//Middleware
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reducers from "./reducers";
+import reduxThunk from "redux-thunk";
+
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 // PushNotification need to work with Analytics
 Analytics.configure(aws_exports);
@@ -43,28 +51,32 @@ PushNotification.configure(aws_exports);
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
 class App extends Component {
-  componentDidMount(){
-    PushNotification.onNotification((notification) => {
+  componentDidMount() {
+    PushNotification.onNotification(notification => {
       // Note that the notification object structure is different from Android and IOS
-      console.log('in app notification', notification);
-    
+      console.log("in app notification", notification);
+
       // required on iOS only (see fetchCompletionHandler docs: https://facebook.github.io/react-native/docs/pushnotificationios.html)
       notification.finish(PushNotificationIOS.FetchResult.NoData);
     });
-    
+
     // get the registration token
-    PushNotification.onRegister((token) => {
-      console.log('in app registration', token);
+    PushNotification.onRegister(token => {
+      console.log("in app registration", token);
     });
-    
+
     // get the notification data when notification is opened
-    PushNotification.onNotificationOpened((notification) => {
-        console.log('the notification is opened', notification);
+    PushNotification.onNotificationOpened(notification => {
+      console.log("the notification is opened", notification);
     });
   }
 
   render() {
-    return <AppStack />;
+    return (
+      <Provider store={store}>
+        <AppStack />
+      </Provider>
+    );
   }
 }
 

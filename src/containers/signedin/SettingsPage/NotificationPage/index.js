@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { View, Text, Switch } from "react-native";
 import { Header, Card, ListItem, TabbedMenu } from "../../../../components";
 import PageStyle from "./styles";
+import { fetchNotificationSettings } from "../../../../actions";
+import { connect } from "react-redux";
 
 class Notificationpage extends Component {
   state = {
@@ -9,23 +11,36 @@ class Notificationpage extends Component {
       {
         id: 0,
         label: "Push Notifications",
-        toggleStatus: false
+        toggleStatus: null
       },
       {
         id: 1,
         label: "SMS Notifications",
-        toggleStatus: false
+        toggleStatus: null
       },
       {
         id: 2,
         label: "Email Notifications",
-        toggleStatus: false
+        toggleStatus: null
       }
     ]
   };
 
+  componentDidMount() {
+    this.props.fetchNotificationSettings();
+  }
+
   toggle(i) {
+    const { notification } = this.props;
     const options = [...this.state.notifItems];
+
+    if (i === 0) {
+      options[i].toggleStatus = notification.notificationPush;
+    } else if (i === 1) {
+      options[i].toggleStatus = notification.notificationSms;
+    } else if (i === 2) {
+      options[i].toggleStatus = notification.notificationEmail;
+    }
     options[i].toggleStatus = !options[i].toggleStatus;
 
     this.setState({ options });
@@ -49,6 +64,7 @@ class Notificationpage extends Component {
   }
 
   renderNotifItems(options) {
+    const { notification } = this.props;
     const notifItem = options.map(({ id, label }) => {
       return (
         <View key={id}>
@@ -59,7 +75,13 @@ class Notificationpage extends Component {
               </View>
               <View style={{ width: "18%" }}>
                 <Switch
-                  value={this.state.notifItems[id].toggleStatus}
+                  value={
+                    id === 0
+                      ? notification.notificationPush
+                      : id === 1
+                      ? notification.notificationSms
+                      : notification.notificationEmail
+                  }
                   onValueChange={this.toggle.bind(this, id)}
                 />
               </View>
@@ -90,4 +112,12 @@ class Notificationpage extends Component {
   }
 }
 
-export default Notificationpage;
+mapStatetoProps = ({ settings }) => {
+  const { notification } = settings;
+  return { notification };
+};
+
+export default connect(
+  mapStatetoProps,
+  { fetchNotificationSettings }
+)(Notificationpage);

@@ -3,6 +3,8 @@ import { View, Text, Switch } from "react-native";
 import { Header, Card, ListItem, TabbedMenu } from "../../../../components";
 import PageStyle from "./styles";
 import RNCalendarEvents from "react-native-calendar-events";
+import { connect } from "react-redux";
+import { fetchCalendarSettings } from "../../../../actions";
 
 class CalendarPage extends Component {
   state = {
@@ -10,12 +12,12 @@ class CalendarPage extends Component {
       {
         id: 0,
         label: "Sync to Google Calendar",
-        toggleStatus: false
+        toggleStatus: null
       },
       {
         id: 1,
         label: "Sync to Phone Calendar",
-        toggleStatus: false
+        toggleStatus: null
       }
     ],
     meetings: [
@@ -93,6 +95,10 @@ class CalendarPage extends Component {
       });
   }
 
+  componentDidMount() {
+    this.props.fetchCalendarSettings(1);
+  }
+
   syncEvents(meetingItems) {
     var promise = Promise.resolve();
     for (let i = 0; i < meetingItems.length; i++) {
@@ -108,7 +114,15 @@ class CalendarPage extends Component {
   }
 
   toggle(i) {
+    const { calendar } = this.props;
     const options = [...this.state.calendarItems];
+
+    if (i === 0) {
+      options[i].toggleStatus = calendar.calendarGoogle;
+    } else {
+      options[i].toggleStatus = calendar.calendarIcalendar;
+    }
+
     options[i].toggleStatus = !options[i].toggleStatus;
 
     this.setState({ options });
@@ -138,8 +152,9 @@ class CalendarPage extends Component {
     }
   }
 
-  renderCalendarItems(options) {
-    const calendarItem = options.map(({ id, label }) => {
+  renderCalendarItems(items) {
+    const { calendar } = this.props;
+    const calendarItem = items.map(({ id, label }) => {
       return (
         <View key={id}>
           <ListItem>
@@ -149,7 +164,11 @@ class CalendarPage extends Component {
               </View>
               <View style={{ width: "18%" }}>
                 <Switch
-                  value={this.state.calendarItems[id].toggleStatus}
+                  value={
+                    id === 0
+                      ? calendar.calendarGoogle
+                      : calendar.calendarIcalendar
+                  }
                   onValueChange={this.toggle.bind(this, id)}
                 />
               </View>
@@ -163,7 +182,8 @@ class CalendarPage extends Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, calendar } = this.props;
+    console.log(calendar.CalendarGoogle);
     return (
       <View style={PageStyle.container}>
         <Header
@@ -180,4 +200,11 @@ class CalendarPage extends Component {
   }
 }
 
-export default CalendarPage;
+const mapStatetoProps = ({ settings }) => {
+  const { calendar } = settings;
+  return { calendar };
+};
+export default connect(
+  mapStatetoProps,
+  { fetchCalendarSettings }
+)(CalendarPage);
