@@ -52,7 +52,6 @@ export default (PageStyle = {
     padding: SCREEN_WIDTH * 0.025,
     width: SCREEN_WIDTH * 0.7,
     alignItems: "flex-start",
-    marginBottom: SCREEN_HEIGHT * 0.3
   },
   eventTitle: {
     marginTop: SCREEN_HEIGHT * 0.02,
@@ -91,5 +90,8 @@ export default (PageStyle = {
     bottom: 0,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  meetingsContainer: {
+    marginBottom: SCREEN_HEIGHT * 0.15
   }
 });
