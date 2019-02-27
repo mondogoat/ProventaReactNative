@@ -52,6 +52,7 @@ export default (PageStyle = {
     padding: SCREEN_WIDTH * 0.025,
     width: SCREEN_WIDTH * 0.7,
     alignItems: "flex-start",
+    marginBottom: SCREEN_HEIGHT * 0.3
   },
   eventTitle: {
     marginTop: SCREEN_HEIGHT * 0.02,
@@ -81,5 +82,14 @@ export default (PageStyle = {
     width: "95%",
     alignSelf: "center",
     opacity: 0.3
+  },
+  loading: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });

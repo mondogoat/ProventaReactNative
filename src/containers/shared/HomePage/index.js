@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, ScrollView, Image } from "react-native";
+import { Text, View, ScrollView, Image, ActivityIndicator } from "react-native";
 import { connect } from "react-redux";
 import { Header, TabbedMenu, Card, ListItem } from "../../../components";
 import PageStyle from "./styles";
@@ -62,8 +62,7 @@ class HomePage extends Component {
     currentVenues: []
   };
 
-  componentDidMount() {
-
+  componentWillMount() {
     this.props.fetchMainMeeting(35);
     this.props.fetchMainVenue(35);
     this.props.fetchMeetings();
@@ -85,7 +84,7 @@ class HomePage extends Component {
   //   // return category;
   // }
 
-  renderEvents() {
+  renderMeetings() {
     const { navigation, meetings } = this.props;
     const meeting = meetings.map(({ id, attributes }) => {
       return (
@@ -101,7 +100,6 @@ class HomePage extends Component {
         </View>
       );
     });
-
     return meeting;
   }
 
@@ -117,7 +115,7 @@ class HomePage extends Component {
   }
 
   render() {
-    const { navigation, mainmeeting } = this.props;
+    const { navigation, mainmeeting, hasLoadedMainMeeting, hasLoadedMeetings, hasLoadedVenues } = this.props;
 
     return (
       <View style={PageStyle.container}>
@@ -127,26 +125,34 @@ class HomePage extends Component {
             navigation.dispatch(DrawerActions.openDrawer());
           }}
         />
-        <ScrollView>
-          <ListItem onPress={() => navigation.navigate("MeetingPage")}>
-            <Card>
-              <Image
-                style={PageStyle.image}
-                source={{ uri: "https://i.ibb.co/H7mTZhc/proventa-app-launch.png" }}
-              />
-              <View style={PageStyle.info}>
-                <Text style={PageStyle.description}>
-                  {mainmeeting.title}
-                </Text>
-                <Text style={PageStyle.date}>
-                  {mainmeeting.date} | {this.renderVenue()}
-                </Text>
-              </View>
-            </Card>
-          </ListItem>
-          <Text style={{ marginLeft: 10, fontSize: 15, fontWeight: '500' }}> All Meetings </Text>
-          {this.renderEvents()}
-        </ScrollView>
+        {hasLoadedMainMeeting && hasLoadedMeetings && hasLoadedVenues ?
+          <ScrollView>
+
+            <ListItem onPress={() => navigation.navigate("MeetingPage")}>
+              <Card>
+                <Image
+                  style={PageStyle.image}
+                  source={{ uri: "https://i.ibb.co/H7mTZhc/proventa-app-launch.png" }}
+                />
+                <View style={PageStyle.info}>
+                  <Text style={PageStyle.description}>
+                    {mainmeeting.title}
+                  </Text>
+                  <Text style={PageStyle.date}>
+                    {mainmeeting.date} | {this.renderVenue()}
+                  </Text>
+                </View>
+              </Card>
+            </ListItem>
+            <Text style={{ marginLeft: 10, fontSize: 15, fontWeight: '500' }}> All Meetings </Text>
+            <View style={PageStyle.meetingsContainer}>
+              {this.renderMeetings()}
+            </View>
+          </ScrollView> :
+          <View style={PageStyle.loading}>
+            <ActivityIndicator loaded={hasLoadedMainMeeting} size="large" />
+          </View>
+        }
         <TabbedMenu navigation={navigation} />
       </View>
     );
@@ -155,11 +161,14 @@ class HomePage extends Component {
 
 
 const mapStatetoProps = ({ meeting }) => {
-  const { mainmeeting, venues, meetings } = meeting;
+  const { mainmeeting, hasLoadedMainMeeting, venues, hasLoadedVenues, meetings, hasLoadedMeetings } = meeting;
   return {
     mainmeeting,
+    hasLoadedMainMeeting,
     venues,
-    meetings
+    hasLoadedVenues,
+    meetings,
+    hasLoadedMeetings
   };
 };
 

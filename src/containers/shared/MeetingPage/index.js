@@ -116,9 +116,10 @@ class MeetingPage extends Component {
 
   renderMeetingPicture() {
     const { venues } = this.props;
-    const venue = venues.map(({ image }) => {
+    const venue = venues.map(({ image, id }) => {
       return (
         <Image
+          key={id}
           style={PageStyle.image}
           source={image}
         />
@@ -230,9 +231,9 @@ class MeetingPage extends Component {
 
   renderMap() {
     const { venues } = this.props;
-    const venue = venues.map(({ title, latitude, longitude }) => {
+    const venue = venues.map(({ title, latitude, longitude, id }) => {
       return (
-        <Map latitude={latitude} longitude={longitude} title={title} />
+        <Map key={id} latitude={latitude} longitude={longitude} title={title} />
       );
     });
 
