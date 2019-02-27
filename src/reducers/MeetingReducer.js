@@ -18,7 +18,9 @@ import {
 
 const INITIAL_STATE = {
   meetings: [],
+  hasLoadedMeetings: false,
   venues: [],
+  hasLoadedVenues: false,
   expectations: [],
   facilitators: [],
   participants: [],
@@ -27,6 +29,7 @@ const INITIAL_STATE = {
   discussions: [],
   talks: [],
   mainmeeting: {},
+  hasLoadedMainMeeting: false,
   inbox: [],
   filteredMeetings: [],
   status: "",
@@ -38,11 +41,23 @@ export default function (state = INITIAL_STATE, action) {
     case MESSAGE_UPDATE:
       return { ...state, [action.payload.prop]: action.payload };
     case FETCH_MEETINGS:
-      return { ...state, meetings: action.payload };
+      return {
+        ...state,
+        meetings: action.payload,
+        hasLoadedMeetings: true
+      };
     case FETCH_MAIN_MEETING:
-      return { ...state, mainmeeting: action.payload };
+      return {
+        ...state,
+        mainmeeting: action.payload,
+        hasLoadedMainMeeting: true
+      };
     case FETCH_MAIN_VENUE:
-      return { ...state, venues: action.payload };
+      return {
+        ...state,
+        venues: action.payload,
+        hasLoadedVenues: true
+      };
     case FETCH_MAIN_EXPECTATIONS:
       return { ...state, expectations: action.payload };
     case FETCH_MAIN_FACILITATORS:

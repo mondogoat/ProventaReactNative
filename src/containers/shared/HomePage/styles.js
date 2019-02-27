@@ -81,5 +81,17 @@ export default (PageStyle = {
     width: "95%",
     alignSelf: "center",
     opacity: 0.3
+  },
+  loading: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  meetingsContainer: {
+    marginBottom: SCREEN_HEIGHT * 0.15
   }
 });
