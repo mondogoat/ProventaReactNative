@@ -112,5 +112,14 @@ export default (PageStyle = {
   },
   overlapCardContainer: {
     bottom: SCREEN_HEIGHT * 0.125
-  }
+  },
+  loading: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 });

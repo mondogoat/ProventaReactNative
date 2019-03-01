@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, ScrollView, Image } from "react-native";
+import { Text, View, ScrollView, Image, ActivityIndicator } from "react-native";
 import {
   Header,
   TabbedMenu,
@@ -16,62 +16,6 @@ import { fetchMainMeeting, fetchMainVenue, fetchExpectations, fetchFacilitators 
 
 class MeetingPage extends Component {
   state = {
-    expectations: [
-      {
-        id: "exp1",
-        icon: require("../../../assets/roundtable.png"),
-        title: "Interactive Roundtable Discussions",
-        description:
-          "Attendees can proactively share and ask questions to their peers about the success of their work in an informal setting."
-      },
-      {
-        id: "exp2",
-        icon: require("../../../assets/agenda.png"),
-        title: "Tailor-fit and Personalized Agenda",
-        description:
-          "Attendees can proactively share and ask questions to their peers about the success of their work in an informal setting."
-      },
-      {
-        id: "exp3",
-        icon: require("../../../assets/one-to-one-copy.png"),
-        title: "Director level one-to-one meetings",
-        description:
-          "Attendees can proactively share and ask questions to their peers about the success of their work in an informal setting."
-      },
-      {
-        id: "exp4",
-        icon: require("../../../assets/networking-copy.png"),
-        title: "Networking Opportunities",
-        description:
-          "Attendees can proactively share and ask questions to their peers about the success of their work in an informal setting."
-      }
-    ],
-    facilitators: [
-      {
-        id: 0,
-        icon: require("../../../assets/facilitator_1.png"),
-        name: "David Crain",
-        title: "Alibaba CEO"
-      },
-      {
-        id: 1,
-        icon: require("../../../assets/facilitator_2.png"),
-        name: "Yvone Thompson",
-        title: "Sputnik Inc. CEO"
-      },
-      {
-        id: 2,
-        icon: require("../../../assets/faclitator2.png"),
-        name: "Phet Putrie",
-        title: "Founder of Stark Industries"
-      },
-      {
-        id: 3,
-        icon: require("../../../assets/facilitator_4.png"),
-        name: "Arnold Zachary",
-        title: "CEO Wacom Industries"
-      }
-    ],
     modalVisible: false,
     selectedIndex: 1
   };
@@ -260,8 +204,9 @@ class MeetingPage extends Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators } = this.props;
     const status = navigation.getParam("status");
+    console.log(hasLoadedMainMeeting + '' + hasLoadedExpectations + '' + hasLoadedVenues + '' + hasLoadedFacilitators);
     return (
       <View style={PageStyle.container}>
         <Header
@@ -275,21 +220,27 @@ class MeetingPage extends Component {
           }
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
-        <ScrollView>
-          <Image
-            style={PageStyle.backgroundImage}
-            source={require("../../../assets/event.png")}
-          />
-          <View style={PageStyle.overlapCardContainer}>
-            {this.renderTitle()}
-            {this.renderVideo()}
-            <Text style={PageStyle.header}> OUR UNIQUE FORMAT </Text>
-            {this.renderDescription()}
-            <Text style={PageStyle.header}> WHAT TO EXPECT </Text>
-            {this.renderExpectations()}
-            {this.renderDetails()}
+        {(hasLoadedMainMeeting && hasLoadedExpectations && hasLoadedVenues) || hasLoadedFacilitators ?
+          <ScrollView>
+            <Image
+              style={PageStyle.backgroundImage}
+              source={require("../../../assets/event.png")}
+            />
+            <View style={PageStyle.overlapCardContainer}>
+              {this.renderTitle()}
+              {this.renderVideo()}
+              <Text style={PageStyle.header}> OUR UNIQUE FORMAT </Text>
+              {this.renderDescription()}
+              <Text style={PageStyle.header}> WHAT TO EXPECT </Text>
+              {this.renderExpectations()}
+              {this.renderDetails()}
+            </View>
+          </ScrollView> :
+          <View style={PageStyle.loading}>
+            <ActivityIndicator loaded={hasLoadedMainMeeting} size="large" />
           </View>
-        </ScrollView>
+        }
+
         <TabbedMenu status={status} navigation={navigation} />
       </View>
     );
@@ -297,12 +248,12 @@ class MeetingPage extends Component {
 }
 
 const mapStatetoProps = ({ meeting }) => {
-  const { mainmeeting, venues, expectations, facilitators } = meeting;
+  const { mainmeeting, venues, expectations, facilitators,
+    hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators
+  } = meeting;
   return {
-    mainmeeting,
-    venues,
-    expectations,
-    facilitators
+    mainmeeting, venues, expectations, facilitators,
+    hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators
   };
 };
 

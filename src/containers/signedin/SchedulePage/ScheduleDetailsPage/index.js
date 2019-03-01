@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, Linking, TouchableOpacity } from "react-native";
 import {
   Header,
   TabbedMenu,
@@ -10,16 +10,17 @@ import PageStyle from "./styles";
 class ScheduleDetailsPage extends Component {
 
 
-  
-  renderEventDetails(){
-    const { navigation }  = this.props;
+
+  renderEventDetails() {
+    const { navigation } = this.props;
     const eventTitle = navigation.getParam("eventTitle");
     const description = navigation.getParam("description");
     const name = navigation.getParam("name");
     const nameTitle = navigation.getParam("nameTitle");
     const topic = navigation.getParam("topic");
-    if(eventTitle){
-      return(
+    const linkedin = navigation.getParam('linkedIn');
+    if (eventTitle) {
+      return (
         <View>
           <Text style={PageStyle.header}>
             ABOUT
@@ -36,16 +37,19 @@ class ScheduleDetailsPage extends Component {
                     <Text style={PageStyle.title}>{name}</Text>
                     <Text style={PageStyle.text}>{nameTitle}</Text>
                   </View>
-                  <View style={PageStyle.linkedInContainer}>
-                    <Image
+                  <TouchableOpacity onPress={() => Linking.openURL(linkedin)}>
+                    <View style={PageStyle.linkedInContainer}>
+                      <Image
                         style={PageStyle.linkedInButton}
                         source={require("../../../../assets/linkedin.png")}
                       />
-                  </View>
+                    </View>
+                  </TouchableOpacity>
+
                 </View>
               </ListItem>
             </View>
-            
+
           </Card>
         </View>
       );
@@ -55,10 +59,10 @@ class ScheduleDetailsPage extends Component {
 
 
   render() {
-    const { navigation }  = this.props;
+    const { navigation } = this.props;
     const location = navigation.getParam("location");
-    const floorplan = navigation.getParam("imageURL");
-    const label =navigation.getParam("label");
+    const floorplan = navigation.getParam("image");
+    const label = navigation.getParam("label");
     return (
       <View style={PageStyle.container}>
         <Header
@@ -67,7 +71,6 @@ class ScheduleDetailsPage extends Component {
           onPress={() => {
             navigation.goBack();
           }}
-          // onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <ScrollView>
           {this.renderEventDetails()}
@@ -82,13 +85,13 @@ class ScheduleDetailsPage extends Component {
                 </Text>
               </View>
               <View>
-               <Image source={require("../../../../assets/checkin_button.png")} style={PageStyle.locationIconStyle}/>
+                <Image source={require("../../../../assets/checkin_button.png")} style={PageStyle.locationIconStyle} />
               </View>
             </View>
             {/* <Image source={floorplan}  style={PageStyle.mapImage/> */}
-            <Image source={require("../../../../assets/floor_map.png")} style={PageStyle.mapImage}/>
+            <Image source={floorplan} style={PageStyle.mapImage} />
           </Card>
-          
+
         </ScrollView>
         <TabbedMenu status="loggedin" navigation={navigation} />
       </View>

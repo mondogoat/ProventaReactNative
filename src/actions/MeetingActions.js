@@ -160,18 +160,18 @@ export const fetchDiscussions = (id) => async dispatch => {
   }
 };
 
-//Retrieve main talks
-export const fetchTalks = (id) => async dispatch => {
-  try {
-    const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
-    dispatch({
-      type: FETCH_MAIN_TALKS,
-      payload: request.data.data.attributes.discussionsWithTalks
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+// //Retrieve main talks
+// export const fetchTalks = (id) => async dispatch => {
+//   try {
+//     const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
+//     dispatch({
+//       type: FETCH_MAIN_TALKS,
+//       payload: request.data.data[0].attributes.discussionsWithTalks
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 
 

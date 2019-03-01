@@ -13,12 +13,12 @@ class SchedulePage extends Component {
     afternoonSessions: [
     ],
     selectedIndex: 1,
-    selectedIndex: 1
+    selectedInnerIndex: 1
   };
 
   componentDidMount() {
     this.props.fetchDiscussions(35);
-    this.props.fetchTalks(10);
+    // this.props.fetchTalks(10);
   }
 
   formatHours(date) {
@@ -67,14 +67,13 @@ class SchedulePage extends Component {
 
 
   getIndexTalks(talks, id) {
-
-    return talks.findIndex(talks => talks.id === id);
+    return talks.findIndex(talks => talksWithFacilitator.id === id);
   }
 
 
 
   renderSessions() {
-    const { navigation, discussions, talks } = this.props;
+    const { navigation, discussions } = this.props;
 
     // this.filterSessions();
     // const data = type === 'am' ? this.state.morningSessions : this.state.afternoonSessions;
@@ -84,19 +83,12 @@ class SchedulePage extends Component {
           <View key={id} style={PageStyle.ListContainer}>
             <ListItem
               onPress={() => {
-                this.setState(
-                  {
-                    selectedIndex: this.getIndex(id)
-                  },
-                  () => {
-                    // this.props.navigation.navigate("ScheduleDetailsPage", {
-                    //   location: attributes.tal,
-                    //   image: floorplan.image,
-                    //   label: "SCHEDULE DETAILS"
-                    //   imageUrl: floorplan.image
-                    // });
-                  }
-                );
+                this.props.navigation.navigate("ScheduleDetailsPage", {
+                  // location: attributes.tal,
+                  // image: floorplan.image,
+                  label: attributes.title
+                  // imageUrl: floorplan.image
+                });
               }}
             >
               <View
@@ -131,31 +123,24 @@ class SchedulePage extends Component {
   }
 
   renderDropdownList(talks) {
-    // const { talks } = this.props;
-    console.log(talks);
+    const { navigation } = this.props;
+
     const event = talks.map(({ id, attributes }) => {
       return (
         <View key={id} style={PageStyle.dropdownList}>
           <ListItem
             onPress={() => {
-              this.setState(
-                {
-                  selectedInnerIndex: this.getIndexTalks(talks, id)
-                },
-                () => {
-                  console.log(this.state.selectedInnerIndex);
-                  // this.props.navigation.navigate("ScheduleDetailsPage", {
-                  //   label: "Details",
-                  //   eventTitle: attributes[this.getIndex()].topic,
-                  //   name: attributes[this.getIndex()].facilitator.first_name + attributes[this.getIndex()].facilitator.last_name,
-                  //   nameTitle: attributes[this.getIndex()].facilitator.company + attributes[this.getIndex()].facilitator.position,
-                  //   location: events[id].floorplan.location,
-                  //   image: events[id].floorplan.image,
-                  //   topic: events[id].topic,
-                  //   description: events[id].description,
-                  // });
-                }
-              );
+              navigation.navigate("ScheduleDetailsPage", {
+                label: attributes.title,
+                topic: attributes.topic,
+                description: attributes.description,
+                eventTitle: attributes.topic,
+                name: attributes.facilitator.first_name + ' ' + attributes.facilitator.last_name,
+                nameTitle: attributes.facilitator.company + ' ' + attributes.facilitator.position,
+                linkedIn: attributes.facilitator.linkedin,
+                location: attributes.floorPlans[0].location,
+                image: attributes.floorPlans[0].image,
+              });
             }}
           >
             <View>
