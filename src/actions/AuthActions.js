@@ -8,6 +8,7 @@ import {
 } from "./types";
 
 import axios from "axios";
+import AsyncStorage from "react-native";
 
 // Update emailAddress and password field
 export const updateAuth = ({ prop, value }) => {
@@ -17,23 +18,26 @@ export const updateAuth = ({ prop, value }) => {
   };
 };
 
-export const signUp = (data) => async dispatch => {
+export const signUp = data => async dispatch => {
   try {
-
     var headers = {
       headers: { "Content-Type": "application/json" }
     };
 
-    const request = await axios.post(`https://proventa-meetings.herokuapp.com/users`, {
-      email: data.email,
-      password: data.password,
-      firstName: "GUEST",
-      lastName: "GUEST",
-      // position: "",
-      // company: "",
-      // contactNumber: "",
-      // linkedIn: ""
-    }, headers);
+    const request = await axios.post(
+      `https://proventa-meetings.herokuapp.com/users`,
+      {
+        email: data.email,
+        password: data.password,
+        firstName: "GUEST",
+        lastName: "GUEST"
+        // position: "",
+        // company: "",
+        // contactNumber: "",
+        // linkedIn: ""
+      },
+      headers
+    );
 
     dispatch({
       type: AUTH_SIGNUP_SUCCESS,
@@ -56,34 +60,35 @@ export const signUp = (data) => async dispatch => {
     // For UI trigger
     // callback();
   } catch (error) {
-    (error);
+    error;
   }
 };
 
-// export const login = (form, callback) => async dispatch => {
-//   try {
-//     const request = await axios.post(`${SERVER_ADDRESS}/login`, {
-//       emailAddress: form.emailAddress,
-//       password: form.password
-//     });
+export const login = data => async dispatch => {
+  try {
+    const request = await axios.post(`${SERVER_ADDRESS}/auth/login`, {
+      email: data.email,
+      password: data.password
+    });
+    console.log(request);
+    //Login Success
+    if (request.result === "SUCCESS") {
+      dispatch({
+        type: AUTH_LOGIN_SUCCESS,
+        payload: request.data.auth_token
+      });
+      AsyncStorage.setItem("token", request.data.auth_token);
+    } else {
+      dispatch({
+        type: AUTH_LOGIN_FAIL,
+        payload: "Login Failed"
+      });
+    }
 
-//     //Login Success
-//     if (request.result === "SUCCESS") {
-//       dispatch({
-//         type: AUTH_LOGIN_SUCCESS,
-//         payload: "Login Success"
-//       });
-//     } else {
-//       dispatch({
-//         type: AUTH_LOGIN_FAIL,
-//         payload: "Login Failed"
-//       });
-//     }
-
-//     //This is called after the POST function is done
-//     // For UI trigger
-//     callback();
-//   } catch (error) {
-//     (error);
-//   }
-// };
+    //This is called after the POST function is done
+    // For UI trigger
+    // callback();
+  } catch (error) {
+    error;
+  }
+};

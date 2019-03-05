@@ -19,13 +19,11 @@ import axios from "axios";
 // };
 
 //Retrieve calendar settings
-export const fetchCalendarSettings = (userId) => async dispatch => {
+export const fetchCalendarSettings = userId => async dispatch => {
   try {
-    const request = await axios.get(
-      `${SERVER_ADDRESS}/settings/${userId}`
-    );
+    const request = await axios.get(`${SERVER_ADDRESS}/settings/${userId}`);
 
-    (request);
+    request;
     dispatch({
       type: SETTINGS_CONFIG_SUCCESS,
       payload: request.data.data.attributes
@@ -35,8 +33,8 @@ export const fetchCalendarSettings = (userId) => async dispatch => {
   }
 };
 
-//Retrieve calendar settings
-export const updateCalendarSettings = (userId) => async dispatch => {
+//Update calendar settings
+export const updateCalendarSettings = userId => async dispatch => {
   try {
     const request = await axios.patch(
       `${SERVER_ADDRESS}/settings/${userId}`,
@@ -52,23 +50,21 @@ export const updateCalendarSettings = (userId) => async dispatch => {
   }
 };
 
-// //Retrieve notification settings
-// export const fetchNotificationSettings = userId => {
-//   try {
-//     const request = await axios.GET(
-//       `${SERVER_ADDRESS}/user/${userId}/settings/notification`
-//     );
+//Retrieve notification settings
+export const fetchNotificationSettings = userId => async dispatch => {
+  try {
+    const request = await axios.get(`${SERVER_ADDRESS}/settings/${userId}`);
 
-//     if (request.status === "SUCCESS") {
-//       dispatch({
-//         type: FETCH_NOTIFICATION_SETTINGS,
-//         payload: request.data
-//       });
-//     }
-//   } catch (error) {
-//     (error);
-//   }
-// };
+    if (request.status === "SUCCESS") {
+      dispatch({
+        type: FETCH_NOTIFICATION_SETTINGS,
+        payload: request.data.data.attributes
+      });
+    }
+  } catch (error) {
+    error;
+  }
+};
 
 // //Update Settings
 // export const updateCalendarSettings = (form, callback) => {

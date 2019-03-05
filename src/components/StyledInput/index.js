@@ -36,6 +36,7 @@ class StyledInput extends Component {
             style={ComponentStyle.input}
             placeholder={placeholder}
             onChangeText={onChangeText}
+            autoCapitalize={false}
           />
         </View>
         {this.renderRightIcon(

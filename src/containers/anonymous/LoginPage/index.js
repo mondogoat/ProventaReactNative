@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { View, ScrollView, Image, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  ScrollView,
+  Image,
+  Text,
+  TouchableOpacity,
+  AsyncStorage
+} from "react-native";
 import {
   Header,
   TabbedMenu,
@@ -10,10 +17,11 @@ import {
 } from "../../../components";
 import PageStyle from "./styles";
 import { DrawerActions } from "react-navigation";
+import { connect } from "react-redux";
+import { login, updateAuth } from "../../../actions";
 // import { GoogleSignin, statusCodes } from "react-native-google-signin";
 
 class LoginPage extends Component {
-
   componentDidMount() {
     // GoogleSignin.configure({
     //   iosClientId:
@@ -66,14 +74,18 @@ class LoginPage extends Component {
           label="Log in with LinkedIn"
           icon={require("../../../assets/linkedin_button.png")}
           // onPress={this.signIn.bind(this)}
-          onPress={() => { console.log("hello"); }}
+          onPress={() => {
+            console.log("hello");
+          }}
         />
         <SocialButton
           type="google"
           label="Log in with Google"
           icon={require("../../../assets/google.png")}
           // onPress={this.signIn.bind(this)}
-          onPress={() => { console.log("hello"); }}
+          onPress={() => {
+            console.log("hello");
+          }}
         />
       </View>
     );
@@ -84,16 +96,16 @@ class LoginPage extends Component {
         <StyledInput
           type="email"
           placeholder="Email Address"
-          onChangeText={() => {
-            console.log("email");
+          onChangeText={value => {
+            this.props.updateAuth({ prop: "emailAddress", value });
           }}
           icon={require("../../../assets/login_user.png")}
         />
         <StyledInput
           type="password"
           placeholder="Password"
-          onChangeText={() => {
-            console.log("password");
+          onChangeText={value => {
+            this.props.updateAuth({ prop: "password", value });
           }}
           icon={require("../../../assets/login_password.png")}
           visibilityIcon={require("../../../assets/login_eye.png")}
@@ -101,8 +113,22 @@ class LoginPage extends Component {
       </View>
     );
   }
+
+  loginUser() {
+    const { emailAddress, password } = this.props;
+
+    const data = {
+      email: this.props.emailAddress.value,
+      password: this.props.password.value
+    };
+    this.props.login(data);
+    AsyncStorage.getItem("token").then(token => {
+      console.log(token);
+    });
+  }
+
   render() {
-    const { navigation } = this.props;
+    const { navigation, status, message, emailAddress, password } = this.props;
     return (
       <View style={PageStyle.container}>
         <Header
@@ -115,9 +141,10 @@ class LoginPage extends Component {
           <View style={PageStyle.card}>
             {this.renderLoginForm()}
             <MainButton
-              onPress={() =>
-                navigation.navigate("MeetingPage", { status: "loggedin" })
-              }
+              onPress={() => {
+                this.loginUser.bind(this);
+                navigation.navigate("MeetingPage", { status });
+              }}
               label="LOGIN"
             />
             <View style={PageStyle.sectionLine} />
@@ -134,4 +161,13 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+const mapStatetoProps = ({ auth }) => {
+  const { status, message, emailAddress, password, token } = auth;
+
+  return { status, message, emailAddress, password, token };
+};
+
+export default connect(
+  mapStatetoProps,
+  { login, updateAuth }
+)(LoginPage);

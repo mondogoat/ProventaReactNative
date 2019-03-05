@@ -17,35 +17,26 @@ import {
   SERVER_ADDRESS
 } from "./types";
 
-import axios from 'axios';
+import { AsyncStorage } from "react-native";
+import axios from "axios";
 
-// //Retrieve available meetings
-// export const fetchMeetings = (status, userId) => {
-//   try {
-//     //Status determines if user is anonymous or signedIn
-//     if (status === "anonymous") {
-//       const request = await axios.GET(`${SERVER_ADDRESS}/meetings`);
-//       // const request = await axios.GET(`https://f26a42a0-4b0f-4b15-91cf-90f1774b2f4a.mock.pstmn.io/meetings?x-api-key=aa39a0c36de24f86a285dbd63e1b7ffd`)
-//       dispatch({
-//         type: FETCH_MEETINGS,
-//         payload: request.data
-//       });
-//     } else if (status === "signedIn") {
-//       const request = await axios.GET(`${SERVER_ADDRESS}/${userId}/meetings`);
-//       dispatch({
-//         type: FETCH_MEETINGS,
-//         payload: request.data
-//       });
-//     }
-//   } catch (error) {
-//     (error);
-//   }
-// };
+//Retrieve meetings
+export const fetchMeetings = status => async dispatch => {
+  const token = await AsyncStorage.getItem("token");
+  const url =
+    status === "loggedin"
+      ? `${SERVER_ADDRESS}/meetings`
+      : `${SERVER_ADDRESS}/anonymous/meetings`;
 
-//Retrieve main meetings
-export const fetchMeetings = () => async dispatch => {
   try {
-    const request = await axios.get(`${SERVER_ADDRESS}/meetings`);
+    const request = await axios.get(
+      url, {
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": token
+        }
+      }
+    );
     dispatch({
       type: FETCH_MEETINGS,
       payload: request.data.data
@@ -56,9 +47,20 @@ export const fetchMeetings = () => async dispatch => {
 };
 
 //Retrieve main meetings
-export const fetchMainMeeting = (id) => async dispatch => {
+export const fetchMainMeeting = (id, status) => async dispatch => {
+  const token = await AsyncStorage.getItem("token");
+  const url =
+    status === "loggedin"
+      ? `${SERVER_ADDRESS}/meetings/${id}`
+      : `${SERVER_ADDRESS}/anonymous/meetings/${id}`;
+
   try {
-    const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
+    const request = await axios.get(url, {
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": token
+      }
+    });
     dispatch({
       type: FETCH_MAIN_MEETING,
       payload: request.data.data[0].attributes
@@ -69,9 +71,19 @@ export const fetchMainMeeting = (id) => async dispatch => {
 };
 
 //Retrieve main venue
-export const fetchMainVenue = (id) => async dispatch => {
+export const fetchMainVenue = (id, status) => async dispatch => {
+  const token = await AsyncStorage.getItem("token");
+  const url =
+    status === "loggedin"
+      ? `${SERVER_ADDRESS}/meetings/${id}`
+      : `${SERVER_ADDRESS}/anonymous/meetings/${id}`;
   try {
-    const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
+    const request = await axios.get(url, {
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": token
+      }
+    });
     dispatch({
       type: FETCH_MAIN_VENUE,
       payload: request.data.data[0].attributes.venues
@@ -82,9 +94,11 @@ export const fetchMainVenue = (id) => async dispatch => {
 };
 
 //Retrieve main expectations
-export const fetchExpectations = (id) => async dispatch => {
+export const fetchExpectations = id => async dispatch => {
   try {
-    const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
+    const request = await axios.get(
+      `${SERVER_ADDRESS}/anonymous/meetings/${id}`
+    );
     dispatch({
       type: FETCH_MAIN_EXPECTATIONS,
       payload: request.data.data[0].attributes.expectations
@@ -95,9 +109,11 @@ export const fetchExpectations = (id) => async dispatch => {
 };
 
 //Retrieve main facilitators
-export const fetchFacilitators = (id) => async dispatch => {
+export const fetchFacilitators = id => async dispatch => {
   try {
-    const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
+    const request = await axios.get(
+      `${SERVER_ADDRESS}/anonymous/meetings/${id}`
+    );
     dispatch({
       type: FETCH_MAIN_FACILITATORS,
       payload: request.data.data[0].attributes.facilitators
@@ -107,9 +123,8 @@ export const fetchFacilitators = (id) => async dispatch => {
   }
 };
 
-
 //Retrieve main participants
-export const fetchParticipants = (id) => async dispatch => {
+export const fetchParticipants = id => async dispatch => {
   try {
     const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
     dispatch({
@@ -122,7 +137,7 @@ export const fetchParticipants = (id) => async dispatch => {
 };
 
 //Retrieve main sponsors
-export const fetchSponsors = (id) => async dispatch => {
+export const fetchSponsors = id => async dispatch => {
   try {
     const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
     dispatch({
@@ -135,7 +150,7 @@ export const fetchSponsors = (id) => async dispatch => {
 };
 
 //Retrieve main floorplans
-export const fetchFloorPlans = (id) => async dispatch => {
+export const fetchFloorPlans = id => async dispatch => {
   try {
     const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
     dispatch({
@@ -148,7 +163,7 @@ export const fetchFloorPlans = (id) => async dispatch => {
 };
 
 //Retrieve main discussions
-export const fetchDiscussions = (id) => async dispatch => {
+export const fetchDiscussions = id => async dispatch => {
   try {
     const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
     dispatch({
@@ -161,7 +176,7 @@ export const fetchDiscussions = (id) => async dispatch => {
 };
 
 //Retrieve main talks
-export const fetchTalks = (id) => async dispatch => {
+export const fetchTalks = id => async dispatch => {
   try {
     const request = await axios.get(`${SERVER_ADDRESS}/meetings/${id}`);
     dispatch({
@@ -172,24 +187,6 @@ export const fetchTalks = (id) => async dispatch => {
     console.log(error);
   }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // //Retrieve fitered meetings
 // export const fetchFilteredMeetings = (query) => {
@@ -253,4 +250,3 @@ export const fetchTalks = (id) => async dispatch => {
 //   } catch (error) {
 //     (error);
 //   }
-// };
