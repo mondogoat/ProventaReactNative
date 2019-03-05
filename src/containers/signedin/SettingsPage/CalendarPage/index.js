@@ -1,24 +1,26 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { View, Text, Switch } from "react-native";
 // import RNCalendarEvents from "react-native-calendar-events";
 import { Header, Card, ListItem, TabbedMenu } from "../../../../components";
 import PageStyle from "./styles";
-import { fetchCalendarSettings } from '../../../../actions';
-import { Permissions, Calendar } from 'expo';
+import { fetchCalendarSettings } from "../../../../actions";
+import { Permissions, Calendar } from "expo";
 
 class CalendarPage extends Component {
   state = {
-    calendarItems: [{
-      id: 0,
-      label: "Sync to Google Calendar",
-      toggleStatus: null
-    },
-    {
-      id: 1,
-      label: "Sync to Phone Calendar",
-      toggleStatus: null
-    }],
+    calendarItems: [
+      {
+        id: 0,
+        label: "Sync to Google Calendar",
+        toggleStatus: null
+      },
+      {
+        id: 1,
+        label: "Sync to Phone Calendar",
+        toggleStatus: null
+      }
+    ],
     meetings: [
       {
         id: 0,
@@ -81,12 +83,12 @@ class CalendarPage extends Component {
 
   resolvePromises(promise, meetingItems, i) {
     return promise
-      .then(function () {
-        return new Promise(function (r) {
+      .then(function() {
+        return new Promise(function(r) {
           return setTimeout(r, 300);
         });
       })
-      .then(function () {
+      .then(function() {
         RNCalendarEvents.saveEvent(meetingItems[i].title, {
           location: meetingItems[i].floorplan.location,
           startDate: meetingItems[i].startDate.toISOString(),
@@ -99,10 +101,9 @@ class CalendarPage extends Component {
     this.props.fetchCalendarSettings(1);
 
     const { status } = await Permissions.askAsync(Permissions.CALENDAR);
-    this.setState({ hasCalendarPermission: status === 'granted' });
+    this.setState({ hasCalendarPermission: status === "granted" });
 
-    this.syncEvents(this.state.meetings)
-
+    this.syncEvents(this.state.meetings);
   }
 
   syncEvents(meetingItems) {
@@ -111,11 +112,11 @@ class CalendarPage extends Component {
       promise = this.resolvePromises(promise, meetingItems, i);
     }
     promise
-      .then(function () {
+      .then(function() {
         alert("You have successfully synced all events to your local phone.");
       })
-      .catch(function (e) {
-        (e.message);
+      .catch(function(e) {
+        e.message;
       });
   }
 
@@ -123,9 +124,9 @@ class CalendarPage extends Component {
     const { calendar } = this.props;
     const options = [...this.state.calendarItems];
     if (i === 0) {
-      options[i].toggleStatus = calendar.calendarGoogle;
+      options[i].toggleStatus = calendar.calendar_google;
     } else {
-      options[i].toggleStatus = calendar.calendarIcalendar;
+      options[i].toggleStatus = calendar.calendar_icalendar;
     }
 
     options[i].toggleStatus = !options[i].toggleStatus;
@@ -171,7 +172,11 @@ class CalendarPage extends Component {
               </View>
               <View style={{ width: "18%" }}>
                 <Switch
-                  value={id === 0 ? calendar.calendarGoogle : calendar.calendarIcalendar}
+                  value={
+                    id === 0
+                      ? calendar.calendar_google
+                      : calendar.calendar_icalendar
+                  }
                   onValueChange={this.toggle.bind(this, id)}
                 />
               </View>
@@ -186,10 +191,11 @@ class CalendarPage extends Component {
 
   render() {
     const { navigation, calendar } = this.props;
-    (calendar.calendarGoogle);
+    calendar.calendar_google;
+    calendar.calendar_icalendar;
 
     return (
-      <View style={PageStyle.container} >
+      <View style={PageStyle.container}>
         <Header
           label="CALENDAR"
           status="details"
@@ -209,6 +215,9 @@ const mapStatetoProps = ({ settings }) => {
   const { calendar } = settings;
 
   return { calendar };
-}
+};
 
-export default connect(mapStatetoProps, { fetchCalendarSettings })(CalendarPage);
+export default connect(
+  mapStatetoProps,
+  { fetchCalendarSettings }
+)(CalendarPage);
