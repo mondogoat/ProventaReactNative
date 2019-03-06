@@ -22,12 +22,19 @@ const INITIAL_STATE = {
   venues: [],
   hasLoadedVenues: false,
   expectations: [],
+  hasLoadedExpectations: false,
   facilitators: [],
+  hasLoadedFacilitators: false,
   participants: [],
+  hasLoadedParticipants: false,
   sponsors: [],
+  hasLoadedSponsors: false,
   floorPlans: [],
+  hasLoadedFloorPlans: false,
   discussions: [],
+  hasLoadedDiscussions: false,
   talks: [],
+  hasLoadedTalks: false,
   mainmeeting: {},
   hasLoadedMainMeeting: false,
   inbox: [],
@@ -59,19 +66,19 @@ export default function (state = INITIAL_STATE, action) {
         hasLoadedVenues: true
       };
     case FETCH_MAIN_EXPECTATIONS:
-      return { ...state, expectations: action.payload };
+      return { ...state, expectations: action.payload, hasLoadedExpectations: true };
     case FETCH_MAIN_FACILITATORS:
-      return { ...state, facilitators: action.payload };
+      return { ...state, facilitators: action.payload, hasLoadedFacilitators: true };
     case FETCH_MAIN_PARTICIPANTS:
-      return { ...state, participants: action.payload };
+      return { ...state, participants: action.payload, hasLoadedParticipants: true };
     case FETCH_MAIN_SPONSORS:
-      return { ...state, sponsors: action.payload };
+      return { ...state, sponsors: action.payload, hasLoadedSponsors: true };
     case FETCH_MAIN_FLOORPLANS:
-      return { ...state, floorPlans: action.payload };
+      return { ...state, floorPlans: action.payload, hasLoadedFloorPlans: true };
     case FETCH_MAIN_DISCUSSIONS:
-      return { ...state, discussions: action.payload };
+      return { ...state, discussions: action.payload, hasLoadedDiscussions: true };
     case FETCH_MAIN_TALKS:
-      return { ...state, talks: action.payload };
+      return { ...state, talks: action.payload, hasLoadedTalks: true };
     case FETCH_INBOX:
       return { ...state, emails: action.payload };
     case FETCH_FILTERED_MEETINGS:
