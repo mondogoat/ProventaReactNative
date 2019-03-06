@@ -20,7 +20,7 @@ const INITIAL_STATE = {
   token: ""
 };
 
-export default function(state = INITIAL_STATE, action) {
+export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case AUTH_UPDATE:
       return { ...state, [action.payload.prop]: action.payload };

@@ -70,9 +70,8 @@ export const login = data => async dispatch => {
       email: data.email,
       password: data.password
     });
-    console.log(request);
     //Login Success
-    if (request.result === "SUCCESS") {
+    if (request.data.auth_token) {
       dispatch({
         type: AUTH_LOGIN_SUCCESS,
         payload: request.data.auth_token

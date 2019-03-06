@@ -116,7 +116,6 @@ class LoginPage extends Component {
 
   loginUser() {
     const { emailAddress, password } = this.props;
-
     const data = {
       email: this.props.emailAddress.value,
       password: this.props.password.value
@@ -142,8 +141,10 @@ class LoginPage extends Component {
             {this.renderLoginForm()}
             <MainButton
               onPress={() => {
-                this.loginUser.bind(this);
-                navigation.navigate("MeetingPage", { status });
+                this.loginUser();
+                console.log(status, "click login button")
+                if (status === "loggedin") { navigation.navigate("MeetingPage", { status }); }
+
               }}
               label="LOGIN"
             />

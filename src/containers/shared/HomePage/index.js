@@ -22,6 +22,7 @@ class HomePage extends Component {
     this.props.fetchMainMeeting(35, "loggedout");
     this.props.fetchMainVenue(35, "loggedout");
     this.props.fetchMeetings("loggedout");
+    this.props.fetchFacilitators(35, "loggedout");
   }
 
   // renderCategories() {
@@ -46,7 +47,7 @@ class HomePage extends Component {
         <View key={id} style={PageStyle.eventList}>
           <ListItem
             onPress={() =>
-              navigation.navigate("MeetingPage", { meetingId: id })
+              navigation.navigate("MeetingPage", { meetingId: id, status: "loggedout" })
             }
           >
             <Card style={{ width: "90%" }}>
@@ -99,7 +100,7 @@ class HomePage extends Component {
         />
         {hasLoadedMainMeeting && hasLoadedMeetings ? (
           <ScrollView>
-            <ListItem onPress={() => navigation.navigate("MeetingPage")}>
+            <ListItem onPress={() => navigation.navigate("MeetingPage", { status: "loggedout" })}>
               <Card>
                 <Image
                   style={PageStyle.image}

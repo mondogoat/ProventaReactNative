@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, ScrollView, Image } from "react-native";
+import { Text, View, ScrollView, Image, AsyncStorage, ActivityIndicator } from "react-native";
 import {
   Header,
   TabbedMenu,
@@ -16,26 +16,34 @@ import {
   fetchMainMeeting,
   fetchMainVenue,
   fetchExpectations,
-  fetchFacilitators
+  fetchFacilitators,
+  fetchParticipants
 } from "../../../actions";
 
 class MeetingPage extends Component {
-  componentDidMount() {
-    const id = navigation.getParam("meetingId");
+
+  state = {
+    modalVisible: false,
+    selectedIndex: 1
+  };
+
+  componentWillMount() {
     const { navigation } = this.props;
+    const id = navigation.getParam("meetingId");
     const status = navigation.getParam("status");
     if (status === "loggedin") {
       AsyncStorage.getItem("token").then(token => {
         this.props.fetchMainMeeting(id, status);
         this.props.fetchMainVenue(id, status);
-        this.props.fetchExpectations(id ? id : 35);
-        this.props.fetchFacilitators(id);
+        this.props.fetchExpectations(id, status);
+        this.props.fetchFacilitators(id, status);
+        this.props.fetchParticipants(id, status)
       });
     } else {
-      this.props.fetchMainMeeting(id);
-      this.props.fetchMainVenue(id);
-      this.props.fetchExpectations(id ? id : 35);
-      this.props.fetchFacilitators(id);
+      this.props.fetchMainMeeting(id, "loggedout");
+      this.props.fetchMainVenue(id, "loggedout");
+      this.props.fetchExpectations(id, "loggedout");
+      this.props.fetchFacilitators(id, "loggedout");
     }
   }
 
@@ -93,7 +101,7 @@ class MeetingPage extends Component {
 
   renderExpectations() {
     const { expectations } = this.props;
-
+    console.log(expectations)
     const expectation = expectations.map(
       ({ id, image, title, description }) => {
         return (
@@ -132,53 +140,55 @@ class MeetingPage extends Component {
 
   renderFacilitators() {
     const { facilitators } = this.props;
-    const facilitator = facilitators.map(
-      ({ id, first_name, last_name, position }) => {
-        return (
-          <View key={id} style={PageStyle.expectationContainer}>
-            <ListItem
-              onPress={() => {
-                this.setState(
-                  {
-                    selectedIndex: this.getIndex(id)
-                  },
-                  () => {
-                    this.toggleModal();
-                  }
-                );
-              }}
-            >
-              <View style={PageStyle.expectationList}>
-                <View style={{ width: "25%" }}>
-                  <Image
-                    style={[PageStyle.expectationIcon, PageStyle.profileIcon]}
-                    source={{
-                      uri:
-                        "https://cdn5.vectorstock.com/i/thumb-large/13/04/male-profile-picture-vector-2041304.jpg"
-                    }}
-                  />
+    if (facilitators.length > 0) {
+      const facilitator = facilitators.map(
+        ({ id, first_name, last_name, position }) => {
+          return (
+            <View key={id} style={PageStyle.expectationContainer}>
+              <ListItem
+                onPress={() => {
+                  this.setState(
+                    {
+                      selectedIndex: this.getIndex(id)
+                    },
+                    () => {
+                      this.toggleModal();
+                    }
+                  );
+                }}
+              >
+                <View style={PageStyle.expectationList}>
+                  <View style={{ width: "25%" }}>
+                    <Image
+                      style={[PageStyle.expectationIcon, PageStyle.profileIcon]}
+                      source={{
+                        uri:
+                          "https://cdn5.vectorstock.com/i/thumb-large/13/04/male-profile-picture-vector-2041304.jpg"
+                      }}
+                    />
+                  </View>
+                  <View style={{ width: "75%" }}>
+                    <Text style={PageStyle.expectationTitle}>
+                      {first_name} {last_name}
+                    </Text>
+                    <Text style={PageStyle.expectationDescription}>
+                      {position}
+                    </Text>
+                  </View>
                 </View>
-                <View style={{ width: "75%" }}>
-                  <Text style={PageStyle.expectationTitle}>
-                    {first_name} {last_name}
-                  </Text>
-                  <Text style={PageStyle.expectationDescription}>
-                    {position}
-                  </Text>
-                </View>
-              </View>
-              <View style={PageStyle.expectationBorder} />
-            </ListItem>
-            <ModalScreen
-              facilitator={facilitators[this.getIndex(id)]}
-              modalVisible={this.state.modalVisible}
-            />
-          </View>
-        );
-      }
-    );
+                <View style={PageStyle.expectationBorder} />
+              </ListItem>
+              <ModalScreen
+                facilitator={facilitators[this.getIndex(id)]}
+                modalVisible={this.state.modalVisible}
+              />
+            </View>
+          );
+        }
+      );
 
-    return facilitator;
+      return facilitator;
+    }
   }
 
   renderMap() {
@@ -200,7 +210,7 @@ class MeetingPage extends Component {
       return (
         <View>
           <Text style={PageStyle.header}> FACILITATORS </Text>
-          {this.renderFacilitators(this.state.facilitators)}
+          {this.renderFacilitators()}
           <Text style={[PageStyle.header, PageStyle.mapContainer]}>VENUE</Text>
           {/* For refactoring, must be inside Card */}
           <View style={PageStyle.mapContainer} />
@@ -210,8 +220,9 @@ class MeetingPage extends Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators } = this.props;
     const status = navigation.getParam("status");
+    console.log(hasLoadedMainMeeting + '' + hasLoadedExpectations + '' + hasLoadedVenues + '' + hasLoadedFacilitators);
     return (
       <View style={PageStyle.container}>
         <Header
@@ -225,21 +236,27 @@ class MeetingPage extends Component {
           }
           onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
-        <ScrollView>
-          <Image
-            style={PageStyle.backgroundImage}
-            source={require("../../../assets/event.png")}
-          />
-          <View style={PageStyle.overlapCardContainer}>
-            {this.renderTitle()}
-            {this.renderVideo()}
-            <Text style={PageStyle.header}> OUR UNIQUE FORMAT </Text>
-            {this.renderDescription()}
-            <Text style={PageStyle.header}> WHAT TO EXPECT </Text>
-            {this.renderExpectations()}
-            {this.renderDetails()}
+        {(hasLoadedMainMeeting && hasLoadedVenues && hasLoadedExpectations) || hasLoadedFacilitators ?
+          <ScrollView>
+            <Image
+              style={PageStyle.backgroundImage}
+              source={require("../../../assets/event.png")}
+            />
+            <View style={PageStyle.overlapCardContainer}>
+              {this.renderTitle()}
+              {this.renderVideo()}
+              <Text style={PageStyle.header}> OUR UNIQUE FORMAT </Text>
+              {this.renderDescription()}
+              <Text style={PageStyle.header}> WHAT TO EXPECT </Text>
+              {this.renderExpectations()}
+              {this.renderDetails()}
+            </View>
+          </ScrollView> :
+          <View style={PageStyle.loading}>
+            <ActivityIndicator loaded={hasLoadedMainMeeting && hasLoadedExpectations && hasLoadedVenues && hasLoadedFacilitators} size="large" />
           </View>
-        </ScrollView>
+        }
+
         <TabbedMenu status={status} navigation={navigation} />
       </View>
     );
@@ -247,16 +264,15 @@ class MeetingPage extends Component {
 }
 
 const mapStatetoProps = ({ meeting }) => {
-  const { mainmeeting, venues, expectations, facilitators } = meeting;
+  const { mainmeeting, venues, expectations, facilitators, participants,
+    hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators
+  } = meeting;
   return {
-    mainmeeting,
-    venues,
-    expectations,
-    facilitators
+    mainmeeting, venues, expectations, facilitators, participants,
+    hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators
   };
 };
-
 export default connect(
   mapStatetoProps,
-  { fetchMainMeeting, fetchMainVenue, fetchExpectations, fetchFacilitators }
+  { fetchMainMeeting, fetchMainVenue, fetchExpectations, fetchFacilitators, fetchParticipants }
 )(MeetingPage);
