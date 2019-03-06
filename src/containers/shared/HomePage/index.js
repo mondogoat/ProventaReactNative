@@ -18,7 +18,7 @@ class HomePage extends Component {
     currentVenues: []
   };
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchMainMeeting(35, "loggedout");
     this.props.fetchMainVenue(35, "loggedout");
     this.props.fetchMeetings("loggedout");
@@ -73,12 +73,14 @@ class HomePage extends Component {
   }
 
   renderVenue() {
-    const { venues } = this.props;
-    const venue = venues.map(({ id, title }) => {
-      return <Text key={id}>{title} </Text>;
-    });
+    const { venues, hasLoadedVenues } = this.props;
+    if (hasLoadedVenues) {
+      const venue = venues.map(({ id, title }) => {
+        return <Text key={id}>{title} </Text>;
+      });
 
-    return venue;
+      return venue;
+    }
   }
 
   render() {
@@ -87,7 +89,8 @@ class HomePage extends Component {
       mainmeeting,
       hasLoadedMainMeeting,
       hasLoadedMeetings,
-      hasLoadedVenues
+      hasLoadedVenues,
+      hasLoadedExpectations
     } = this.props;
 
     return (
@@ -100,7 +103,7 @@ class HomePage extends Component {
         />
         {hasLoadedMainMeeting && hasLoadedMeetings ? (
           <ScrollView>
-            <ListItem onPress={() => navigation.navigate("MeetingPage", { status: "loggedout" })}>
+            <ListItem onPress={() => navigation.navigate("MeetingPage", { meetingId: 35, status: "loggedout" })}>
               <Card>
                 <Image
                   style={PageStyle.image}
@@ -142,7 +145,8 @@ const mapStatetoProps = ({ meeting }) => {
     venues,
     hasLoadedVenues,
     meetings,
-    hasLoadedMeetings
+    hasLoadedMeetings,
+    hasLoadedExpectations
   } = meeting;
   return {
     mainmeeting,
@@ -150,7 +154,8 @@ const mapStatetoProps = ({ meeting }) => {
     venues,
     hasLoadedVenues,
     meetings,
-    hasLoadedMeetings
+    hasLoadedMeetings,
+    hasLoadedExpectations
   };
 };
 

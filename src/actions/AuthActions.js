@@ -64,19 +64,20 @@ export const signUp = data => async dispatch => {
   }
 };
 
-export const login = data => async dispatch => {
+export const login = (data) => async dispatch => {
   try {
     const request = await axios.post(`${SERVER_ADDRESS}/auth/login`, {
       email: data.email,
       password: data.password
     });
     //Login Success
-    if (request.data.auth_token) {
+    if (request.data.auth_token.length > 0) {
       dispatch({
         type: AUTH_LOGIN_SUCCESS,
         payload: request.data.auth_token
       });
-      AsyncStorage.setItem("token", request.data.auth_token);
+
+      console.log(request.data.auth_token);
     } else {
       dispatch({
         type: AUTH_LOGIN_FAIL,

@@ -16,7 +16,7 @@ const INITIAL_STATE = {
   contactNumber: "",
   linkedIn: "",
   message: "",
-  status: "",
+  status: "loggedout",
   token: ""
 };
 

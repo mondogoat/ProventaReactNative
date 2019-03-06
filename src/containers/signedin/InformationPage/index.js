@@ -3,6 +3,8 @@ import { View, Text, Image } from "react-native";
 import { Header, TabbedMenu, Card, ListItem } from "../../../components";
 import PageStyle from "./styles";
 import { DrawerActions } from "react-navigation";
+import { connect } from 'react-redux';
+import * as actions from "../../../actions";
 
 class InformationPage extends Component {
   state = {
@@ -40,6 +42,11 @@ class InformationPage extends Component {
     ]
   };
 
+  componentDidMount() {
+    const { navigation, status, token } = this.props;
+    //this.props.fetchParticipants(34, 'loggedin');
+  }
+
   renderMenu(menu) {
     const { navigation } = this.props;
     const menuItem = menu.map(({ id, image, label, name }) => {
@@ -48,7 +55,8 @@ class InformationPage extends Component {
           <ListItem
             onPress={() =>
               navigation.navigate("InformationDetailsPage", {
-                content: name
+                content: name,
+                status: "loggedin"
               })
             }
           >
@@ -69,6 +77,8 @@ class InformationPage extends Component {
     return menuItem;
   }
 
+
+
   render() {
     const { navigation } = this.props;
     return (
@@ -87,11 +97,30 @@ class InformationPage extends Component {
           }}
         />
         <Card>{this.renderMenu(this.state.menu)}</Card>
-
         <TabbedMenu navigation={navigation} status="loggedin" />
       </View>
     );
   }
 }
+const mapStatetoProps = ({ meeting, auth }) => {
+  const { mainmeeting, venues, expectations, facilitators, participants, sponsors, floorPlans,
+    hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators,
+    hasLoadedParticipants, hasLoadedSponsors, hasLoadedFloorPlans
+  } = meeting;
 
-export default InformationPage;
+  const { status } = auth;
+  return {
+    mainmeeting,
+    venues,
+    expectations,
+    facilitators,
+    participants,
+    sponsors,
+    floorPlans,
+    hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators,
+    hasLoadedParticipants, hasLoadedSponsors, hasLoadedFloorPlans,
+    auth
+  };
+};
+
+export default connect(mapStatetoProps, actions)(InformationPage);

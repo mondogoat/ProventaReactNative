@@ -50,7 +50,7 @@ class LoginPage extends Component {
       const userInfo = await GoogleSignin.signIn();
       console.log("User Info --> ", userInfo);
       if (userInfo) {
-        navigation.navigate("MeetingPage", { status: "loggedin" });
+        navigation.navigate("MeetingPage", { meetingId: 35, status: "loggedin" });
       }
     } catch (error) {
       console.log("Message", error.message);
@@ -115,15 +115,15 @@ class LoginPage extends Component {
   }
 
   loginUser() {
-    const { emailAddress, password } = this.props;
+    const { emailAddress, password, status, navigation } = this.props;
     const data = {
       email: this.props.emailAddress.value,
       password: this.props.password.value
     };
     this.props.login(data);
-    AsyncStorage.getItem("token").then(token => {
-      console.log(token);
-    });
+    if (status === 'loggedin') {
+      navigation.navigate("MeetingPage", { meetingId: 35, status });
+    }
   }
 
   render() {
@@ -142,9 +142,6 @@ class LoginPage extends Component {
             <MainButton
               onPress={() => {
                 this.loginUser();
-                console.log(status, "click login button")
-                if (status === "loggedin") { navigation.navigate("MeetingPage", { status }); }
-
               }}
               label="LOGIN"
             />

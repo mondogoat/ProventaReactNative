@@ -66,9 +66,17 @@ export default function (state = INITIAL_STATE, action) {
         hasLoadedVenues: true
       };
     case FETCH_MAIN_EXPECTATIONS:
-      return { ...state, expectations: action.payload, hasLoadedExpectations: true };
+      return {
+        ...state,
+        expectations: action.payload,
+        hasLoadedExpectations: true,
+      };
     case FETCH_MAIN_FACILITATORS:
-      return { ...state, facilitators: action.payload, hasLoadedFacilitators: true };
+      return {
+        ...state,
+        facilitators: action.payload,
+        hasLoadedFacilitators: true
+      };
     case FETCH_MAIN_PARTICIPANTS:
       return { ...state, participants: action.payload, hasLoadedParticipants: true };
     case FETCH_MAIN_SPONSORS:
