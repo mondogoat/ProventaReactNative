@@ -15,7 +15,9 @@ const INITIAL_STATE = {
   company: "",
   contactNumber: "",
   linkedIn: "",
-  message: ""
+  message: "",
+  status: "loggedout",
+  token: ""
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -27,9 +29,14 @@ export default function (state = INITIAL_STATE, action) {
     case AUTH_SIGNUP_FAIL:
       return { ...state, message: action.payload };
     case AUTH_LOGIN_SUCCESS:
-      return { ...state, message: action.payload };
+      return {
+        ...state,
+        message: "login successful",
+        status: "loggedin",
+        token: action.payload
+      };
     case AUTH_LOGIN_FAIL:
-      return { ...state, message: action.payload };
+      return { ...state, message: "login failed", status: "failed attempt" };
     default:
       return state;
   }

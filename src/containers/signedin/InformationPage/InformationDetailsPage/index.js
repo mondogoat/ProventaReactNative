@@ -1,82 +1,25 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, Image, TouchableOpacity, Linking } from "react-native";
+import { View, ScrollView, Text, Image, TouchableOpacity, Linking, ActivityIndicator, AsyncStorage } from "react-native";
 import { Header, TabbedMenu, Card, ListItem } from "../../../../components";
 import PageStyle from "./styles";
 import { connect } from 'react-redux';
 import * as actions from "../../../../actions";
 
 class InformationDetailsPage extends Component {
-  state = {
-    facilitators: [
-      {
-        id: 0,
-        icon: require("../../../../assets/facilitator_1.png"),
-        name: "David Crain",
-        title: "Alibaba CEO"
-      },
-      {
-        id: 1,
-        icon: require("../../../../assets/facilitator_2.png"),
-        name: "Yvone Thompson",
-        title: "Sputnik Inc. CEO"
-      },
-      {
-        id: 2,
-        icon: require("../../../../assets/faclitator2.png"),
-        name: "Phet Putrie",
-        title: "Founder of Stark Industries"
-      },
-      {
-        id: 3,
-        icon: require("../../../../assets/facilitator_4.png"),
-        name: "Arnold Zachary",
-        title: "CEO Wacom Industries"
-      }
-    ],
-    sponsors: [
-      {
-        id: 0,
-        icon: require("../../../../assets/amazon.png"),
-        name: "Amazon"
-      },
-      {
-        id: 1,
-        icon: require("../../../../assets/hooli.png"),
-        name: "Hooli"
-      },
-      {
-        id: 2,
-        icon: require("../../../../assets/aviato.png"),
-        name: "Aviato"
-      },
-      {
-        id: 3,
-        icon: require("../../../../assets/piedpiper.png"),
-        name: "Pied Piper"
-      },
-      {
-        id: 4,
-        icon: require("../../../../assets/dundlermifflin.png"),
-        name: "Dundler Mifflin Paper Company Inc."
-      },
-      {
-        id: 5,
-        icon: require("../../../../assets/arenanet.png"),
-        name: "ArenaNet"
-      }
-    ],
-    floorplan: {
-      image: require("../../../../assets/floor_map.png")
-    },
-    selectedIndex: null
-  };
 
   componentDidMount() {
-    this.props.fetchParticipants(35);
-    this.props.fetchFacilitators(35);
-    this.props.fetchSponsors(35);
-    this.props.fetchFloorPlans(35);
-    this.props.fetchExpectations(35);
+    const { navigation, status, token } = this.props;
+    // this.props.fetchMainMeeting(35, status, token);
+    this.props.fetchFacilitators(35, status, token);
+    this.props.fetchParticipants(35, status, token);
+    this.props.fetchSponsors(35, status, token);
+    this.props.fetchFloorPlans(35, status, token);
+    // this.props.fetchMainVenue(35, status);
+    // this.props.fetchExpectations(35, status);
+    // // this.props.fetchFacilitators(35, status);
+    // this.props.fetchParticipants(35, status);
+    // this.props.fetchSponsors(35, status);
+
   }
 
   getIndex(id) {
@@ -124,8 +67,9 @@ class InformationDetailsPage extends Component {
   }
 
   renderParticipants() {
-    const { navigation, participants } = this.props;
+    const { participants } = this.props;
     console.log(participants);
+    // const participants = navigation.getParam("participants");
     const participant = participants.map(({ id, first_name, last_name, position, company, linkedin }) => {
       return (
         <View key={id} style={PageStyle.listContainer}>
@@ -187,6 +131,7 @@ class InformationDetailsPage extends Component {
 
     return floorPlan;
   }
+
   renderContent() {
     const { navigation } = this.props;
     const content = navigation.getParam("content");
@@ -209,6 +154,16 @@ class InformationDetailsPage extends Component {
     }
   }
 
+  hasFetchedAll() {
+    const { hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators,
+      hasLoadedParticipants, hasLoadedSponsors, hasLoadedFloorPlans } = this.props;
+
+    return (
+      hasLoadedMainMeeting && hasLoadedVenues && hasLoadedExpectations && hasLoadedFacilitators &&
+      hasLoadedParticipants && hasLoadedSponsors && hasLoadedFloorPlans
+    )
+  }
+
   render() {
     const { navigation } = this.props;
     const content = navigation.getParam("content");
@@ -228,8 +183,13 @@ class InformationDetailsPage extends Component {
   }
 }
 
-const mapStatetoProps = ({ meeting }) => {
-  const { mainmeeting, venues, expectations, facilitators, participants, sponsors, floorPlans } = meeting;
+const mapStatetoProps = ({ meeting, auth }) => {
+  const { mainmeeting, venues, expectations, facilitators, participants, sponsors, floorPlans,
+    hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators,
+    hasLoadedParticipants, hasLoadedSponsors, hasLoadedFloorPlans
+  } = meeting;
+
+  const { status, token } = auth;
   return {
     mainmeeting,
     venues,
@@ -237,7 +197,11 @@ const mapStatetoProps = ({ meeting }) => {
     facilitators,
     participants,
     sponsors,
-    floorPlans
+    floorPlans,
+    hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators,
+    hasLoadedParticipants, hasLoadedSponsors, hasLoadedFloorPlans,
+    status,
+    token
   };
 };
 

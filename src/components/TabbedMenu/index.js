@@ -37,6 +37,7 @@ class TabbedMenu extends Component {
           label="Menu"
           onPress={() =>
             navigation.navigate("MeetingLoginPage", {
+              meetingId: 35,
               status: "loggedin",
               content: "settings"
             })
@@ -46,7 +47,11 @@ class TabbedMenu extends Component {
           status="SI"
           image={require("../../assets/info_button.png")}
           label="Menu"
-          onPress={() => navigation.navigate("InformationPage")}
+          onPress={() =>
+            navigation.navigate("InformationPage", {
+              status: "loggedin"
+            })
+          }
         />
         <MenuButton
           status="SI"

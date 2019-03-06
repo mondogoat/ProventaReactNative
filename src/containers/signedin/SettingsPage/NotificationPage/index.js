@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import { View, Text, Switch } from "react-native";
 import { Header, Card, ListItem, TabbedMenu } from "../../../../components";
 import PageStyle from "./styles";
+import { connect } from "react-redux";
+import { fetchNotificationSettings } from "../../../../actions";
 
-class Notificationpage extends Component {
+class NotificationPage extends Component {
   state = {
     notifItems: [
       {
         id: 0,
         label: "Push Notifications",
-        toggleStatus: false
+        toggleStatus: null
       },
       {
         id: 1,
@@ -19,10 +21,14 @@ class Notificationpage extends Component {
       {
         id: 2,
         label: "Email Notifications",
-        toggleStatus: false
+        toggleStatus: null
       }
     ]
   };
+
+  componentDidMount() {
+    this.props.fetchNotificationSettings(1);
+  }
 
   toggle(i) {
     const options = [...this.state.notifItems];
@@ -73,7 +79,10 @@ class Notificationpage extends Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, notification } = this.props;
+    notification.notification_push;
+    notification.notification_sms;
+    notification.notification_email;
     return (
       <View style={PageStyle.container}>
         <Header
@@ -90,4 +99,13 @@ class Notificationpage extends Component {
   }
 }
 
-export default Notificationpage;
+const mapStatetoProps = ({ settings }) => {
+  const { notification } = settings;
+
+  return { notification };
+};
+
+export default connect(
+  mapStatetoProps,
+  { fetchNotificationSettings }
+)(NotificationPage);
