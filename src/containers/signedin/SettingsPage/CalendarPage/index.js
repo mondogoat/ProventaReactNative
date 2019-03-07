@@ -4,7 +4,7 @@ import { View, Text, Switch } from "react-native";
 // import RNCalendarEvents from "react-native-calendar-events";
 import { Header, Card, ListItem, TabbedMenu } from "../../../../components";
 import PageStyle from "./styles";
-import { fetchCalendarSettings } from "../../../../actions";
+import { fetchCalendarSettings, updateCalendarSettings } from "../../../../actions";
 import { Permissions, Calendar } from "expo";
 
 class CalendarPage extends Component {
@@ -83,12 +83,12 @@ class CalendarPage extends Component {
 
   resolvePromises(promise, meetingItems, i) {
     return promise
-      .then(function() {
-        return new Promise(function(r) {
+      .then(function () {
+        return new Promise(function (r) {
           return setTimeout(r, 300);
         });
       })
-      .then(function() {
+      .then(function () {
         RNCalendarEvents.saveEvent(meetingItems[i].title, {
           location: meetingItems[i].floorplan.location,
           startDate: meetingItems[i].startDate.toISOString(),
@@ -97,41 +97,67 @@ class CalendarPage extends Component {
       });
   }
 
-  async componentDidMount() {
-    this.props.fetchCalendarSettings(1);
-
-    const { status } = await Permissions.askAsync(Permissions.CALENDAR);
-    this.setState({ hasCalendarPermission: status === "granted" });
-
-    this.syncEvents(this.state.meetings);
+  componentDidMount() {
+    const { token } = this.props;
+    //callback in action, wait action to be finished before
+    //performing the loadInitialData
+    this.props.fetchCalendarSettings(token).then(() => {
+      this.loadInitialData();
+    });
   }
 
-  syncEvents(meetingItems) {
-    var promise = Promise.resolve();
-    for (let i = 0; i < meetingItems.length; i++) {
-      promise = this.resolvePromises(promise, meetingItems, i);
-    }
-    promise
-      .then(function() {
-        alert("You have successfully synced all events to your local phone.");
-      })
-      .catch(function(e) {
-        e.message;
-      });
+
+  loadInitialData() {
+    const { calendar } = this.props;
+    console.log("fromapi", calendar);
+
+    const options = [...this.state.calendarItems];
+    options[0].toggleStatus = calendar.calendarGoogle;
+    options[1].toggleStatus = calendar.calendarIcalendar;
+    this.setState({
+      options
+    }, () => {
+      console.log('onLoad', this.state.calendarItems);
+    });
   }
 
   toggle(i) {
-    const { calendar } = this.props;
+    const { calendar, token } = this.props;
+
     const options = [...this.state.calendarItems];
+    console.log('secondclick', options);
+
     if (i === 0) {
-      options[i].toggleStatus = calendar.calendar_google;
-    } else {
-      options[i].toggleStatus = calendar.calendar_icalendar;
+      options[i].toggleStatus = !options[i].toggleStatus;
+      this.setState({
+        options
+      }, () => {
+        const options = [...this.state.calendarItems];
+        const data = {
+          "calendarGoogle": this.state.calendarItems[0].toggleStatus,
+        };
+        this.props.updateCalendarSettings(data, token, "google")
+        console.log('onUpdate', this.state.calendarItems);
+      });
+    } else if (i === 1) {
+      options[i].toggleStatus = !options[i].toggleStatus;
+      this.setState({
+        options
+      }, () => {
+        const options = [...this.state.calendarItems];
+        const data = {
+          "calendarIcalendar": this.state.calendarItems[1].toggleStatus
+        };
+        this.props.updateCalendarSettings(data, token, "calendar")
+        console.log('onUpdate', this.state.calendarItems);
+      });
     }
+    // const data = {
+    //   "calendarGoogle": !options[0].toggleStatus,
+    //   "calendarIcalendar": !options[1].toggleStatus
+    // }
+    // this.props.updateCalendarSettings(data, token)
 
-    options[i].toggleStatus = !options[i].toggleStatus;
-
-    this.setState({ options });
 
     if (
       options[i].label === "Sync to Google Calendar" &&
@@ -142,6 +168,7 @@ class CalendarPage extends Component {
       options[i].label === "Sync to Phone Calendar" &&
       options[i].toggleStatus === true
     ) {
+      alert("Synced to Phone Calendar")
       // RNCalendarEvents.authorizationStatus().then(status => {
       //   this.setState({ syncPhone: status });
       //   if (status === "authorized") {
@@ -174,10 +201,12 @@ class CalendarPage extends Component {
                 <Switch
                   value={
                     id === 0
-                      ? calendar.calendar_google
-                      : calendar.calendar_icalendar
+                      ? this.state.calendarItems[0].toggleStatus
+                      : this.state.calendarItems[1].toggleStatus
                   }
-                  onValueChange={this.toggle.bind(this, id)}
+                  onValueChange={() => {
+                    this.toggle(id);
+                  }}
                 />
               </View>
             </View>
@@ -190,9 +219,8 @@ class CalendarPage extends Component {
   }
 
   render() {
-    const { navigation, calendar } = this.props;
-    calendar.calendar_google;
-    calendar.calendar_icalendar;
+    const { navigation } = this.props;
+
 
     return (
       <View style={PageStyle.container}>
@@ -211,13 +239,13 @@ class CalendarPage extends Component {
   }
 }
 
-const mapStatetoProps = ({ settings }) => {
+const mapStatetoProps = ({ settings, auth }) => {
   const { calendar } = settings;
-
-  return { calendar };
+  const { token } = auth;
+  return { calendar, token };
 };
 
 export default connect(
   mapStatetoProps,
-  { fetchCalendarSettings }
+  { fetchCalendarSettings, updateCalendarSettings }
 )(CalendarPage);
