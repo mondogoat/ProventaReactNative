@@ -18,11 +18,18 @@ class HomePage extends Component {
     currentVenues: []
   };
 
-  componentWillMount() {
-    this.props.fetchMainMeeting(35, "loggedout");
-    this.props.fetchMainVenue(35, "loggedout");
-    this.props.fetchMeetings("loggedout");
-    this.props.fetchFacilitators(35, "loggedout");
+  async componentDidMount() {
+    try {
+      const token = await AsyncStorage.getItem('token');
+      if (token !== null) {
+        this.props.fetchMainMeeting(35, "loggedout");
+        this.props.fetchMainVenue(35, "loggedout");
+        this.props.fetchMeetings("loggedout");
+        this.props.fetchFacilitators(35, "loggedout");
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
   }
 
   // renderCategories() {
@@ -59,7 +66,6 @@ class HomePage extends Component {
                 }}
               />
               <Text style={PageStyle.eventDescription}>
-                {" "}
                 {attributes.title}
               </Text>
               <Text style={PageStyle.eventDate}> {attributes.date}</Text>
@@ -83,6 +89,8 @@ class HomePage extends Component {
     }
   }
 
+
+
   render() {
     const {
       navigation,
@@ -90,9 +98,9 @@ class HomePage extends Component {
       hasLoadedMainMeeting,
       hasLoadedMeetings,
       hasLoadedVenues,
-      hasLoadedExpectations
+      hasLoadedExpectations,
+      token, status
     } = this.props;
-
     return (
       <View style={PageStyle.container}>
         <Header
@@ -120,8 +128,7 @@ class HomePage extends Component {
               </Card>
             </ListItem>
             <Text style={{ marginLeft: 10, fontSize: 15, fontWeight: "500" }}>
-              {" "}
-              All Meetings{" "}
+              All Meetings
             </Text>
             <View style={PageStyle.meetingsContainer}>
               {this.renderMeetings()}
@@ -138,7 +145,7 @@ class HomePage extends Component {
   }
 }
 
-const mapStatetoProps = ({ meeting }) => {
+const mapStatetoProps = ({ meeting, auth }) => {
   const {
     mainmeeting,
     hasLoadedMainMeeting,
@@ -148,6 +155,8 @@ const mapStatetoProps = ({ meeting }) => {
     hasLoadedMeetings,
     hasLoadedExpectations
   } = meeting;
+
+  const { status, token } = auth;
   return {
     mainmeeting,
     hasLoadedMainMeeting,
@@ -155,7 +164,9 @@ const mapStatetoProps = ({ meeting }) => {
     hasLoadedVenues,
     meetings,
     hasLoadedMeetings,
-    hasLoadedExpectations
+    hasLoadedExpectations,
+    status,
+    token
   };
 };
 

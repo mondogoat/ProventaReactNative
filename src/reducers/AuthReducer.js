@@ -9,8 +9,8 @@ import {
 const INITIAL_STATE = {
   firstName: "",
   lastName: "",
-  emailAddress: "",
-  password: "",
+  emailAddress: "carlocandoy@gmail.com",
+  password: "password",
   position: "",
   company: "",
   contactNumber: "",

@@ -9,17 +9,10 @@ class InformationDetailsPage extends Component {
 
   componentDidMount() {
     const { navigation, status, token } = this.props;
-    // this.props.fetchMainMeeting(35, status, token);
     this.props.fetchFacilitators(35, status, token);
     this.props.fetchParticipants(35, status, token);
     this.props.fetchSponsors(35, status, token);
     this.props.fetchFloorPlans(35, status, token);
-    // this.props.fetchMainVenue(35, status);
-    // this.props.fetchExpectations(35, status);
-    // // this.props.fetchFacilitators(35, status);
-    // this.props.fetchParticipants(35, status);
-    // this.props.fetchSponsors(35, status);
-
   }
 
   getIndex(id) {
@@ -118,18 +111,12 @@ class InformationDetailsPage extends Component {
     return sponsor;
   }
 
-  renderFloorPlan() {
-    const { floorPlans } = this.props;
-    console.log(floorPlans);
-    const floorPlan = floorPlans.map(({ id, image }) => {
-      return (
-        <View key={id} style={{ width: "45%", alignItems: "center" }}>
-          <Image source={{ uri: image.url }} style={PageStyle.mapImage} />
-        </View>
-      );
-    });
-
-    return floorPlan;
+  renderPersonalSchedule() {
+    return (
+      <View style={{ width: "45%", alignItems: "center" }}>
+        <Text> Upcoming Feature</Text>
+      </View>
+    );
   }
 
   renderContent() {
@@ -149,31 +136,35 @@ class InformationDetailsPage extends Component {
           </Card>
         </ScrollView>
       );
-    } else if (content === "FLOOR MAP") {
-      return <Card>{this.renderFloorPlan()}</Card>;
+    } else if (content === "PERSONAL SCHEDULE") {
+      return <Card>{this.renderPersonalSchedule()}</Card>;
     }
   }
 
-  hasFetchedAll() {
-    const { hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators,
-      hasLoadedParticipants, hasLoadedSponsors, hasLoadedFloorPlans } = this.props;
-
-    return (
-      hasLoadedMainMeeting && hasLoadedVenues && hasLoadedExpectations && hasLoadedFacilitators &&
-      hasLoadedParticipants && hasLoadedSponsors && hasLoadedFloorPlans
-    )
-  }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, status } = this.props;
     const content = navigation.getParam("content");
     return (
       <View style={PageStyle.container}>
         <Header
           label={content}
-          status="details"
+          status={status === 'loggedin' ? status : "details"}
           onPress={() => {
-            navigation.goBack();
+            if (content === 'PERSONAL SCHEDULE') {
+              navigation.dispatch(DrawerActions.openDrawer());
+            } else {
+              navigation.goBack();
+            }
+
+          }}
+          settings={() => {
+            if (content === 'PERSONAL SCHEDULE') {
+              navigation.navigate("SettingsPage", {
+                content: "settings",
+                previousRoute: "MeetingLoginPage"
+              });
+            }
           }}
         />
         {this.renderContent()}

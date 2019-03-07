@@ -63,6 +63,7 @@ class ScheduleDetailsPage extends Component {
     const location = navigation.getParam("location");
     const floorplan = navigation.getParam("image");
     const label = navigation.getParam("label");
+    console.log(navigation)
     return (
       <View style={PageStyle.container}>
         <Header
@@ -88,8 +89,7 @@ class ScheduleDetailsPage extends Component {
                 <Image source={require("../../../../assets/checkin_button.png")} style={PageStyle.locationIconStyle} />
               </View>
             </View>
-            {/* <Image source={floorplan}  style={PageStyle.mapImage/> */}
-            <Image source={floorplan} style={PageStyle.mapImage} />
+            {floorplan && <Image source={floorplan} style={PageStyle.mapImage} />}
           </Card>
 
         </ScrollView>
