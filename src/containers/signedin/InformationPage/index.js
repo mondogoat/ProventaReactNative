@@ -29,9 +29,9 @@ class InformationPage extends Component {
       },
       {
         id: 3,
-        image: require("../../../assets/map_icon.png"),
-        label: "Floor Map",
-        name: "FLOOR MAP"
+        image: require("../../../assets/schedule_button.png"),
+        label: "Schedule",
+        name: "SCHEDULE"
       },
       {
         id: 4,
@@ -42,10 +42,7 @@ class InformationPage extends Component {
     ]
   };
 
-  componentDidMount() {
-    const { navigation, status, token } = this.props;
-    //this.props.fetchParticipants(34, 'loggedin');
-  }
+
 
   renderMenu(menu) {
     const { navigation } = this.props;
@@ -53,12 +50,19 @@ class InformationPage extends Component {
       return (
         <View key={id} style={PageStyle.menuContainer}>
           <ListItem
-            onPress={() =>
-              navigation.navigate("InformationDetailsPage", {
-                content: name,
-                status: "loggedin"
-              })
-            }
+            onPress={() => {
+              if (name !== 'SCHEDULE') {
+                navigation.navigate("InformationDetailsPage", {
+                  content: name,
+                  status: "loggedin"
+                })
+              } else {
+                navigation.navigate("SchedulePage", {
+                  meetingId: 35,
+                  status: "loggedin"
+                })
+              }
+            }}
           >
             <View style={PageStyle.menuList}>
               <View style={{ width: "25%" }}>
@@ -70,7 +74,7 @@ class InformationPage extends Component {
             </View>
             <View style={PageStyle.menuBorder} />
           </ListItem>
-        </View>
+        </View >
       );
     });
 

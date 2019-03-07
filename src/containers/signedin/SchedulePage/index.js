@@ -17,8 +17,8 @@ class SchedulePage extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchDiscussions(35);
-    // this.props.fetchTalks(10);
+    const { navigation, status, token } = this.props;
+    this.props.fetchDiscussions(35, status, token);
   }
 
   formatHours(date) {
@@ -74,9 +74,6 @@ class SchedulePage extends Component {
 
   renderSessions() {
     const { navigation, discussions } = this.props;
-
-    // this.filterSessions();
-    // const data = type === 'am' ? this.state.morningSessions : this.state.afternoonSessions;
     const session = discussions.map(({ id, attributes }) => {
       if (attributes.talksWithFacilitator.data.length == 0) {
         return (
@@ -84,10 +81,9 @@ class SchedulePage extends Component {
             <ListItem
               onPress={() => {
                 this.props.navigation.navigate("ScheduleDetailsPage", {
-                  // location: attributes.tal,
-                  // image: floorplan.image,
+                  location: attributes.floorPlans[0] ? attributes.floorPlans[0].location : null,
+                  image: attributes.floorPlans[0] ? attributes.floorPlans[0].image.url : null,
                   label: attributes.title
-                  // imageUrl: floorplan.image
                 });
               }}
             >
@@ -124,8 +120,9 @@ class SchedulePage extends Component {
 
   renderDropdownList(talks) {
     const { navigation } = this.props;
-
+    console.log(talks);
     const event = talks.map(({ id, attributes }) => {
+      console.log(attributes);
       return (
         <View key={id} style={PageStyle.dropdownList}>
           <ListItem
@@ -135,11 +132,11 @@ class SchedulePage extends Component {
                 topic: attributes.topic,
                 description: attributes.description,
                 eventTitle: attributes.topic,
-                name: attributes.facilitator.first_name + ' ' + attributes.facilitator.last_name,
-                nameTitle: attributes.facilitator.company + ' ' + attributes.facilitator.position,
-                linkedIn: attributes.facilitator.linkedin,
+                name: attributes.facilitators[0].first_name + ' ' + attributes.facilitators[0].last_name,
+                nameTitle: attributes.facilitators[0].company + ' ' + attributes.facilitators[0].position,
+                linkedIn: attributes.facilitators[0].linkedin,
                 location: attributes.floorPlans[0].location,
-                image: attributes.floorPlans[0].image,
+                image: attributes.floorPlans[0].image.url
               });
             }}
           >
@@ -163,16 +160,12 @@ class SchedulePage extends Component {
       <View style={PageStyle.container}>
         <Header
           label="SCHEDULE"
-          status="loggedin"
+          status="details"
           onPress={() => {
-            navigation.dispatch(DrawerActions.openDrawer());
-          }}
-          settings={() =>
-            navigation.navigate("SettingsPage", {
-              content: "settings",
-              previousRoute: "SchedulePage"
+            navigation.navigate("InformationPage", {
+              status: "loggedin"
             })
-          }
+          }}
         />
         <ScrollView>
           {/* <Text style={PageStyle.header}> MORNING SESSION </Text> */}
@@ -187,11 +180,14 @@ class SchedulePage extends Component {
   }
 }
 
-const mapStatetoProps = ({ meeting }) => {
+const mapStatetoProps = ({ meeting, auth }) => {
   const { discussions, talks } = meeting;
+  const { token, status } = auth;
   return {
     discussions,
-    talks
+    talks,
+    token,
+    status
   };
 };
 

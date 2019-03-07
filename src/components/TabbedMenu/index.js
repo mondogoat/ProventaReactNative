@@ -57,7 +57,12 @@ class TabbedMenu extends Component {
           status="SI"
           image={require("../../assets/schedule_button.png")}
           label="Menu"
-          onPress={() => navigation.navigate("SchedulePage")}
+          onPress={() =>
+            navigation.navigate("InformationDetailsPage", {
+              content: 'PERSONAL SCHEDULE',
+              status: "loggedin"
+            })
+          }
         />
         <MenuButton
           status="SI"

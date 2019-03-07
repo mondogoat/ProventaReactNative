@@ -114,14 +114,23 @@ class LoginPage extends Component {
     );
   }
 
+  storeToken = async (token) => {
+    try {
+      await AsyncStorage.setItem('token', token);
+    } catch (error) {
+      // Error saving data
+    }
+  }
+
   loginUser() {
-    const { emailAddress, password, status, navigation } = this.props;
+    const { emailAddress, password, status, navigation, token } = this.props;
     const data = {
       email: this.props.emailAddress.value,
       password: this.props.password.value
     };
     this.props.login(data);
     if (status === 'loggedin') {
+      this.storeToken(token);
       navigation.navigate("MeetingPage", { meetingId: 35, status });
     }
   }
