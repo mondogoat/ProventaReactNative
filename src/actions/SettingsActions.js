@@ -19,54 +19,65 @@ import axios from "axios";
 // };
 
 //Retrieve calendar settings
-export const fetchCalendarSettings = userId => async dispatch => {
+export const fetchCalendarSettings = (token, callback) => async dispatch => {
   try {
-    const request = await axios.get(`${SERVER_ADDRESS}/settings/${userId}`);
-
-    request;
-    dispatch({
-      type: SETTINGS_CONFIG_SUCCESS,
-      payload: request.data.data.attributes
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//Update calendar settings
-export const updateCalendarSettings = userId => async dispatch => {
-  try {
-    const request = await axios.patch(
-      `${SERVER_ADDRESS}/settings/${userId}`,
-      settings
+    const request = await axios.get(
+      `${SERVER_ADDRESS}/settings/`,
+      { "headers": { "Content-Type": "application/json", "Authorization": token } }
     );
-
     dispatch({
       type: FETCH_CALENDAR_SETTINGS,
       payload: request.data.data.attributes
     });
+    callback();
   } catch (error) {
     console.log(error);
   }
 };
 
-//Retrieve notification settings
-export const fetchNotificationSettings = userId => async dispatch => {
-  try {
-    const request = await axios.get(`${SERVER_ADDRESS}/settings/${userId}`);
 
-    if (request.status === "SUCCESS") {
-      dispatch({
-        type: FETCH_NOTIFICATION_SETTINGS,
-        payload: request.data.data.attributes
-      });
-    }
+
+//Update calendar settings
+export const updateCalendarSettings = (data, token, type) => async dispatch => {
+  console.log('onActionUpdate', data);
+  try {
+    console.log("token", token);
+    const request = await axios.patch(
+      `${SERVER_ADDRESS}/settings`,
+      data,
+      { "headers": { "Content-Type": "application/json", "Authorization": token } }
+    );
+    console.log('data from heroku', request.data.data.attributes)
+    dispatch({
+      type: SETTINGS_CONFIG_SUCCESS,
+      payload: {
+        type,
+        result: request.data.data.attributes
+      }
+    });
+
   } catch (error) {
-    error;
+    console.log(error);
   }
 };
 
-// //Update Settings
+// //Retrieve notification settings
+// export const fetchNotificationSettings = userId => async dispatch => {
+//   try {
+//     const request = await axios.get(`${SERVER_ADDRESS}/settings/${userId}`);
+
+//     if (request.status === "SUCCESS") {
+//       dispatch({
+//         type: FETCH_NOTIFICATION_SETTINGS,
+//         payload: request.data.data.attributes
+//       });
+//     }
+//   } catch (error) {
+//     error;
+//   }
+// };
+
+// //Update Calendar Settings
 // export const updateCalendarSettings = (form, callback) => {
 //   try {
 //     const request = await axios.PATCH(
