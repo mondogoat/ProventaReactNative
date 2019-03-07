@@ -3,7 +3,7 @@ import { View, Text, Switch } from "react-native";
 import { Header, Card, ListItem, TabbedMenu } from "../../../../components";
 import PageStyle from "./styles";
 import { connect } from "react-redux";
-import { fetchNotificationSettings } from "../../../../actions";
+import { fetchNotificationSettings, updateNotificationSettings } from "../../../../actions";
 
 class NotificationPage extends Component {
   state = {
@@ -27,14 +27,55 @@ class NotificationPage extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchNotificationSettings(1);
+    const { token } = this.props;
+    this.props.fetchNotificationSettings(token)
+      .then(() => { this.loadInitialData(); }
+      );
+  }
+
+  loadInitialData() {
+    const { notification } = this.props;
+    const options = [...this.state.notifItems];
+    options[0].toggleStatus = notification.notificationPush;
+    options[1].toggleStatus = notification.notificationSms;
+    options[2].toggleStatus = notification.notificationEmail;
+    this.setState({ options });
   }
 
   toggle(i) {
+    const { notification, token } = this.props;
     const options = [...this.state.notifItems];
-    options[i].toggleStatus = !options[i].toggleStatus;
 
     this.setState({ options });
+
+    if (i === 0) {
+      options[i].toggleStatus = !options[i].toggleStatus;
+      this.setState(
+        { options }, () => {
+          const options = [...this.state.notifItems];
+          const data = { "notificationPush": this.state.notifItems[0].toggleStatus };
+          this.props.updateNotificationSettings(data, token, "push");
+        }
+      );
+    } else if (i === 1) {
+      options[i].toggleStatus = !options[i].toggleStatus;
+      this.setState(
+        { options }, () => {
+          const options = [...this.state.notifItems];
+          const data = { "notificationSms": this.state.notifItems[1].toggleStatus };
+          this.props.updateNotificationSettings(data, token, "sms");
+        }
+      );
+    } else if (i === 2) {
+      options[i].toggleStatus = !options[i].toggleStatus;
+      this.setState(
+        { options }, () => {
+          const options = [...this.state.notifItems];
+          const data = { "notificationEmail": this.state.notifItems[2].toggleStatus };
+          this.props.updateNotificationSettings(data, token, "email");
+        }
+      );
+    }
 
     if (
       options[i].label === "Push Notifications" &&
@@ -99,13 +140,14 @@ class NotificationPage extends Component {
   }
 }
 
-const mapStatetoProps = ({ settings }) => {
+const mapStatetoProps = ({ settings, auth }) => {
   const { notification } = settings;
+  const { token } = auth;
 
-  return { notification };
+  return { notification, token };
 };
 
 export default connect(
   mapStatetoProps,
-  { fetchNotificationSettings }
+  { fetchNotificationSettings, updateNotificationSettings }
 )(NotificationPage);
