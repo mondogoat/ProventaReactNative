@@ -3,16 +3,28 @@ import { View, ScrollView, Text, Image, TouchableOpacity, Linking, ActivityIndic
 import { Header, TabbedMenu, Card, ListItem } from "../../../../components";
 import PageStyle from "./styles";
 import { connect } from 'react-redux';
+import { DrawerActions } from "react-navigation";
 import * as actions from "../../../../actions";
 
 class InformationDetailsPage extends Component {
 
-  componentDidMount() {
-    const { navigation, status, token } = this.props;
-    this.props.fetchFacilitators(35, status, token);
-    this.props.fetchParticipants(35, status, token);
-    this.props.fetchSponsors(35, status, token);
-    this.props.fetchFloorPlans(35, status, token);
+  async componentWillMount() {
+    try {
+      const { navigation } = this.props;
+      const token = await AsyncStorage.getItem('token');
+      if (token !== null) {
+        this.props.updateStatus(token).then(() => {
+          const { status } = this.props;
+          this.props.fetchFacilitators(35, "loggedin", token);
+          this.props.fetchParticipants(35, "loggedin", token);
+          this.props.fetchSponsors(35, "loggedin", token);
+          this.props.fetchFloorPlans(35, "loggedin", token);
+        })
+      }
+
+    } catch (error) {
+      // Error retrieving data
+    }
   }
 
   getIndex(id) {
@@ -61,7 +73,6 @@ class InformationDetailsPage extends Component {
 
   renderParticipants() {
     const { participants } = this.props;
-    console.log(participants);
     // const participants = navigation.getParam("participants");
     const participant = participants.map(({ id, first_name, last_name, position, company, linkedin }) => {
       return (
@@ -145,22 +156,27 @@ class InformationDetailsPage extends Component {
   render() {
     const { navigation, status } = this.props;
     const content = navigation.getParam("content");
+    const route = navigation.getParam("previousRoute");
+
     return (
       <View style={PageStyle.container}>
         <Header
           label={content}
-          status={status === 'loggedin' ? status : "details"}
+          status="details"
           onPress={() => {
             if (content === 'PERSONAL SCHEDULE') {
               navigation.dispatch(DrawerActions.openDrawer());
             } else {
-              navigation.goBack();
+              navigation.navigate(route, {
+                meetingId: 35,
+                status: "loggedin"
+              });
             }
-
           }}
           settings={() => {
-            if (content === 'PERSONAL SCHEDULE') {
+            if (content !== "PERSONAL SCHEDULE") {
               navigation.navigate("SettingsPage", {
+                meetingId: 35,
                 content: "settings",
                 previousRoute: "MeetingLoginPage"
               });

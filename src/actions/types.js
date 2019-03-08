@@ -15,6 +15,12 @@ export const AUTH_SIGNUP_FAIL = "auth_signup_fail";
 export const AUTH_LOGIN_SUCCESS = "auth_login_success";
 export const AUTH_LOGIN_FAIL = "auth_login_fail";
 
+//Logout
+export const AUTH_LOGOUT = "auth_logout";
+
+//Status
+export const AUTH_CHECK_STATUS = "auth_check_status";
+
 //============================ USER ACTIONS ============================//
 
 // Global Form Update ( property , value )

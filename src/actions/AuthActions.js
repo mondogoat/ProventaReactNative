@@ -4,6 +4,7 @@ import {
   AUTH_SIGNUP_FAIL,
   AUTH_LOGIN_SUCCESS,
   AUTH_LOGIN_FAIL,
+  AUTH_LOGOUT,
   SERVER_ADDRESS
 } from "./types";
 
@@ -76,8 +77,6 @@ export const login = (data) => async dispatch => {
         type: AUTH_LOGIN_SUCCESS,
         payload: request.data.auth_token
       });
-
-      console.log(request.data.auth_token);
     } else {
       dispatch({
         type: AUTH_LOGIN_FAIL,
@@ -92,3 +91,32 @@ export const login = (data) => async dispatch => {
     error;
   }
 };
+
+export const logout = () => async dispatch => {
+  try {
+    dispatch({
+      type: AUTH_LOGOUT,
+      payload: null
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+export const updateStatus = (token, callback) => async dispatch => {
+  console.log('update', token)
+  try {
+    dispatch({
+      type: AUTH_CHECK_STATUS,
+      payload: {
+        status: "loggedin",
+        token
+      }
+    });
+    callback();
+  } catch (error) {
+    error;
+  }
+};
+
+

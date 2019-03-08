@@ -18,15 +18,18 @@ class HomePage extends Component {
     currentVenues: []
   };
 
-  async componentDidMount() {
+  async componentWillMount() {
     try {
+      const { navigation } = this.props;
       const token = await AsyncStorage.getItem('token');
       if (token !== null) {
-        this.props.fetchMainMeeting(35, "loggedout");
-        this.props.fetchMainVenue(35, "loggedout");
-        this.props.fetchMeetings("loggedout");
-        this.props.fetchFacilitators(35, "loggedout");
+        navigation.navigate("MeetingPage", { meetingId: 35, status: "loggedin" });
       }
+      this.props.fetchMainMeeting(35, "loggedout");
+      this.props.fetchMainVenue(35, "loggedout");
+      this.props.fetchMeetings("loggedout");
+      this.props.fetchFacilitators(35, "loggedout");
+
     } catch (error) {
       // Error retrieving data
     }
@@ -61,14 +64,13 @@ class HomePage extends Component {
               <Image
                 style={PageStyle.eventTitle}
                 source={{
-                  uri:
-                    "https://i.ibb.co/8Nwk5LS/Screen-Shot-2019-02-21-at-11-08-34-AM.png"
+                  uri: attributes.image.url
                 }}
               />
               <Text style={PageStyle.eventDescription}>
                 {attributes.title}
               </Text>
-              <Text style={PageStyle.eventDate}> {attributes.date}</Text>
+              <Text style={PageStyle.eventDate}> {attributes.date} | {attributes.venues[0].title}</Text>
               <View style={PageStyle.eventBorder} />
             </Card>
           </ListItem>
@@ -97,9 +99,6 @@ class HomePage extends Component {
       mainmeeting,
       hasLoadedMainMeeting,
       hasLoadedMeetings,
-      hasLoadedVenues,
-      hasLoadedExpectations,
-      token, status
     } = this.props;
     return (
       <View style={PageStyle.container}>
@@ -116,7 +115,7 @@ class HomePage extends Component {
                 <Image
                   style={PageStyle.image}
                   source={{
-                    uri: "https://i.ibb.co/H7mTZhc/proventa-app-launch.png"
+                    uri: mainmeeting.image.url
                   }}
                 />
                 <View style={PageStyle.info}>

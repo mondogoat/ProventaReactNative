@@ -99,8 +99,6 @@ class CalendarPage extends Component {
 
   componentDidMount() {
     const { token } = this.props;
-    //callback in action, wait action to be finished before
-    //performing the loadInitialData
     this.props.fetchCalendarSettings(token).then(() => {
       this.loadInitialData();
     });
@@ -109,10 +107,14 @@ class CalendarPage extends Component {
 
   loadInitialData() {
     const { calendar } = this.props;
+
+
     const options = [...this.state.calendarItems];
     options[0].toggleStatus = calendar.calendarGoogle;
     options[1].toggleStatus = calendar.calendarIcalendar;
-    this.setState({ options });
+    this.setState({
+      options
+    });
   }
 
   toggle(i) {
@@ -142,12 +144,6 @@ class CalendarPage extends Component {
         this.props.updateCalendarSettings(data, token, "calendar")
       });
     }
-    // const data = {
-    //   "calendarGoogle": !options[0].toggleStatus,
-    //   "calendarIcalendar": !options[1].toggleStatus
-    // }
-    // this.props.updateCalendarSettings(data, token)
-
 
     if (
       options[i].label === "Sync to Google Calendar" &&

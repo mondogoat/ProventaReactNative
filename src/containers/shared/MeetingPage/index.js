@@ -225,7 +225,6 @@ class MeetingPage extends Component {
   render() {
     const { navigation, hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators, token } = this.props;
     const status = navigation.getParam("status");
-    console.log(hasLoadedMainMeeting + '' + hasLoadedExpectations + '' + hasLoadedVenues + '' + hasLoadedFacilitators);
     return (
       <View style={PageStyle.container}>
         <Header

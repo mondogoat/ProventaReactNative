@@ -49,9 +49,9 @@ export default (PageStyle = {
     backgroundColor: "#ffffff"
   },
   eventList: {
-    padding: SCREEN_WIDTH * 0.025,
+    // padding: SCREEN_WIDTH * 0.025,
     width: SCREEN_WIDTH * 0.7,
-    alignItems: "flex-start",
+    // alignItems: "flex-start",
   },
   eventTitle: {
     marginTop: SCREEN_HEIGHT * 0.02,
@@ -65,15 +65,15 @@ export default (PageStyle = {
     paddingTop: SCREEN_HEIGHT * 0.01,
     paddingLeft: SCREEN_WIDTH * 0.02,
     backgroundColor: "#ffffff",
-    alignSelf: 'flex-start'
+    alignSelf: 'center'
   },
   eventDate: {
-    fontSize: 15,
-    color: DARK_GRAY,
+    fontSize: 12,
+    color: GRAY,
     paddingBottom: SCREEN_HEIGHT * 0.03,
     paddingLeft: SCREEN_WIDTH * 0.02,
     backgroundColor: "#ffffff",
-    alignSelf: 'flex-start'
+    alignSelf: 'center'
   },
   eventBorder: {
     borderColor: GRAY,
@@ -92,6 +92,8 @@ export default (PageStyle = {
     justifyContent: 'center'
   },
   meetingsContainer: {
-    marginBottom: SCREEN_HEIGHT * 0.15
+    marginBottom: SCREEN_HEIGHT * 0.15,
+    alignItems: 'flex-start',
+    justifyContent: 'center'
   }
 });

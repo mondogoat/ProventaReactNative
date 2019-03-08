@@ -3,14 +3,16 @@ import {
   AUTH_SIGNUP_SUCCESS,
   AUTH_SIGNUP_FAIL,
   AUTH_LOGIN_SUCCESS,
-  AUTH_LOGIN_FAIL
+  AUTH_LOGIN_FAIL,
+  AUTH_LOGOUT,
+  AUTH_CHECK_STATUS
 } from "../actions/types";
 
 const INITIAL_STATE = {
   firstName: "",
   lastName: "",
-  emailAddress: "carlocandoy@gmail.com",
-  password: "password",
+  emailAddress: "",
+  password: "",
   position: "",
   company: "",
   contactNumber: "",
@@ -34,6 +36,19 @@ export default function (state = INITIAL_STATE, action) {
         message: "login successful",
         status: "loggedin",
         token: action.payload
+      };
+    case AUTH_LOGOUT:
+      return {
+        ...state,
+        message: "logout successful",
+        status: "loggedout",
+        token: null
+      };
+    case AUTH_CHECK_STATUS:
+      return {
+        ...state,
+        status: "loggedin",
+        token: action.payload.token
       };
     case AUTH_LOGIN_FAIL:
       return { ...state, message: "login failed", status: "failed attempt" };
