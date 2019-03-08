@@ -108,6 +108,7 @@ class CalendarPage extends Component {
   loadInitialData() {
     const { calendar } = this.props;
 
+
     const options = [...this.state.calendarItems];
     options[0].toggleStatus = calendar.calendarGoogle;
     options[1].toggleStatus = calendar.calendarIcalendar;
@@ -117,7 +118,7 @@ class CalendarPage extends Component {
   }
 
   toggle(i) {
-    const { token } = this.props;
+    const { calendar, token } = this.props;
     const options = [...this.state.calendarItems];
 
     if (i === 0) {
@@ -154,20 +155,6 @@ class CalendarPage extends Component {
       options[i].toggleStatus === true
     ) {
       alert("Synced to Phone Calendar")
-      // RNCalendarEvents.authorizationStatus().then(status => {
-      //   this.setState({ syncPhone: status });
-      //   if (status === "authorized") {
-      //     console.log("PIO is kewl")
-      //     this.syncEvents(this.state.meetings);
-      //   } else if (status === "undetermined") {
-      //     RNCalendarEvents.authorizeEventStore().then(out => {
-      //       ("out", out);
-      //       if (out == "authorized") {
-      //         this.setState({ cal_auth: out });
-      //       }
-      //     });
-      //   }
-      // });
     }
   }
 

@@ -30,13 +30,23 @@ export default function (state = INITIAL_STATE, action) {
         }
       };
     case FETCH_NOTIFICATION_SETTINGS:
-      return { ...state, notification: action.payload };
+      return {
+        ...state,
+        notification: {
+          notificationPush: action.payload.notificationPush,
+          notificationSms: action.payload.notificationSms,
+          notificationEmail: action.payload.notificationEmail
+        }
+      };
     case SETTINGS_CONFIG_SUCCESS:
       return {
         ...state,
         calendar: {
           calendarGoogle: action.payload.type === 'google' ? action.payload.result.calendarGoogle : null,
           calendarIcalendar: action.payload.type === 'calendar' ? action.payload.result.calendarIcalendar : null,
+          notificationPush: action.payload.type === 'push' ? action.payload.result.notificationPush : null,
+          notificationSms: action.payload.type === 'sms' ? action.payload.result.notificationSms : null,
+          notificationsEmail: action.payload.type === 'email' ? action.payload.result.notificationsEmail : null
         }
       };
     case SETTINGS_CONFIG_FAIL:
