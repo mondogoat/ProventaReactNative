@@ -109,23 +109,15 @@ class CalendarPage extends Component {
 
   loadInitialData() {
     const { calendar } = this.props;
-    console.log("fromapi", calendar);
-
     const options = [...this.state.calendarItems];
     options[0].toggleStatus = calendar.calendarGoogle;
     options[1].toggleStatus = calendar.calendarIcalendar;
-    this.setState({
-      options
-    }, () => {
-      console.log('onLoad', this.state.calendarItems);
-    });
+    this.setState({ options });
   }
 
   toggle(i) {
     const { calendar, token } = this.props;
-
     const options = [...this.state.calendarItems];
-    console.log('secondclick', options);
 
     if (i === 0) {
       options[i].toggleStatus = !options[i].toggleStatus;
@@ -137,7 +129,6 @@ class CalendarPage extends Component {
           "calendarGoogle": this.state.calendarItems[0].toggleStatus,
         };
         this.props.updateCalendarSettings(data, token, "google")
-        console.log('onUpdate', this.state.calendarItems);
       });
     } else if (i === 1) {
       options[i].toggleStatus = !options[i].toggleStatus;
@@ -149,7 +140,6 @@ class CalendarPage extends Component {
           "calendarIcalendar": this.state.calendarItems[1].toggleStatus
         };
         this.props.updateCalendarSettings(data, token, "calendar")
-        console.log('onUpdate', this.state.calendarItems);
       });
     }
     // const data = {
@@ -169,20 +159,6 @@ class CalendarPage extends Component {
       options[i].toggleStatus === true
     ) {
       alert("Synced to Phone Calendar")
-      // RNCalendarEvents.authorizationStatus().then(status => {
-      //   this.setState({ syncPhone: status });
-      //   if (status === "authorized") {
-      //     console.log("PIO is kewl")
-      //     this.syncEvents(this.state.meetings);
-      //   } else if (status === "undetermined") {
-      //     RNCalendarEvents.authorizeEventStore().then(out => {
-      //       ("out", out);
-      //       if (out == "authorized") {
-      //         this.setState({ cal_auth: out });
-      //       }
-      //     });
-      //   }
-      // });
     }
   }
 
