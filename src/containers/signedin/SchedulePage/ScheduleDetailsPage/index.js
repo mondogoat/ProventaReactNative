@@ -10,7 +10,6 @@ import PageStyle from "./styles";
 class ScheduleDetailsPage extends Component {
 
 
-
   renderEventDetails() {
     const { navigation } = this.props;
     const eventTitle = navigation.getParam("eventTitle");
@@ -63,7 +62,6 @@ class ScheduleDetailsPage extends Component {
     const location = navigation.getParam("location");
     const floorplan = navigation.getParam("image");
     const label = navigation.getParam("label");
-    console.log(navigation)
     return (
       <View style={PageStyle.container}>
         <Header

@@ -39,15 +39,12 @@ export const fetchCalendarSettings = (token, callback) => async dispatch => {
 
 //Update calendar settings
 export const updateCalendarSettings = (data, token, type) => async dispatch => {
-  console.log('onActionUpdate', data);
   try {
-    console.log("token", token);
     const request = await axios.patch(
       `${SERVER_ADDRESS}/settings`,
       data,
       { "headers": { "Content-Type": "application/json", "Authorization": token } }
     );
-    console.log('data from heroku', request.data.data.attributes)
     dispatch({
       type: SETTINGS_CONFIG_SUCCESS,
       payload: {

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, AsyncStorage } from "react-native";
 import { Header, ListItem, Card, TabbedMenu } from "../../../components";
 import PageStyle from "./styles";
-// import { GoogleSignin } from "react-native-google-signin";
+import { connect } from "react-redux";
+import * as actions from "../../../actions";
 
 class SettingsPage extends Component {
   state = {
@@ -64,6 +65,14 @@ class SettingsPage extends Component {
     }
   }
 
+  clearToken = async () => {
+    try {
+      await AsyncStorage.removeItem('token')
+      this.props.logout();
+    } catch (err) {
+      console.log(`The error is: ${err}`)
+    }
+  }
 
   renderSettingsItems(settings) {
     const { navigation } = this.props;
@@ -72,11 +81,12 @@ class SettingsPage extends Component {
         <View key={id}>
           <ListItem
             onPress={() => {
-              if (name === "LOG OUT") {
-                // this.revokeAccess();
-                // this.signOut();
+              if (name !== "LOG OUT") {
+                navigation.navigate(route, { content: name })
               }
-              navigation.navigate(route, { content: name })
+              this.clearToken().then(() => {
+                navigation.navigate(route, { meetingId: 35, status: "loggedout" })
+              });
             }}
           >
             <View style={PageStyle.menuList}>
@@ -118,4 +128,16 @@ class SettingsPage extends Component {
   }
 }
 
-export default SettingsPage;
+const mapStatetoProps = ({ auth }) => {
+
+  const { status, token } = auth;
+  return {
+    status,
+    token
+  };
+};
+
+export default connect(
+  mapStatetoProps,
+  actions
+)(SettingsPage);

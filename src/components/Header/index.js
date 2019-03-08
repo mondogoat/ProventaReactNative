@@ -4,7 +4,7 @@ import ComponentStyle from "./styles";
 
 const Header = ({ onPress, label, status, settings }) => {
   renderBackButton = () => {
-    if (status === "details") {
+    if (status === "details" && label !== 'PERSONAL SCHEDULE') {
       return (
         <Image
           style={ComponentStyle.buttonImage}
@@ -38,7 +38,7 @@ const Header = ({ onPress, label, status, settings }) => {
         <Image
           style={[
             ComponentStyle.buttonImage,
-            status === "loggedin" ? { opacity: 1 } : { opacity: 0 }
+            status == "loggedin" ? { opacity: 1 } : { opacity: 0 }
           ]}
           source={require("../../assets/settings_button.png")}
         />

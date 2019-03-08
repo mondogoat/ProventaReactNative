@@ -35,7 +35,7 @@ class LoginPage extends Component {
   getCurrentUser = async () => {
     try {
       const userInfo = await GoogleSignin.signInSilently();
-      console.log(userInfo);
+
     } catch (error) {
       console.log(error);
     }
@@ -118,7 +118,6 @@ class LoginPage extends Component {
     try {
       await AsyncStorage.setItem('token', token);
     } catch (error) {
-      // Error saving data
     }
   }
 

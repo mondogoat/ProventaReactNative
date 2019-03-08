@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, AsyncStorage } from "react-native";
 import { Header, TabbedMenu, ListItem, Accordion } from "../../../components";
 import PageStyle from "./styles";
 import { connect } from "react-redux";
@@ -16,10 +16,23 @@ class SchedulePage extends Component {
     selectedInnerIndex: 1
   };
 
-  componentDidMount() {
-    const { navigation, status, token } = this.props;
-    this.props.fetchDiscussions(35, status, token);
+  async componentDidMount() {
+    try {
+      console.log('sadasasdasdsad');
+      const { navigation } = this.props;
+      const token = await AsyncStorage.getItem('token');
+      console.log("Schedule", token);
+      if (token !== null) {
+        console.log("SchedulePage", token)
+        this.props.updateStatus(token).then(() => {
+          this.props.fetchDiscussions(35, "loggedin", token);
+        })
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
   }
+
 
   formatHours(date) {
     var date = new Date(date);
@@ -52,11 +65,6 @@ class SchedulePage extends Component {
         //   morningSessions: [this.state.morningSessions.concat(data)
         // });
       }
-
-      console.log(sessions);
-
-      console.log("filter")
-      console.log(this.state.morningSessions);
     }
   }
 

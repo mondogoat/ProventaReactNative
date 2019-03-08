@@ -99,8 +99,6 @@ class CalendarPage extends Component {
 
   componentDidMount() {
     const { token } = this.props;
-    //callback in action, wait action to be finished before
-    //performing the loadInitialData
     this.props.fetchCalendarSettings(token).then(() => {
       this.loadInitialData();
     });
@@ -109,23 +107,18 @@ class CalendarPage extends Component {
 
   loadInitialData() {
     const { calendar } = this.props;
-    console.log("fromapi", calendar);
 
     const options = [...this.state.calendarItems];
     options[0].toggleStatus = calendar.calendarGoogle;
     options[1].toggleStatus = calendar.calendarIcalendar;
     this.setState({
       options
-    }, () => {
-      console.log('onLoad', this.state.calendarItems);
     });
   }
 
   toggle(i) {
-    const { calendar, token } = this.props;
-
+    const { token } = this.props;
     const options = [...this.state.calendarItems];
-    console.log('secondclick', options);
 
     if (i === 0) {
       options[i].toggleStatus = !options[i].toggleStatus;
@@ -137,7 +130,6 @@ class CalendarPage extends Component {
           "calendarGoogle": this.state.calendarItems[0].toggleStatus,
         };
         this.props.updateCalendarSettings(data, token, "google")
-        console.log('onUpdate', this.state.calendarItems);
       });
     } else if (i === 1) {
       options[i].toggleStatus = !options[i].toggleStatus;
@@ -149,15 +141,8 @@ class CalendarPage extends Component {
           "calendarIcalendar": this.state.calendarItems[1].toggleStatus
         };
         this.props.updateCalendarSettings(data, token, "calendar")
-        console.log('onUpdate', this.state.calendarItems);
       });
     }
-    // const data = {
-    //   "calendarGoogle": !options[0].toggleStatus,
-    //   "calendarIcalendar": !options[1].toggleStatus
-    // }
-    // this.props.updateCalendarSettings(data, token)
-
 
     if (
       options[i].label === "Sync to Google Calendar" &&

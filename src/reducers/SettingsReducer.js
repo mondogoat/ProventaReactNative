@@ -18,7 +18,6 @@ const INITIAL_STATE = {
 };
 
 export default function (state = INITIAL_STATE, action) {
-  console.log('api', action.payload)
   switch (action.type) {
     case SETTINGS_UPDATE:
       return { ...state, [action.payload.prop]: action.payload };

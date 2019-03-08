@@ -45,7 +45,7 @@ class InformationPage extends Component {
 
 
   renderMenu(menu) {
-    const { navigation } = this.props;
+    const { navigation, status } = this.props;
     const menuItem = menu.map(({ id, image, label, name }) => {
       return (
         <View key={id} style={PageStyle.menuContainer}>
@@ -54,7 +54,8 @@ class InformationPage extends Component {
               if (name !== 'SCHEDULE') {
                 navigation.navigate("InformationDetailsPage", {
                   content: name,
-                  status: "loggedin"
+                  status: status,
+                  previousRoute: 'InformationPage'
                 })
               } else {
                 navigation.navigate("SchedulePage", {
@@ -123,7 +124,7 @@ const mapStatetoProps = ({ meeting, auth }) => {
     floorPlans,
     hasLoadedMainMeeting, hasLoadedVenues, hasLoadedExpectations, hasLoadedFacilitators,
     hasLoadedParticipants, hasLoadedSponsors, hasLoadedFloorPlans,
-    auth
+    status
   };
 };
 
